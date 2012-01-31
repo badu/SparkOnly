@@ -1,0 +1,23 @@
+What is it?
+==================
+Apache Flex 4.6 library which contains unified framework and spark and no MX components.
+
+Purpose
+==================
+Tweak the framework and experiment for optimizing the SDK.
+
+Intructions on how to use it
+==================
+1) Download the sources and import it in Flash Builder.
+2) Create a new Flex project
+3) On "Build Paths" wizard step, choose "Spark only" and click "Finished"
+4) Go to Project menu and choose properties
+5) Under "Flex Build Path" expand SDK that you are using (I recommend SDK 4.6)
+6) Remove the following : "framework.swc", "spark.swc", "sparkskins.swc"
+7) Add the imported library (SparkOnly)
+8) Enjoy!
+
+Notes
+==================
+Assets.swf contains MX graphics. I've left it there since I'm planning to use those symbols when I'll construct the missing MX components for Spark (
+ColorPicker, DateChooser, DateField , LinkButton , Menu , PopUpButton , VideoDisplay , VideoPlayer , ProgressBar , SWFLoader , TabNavigator , ViewStack , Tree , etc)
