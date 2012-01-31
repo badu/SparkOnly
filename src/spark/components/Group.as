@@ -42,6 +42,7 @@ package spark.components
 	import mx.graphics.shaderClasses.LuminosityShader;
 	import mx.graphics.shaderClasses.SaturationShader;
 	import mx.graphics.shaderClasses.SoftLightShader;
+	import mx.resources.ResourceManager;
 	import mx.styles.IAdvancedStyleClient;
 	import mx.styles.ISimpleStyleClient;
 	import mx.styles.IStyleClient;
@@ -636,7 +637,7 @@ package spark.components
 					// A common mistake is to bind the viewport property of a Scroller
 					// to a group that was defined in the MXML file with a different parent    
 					if (elt.parent && (elt.parent != this))
-						throw new Error(resourceManager.getString("components", "mxmlElementNoMultipleParents", [elt]));
+						throw new Error(ResourceManager.getInstance().getString("components", "mxmlElementNoMultipleParents", [elt]));
 					
 					elementAdded(elt, i);
 				}
@@ -1165,7 +1166,7 @@ package spark.components
 					// Check for DisplayObjects other than overlays
 					var overlayCount:int = _overlay ? _overlay.numDisplayObjects : 0;
 					if (numChildren - overlayCount > 0)
-						throw new Error(resourceManager.getString("components", "scaleGridGroupError"));
+						throw new Error(ResourceManager.getInstance().getString("components", "scaleGridGroupError"));
 					
 					super.scale9Grid = new Rectangle(scaleGridLeft, 
 						scaleGridTop,    
@@ -1315,7 +1316,7 @@ package spark.components
 				maxIndex++;
 			
 			if (index < 0 || index > maxIndex)
-				throw new RangeError(resourceManager.getString("components", "indexOutOfRange", [index]));
+				throw new RangeError(ResourceManager.getInstance().getString("components", "indexOutOfRange", [index]));
 		}
 		
 		/**
@@ -1364,7 +1365,7 @@ package spark.components
 		public function addElementAt(element:IVisualElement, index:int):IVisualElement
 		{
 			if (element == this)
-				throw new ArgumentError(resourceManager.getString("components", "cannotAddYourselfAsYourChild"));
+				throw new ArgumentError(ResourceManager.getInstance().getString("components", "cannotAddYourselfAsYourChild"));
 			
 			// check for RangeError:
 			checkForRangeError(index, true);
@@ -1462,7 +1463,7 @@ package spark.components
 			var index:int = _mxmlContent ? _mxmlContent.indexOf(element) : -1;
 			
 			if (index == -1)
-				throw ArgumentError(resourceManager.getString("components", "elementNotFoundInGroup", [element]));
+				throw ArgumentError(ResourceManager.getInstance().getString("components", "elementNotFoundInGroup", [element]));
 			else
 				return index;
 		}
@@ -2125,7 +2126,7 @@ package spark.components
 		 */
 		override public function addChild(child:DisplayObject):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "addChildError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "addChildError")));
 		}
 		
 		/**
@@ -2133,7 +2134,7 @@ package spark.components
 		 */
 		override public function addChildAt(child:DisplayObject, index:int):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "addChildAtError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "addChildAtError")));
 		}
 		
 		/**
@@ -2141,7 +2142,7 @@ package spark.components
 		 */
 		override public function removeChild(child:DisplayObject):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "removeChildError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "removeChildError")));
 		}
 		
 		/**
@@ -2149,7 +2150,7 @@ package spark.components
 		 */
 		override public function removeChildAt(index:int):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "removeChildAtError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "removeChildAtError")));
 		}
 		
 		/**
@@ -2157,7 +2158,7 @@ package spark.components
 		 */
 		override public function setChildIndex(child:DisplayObject, index:int):void
 		{
-			throw(new Error(resourceManager.getString("components", "setChildIndexError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "setChildIndexError")));
 		}
 		
 		/**
@@ -2165,7 +2166,7 @@ package spark.components
 		 */
 		override public function swapChildren(child1:DisplayObject, child2:DisplayObject):void
 		{
-			throw(new Error(resourceManager.getString("components", "swapChildrenError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "swapChildrenError")));
 		}
 		
 		/**
@@ -2173,7 +2174,7 @@ package spark.components
 		 */
 		override public function swapChildrenAt(index1:int, index2:int):void
 		{
-			throw(new Error(resourceManager.getString("components", "swapChildrenAtError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "swapChildrenAtError")));
 		}
 		
 		/**

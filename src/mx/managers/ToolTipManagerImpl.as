@@ -556,15 +556,13 @@ package mx.managers
 			if (!showTimer)
 			{
 				showTimer = new Timer(0, 1);
-				showTimer.addEventListener(TimerEvent.TIMER,
-					showTimer_timerHandler);
+				showTimer.addEventListener(TimerEvent.TIMER,showTimer_timerHandler);
 			}
 			
 			if (!hideTimer)
 			{
 				hideTimer = new Timer(0, 1);
-				hideTimer.addEventListener(TimerEvent.TIMER,
-					hideTimer_timerHandler);
+				hideTimer.addEventListener(TimerEvent.TIMER,hideTimer_timerHandler);
 			}
 			
 			if (!scrubTimer)
@@ -602,10 +600,8 @@ package mx.managers
 		{
 			if (!oldToolTip && newToolTip)
 			{
-				target.addEventListener(MouseEvent.MOUSE_OVER,
-					toolTipMouseOverHandler);
-				target.addEventListener(MouseEvent.MOUSE_OUT,
-					toolTipMouseOutHandler);
+				target.addEventListener(MouseEvent.MOUSE_OVER,toolTipMouseOverHandler);
+				target.addEventListener(MouseEvent.MOUSE_OUT,toolTipMouseOutHandler);
 				
 				// If the mouse is already over the object
 				// that's getting a toolTip, show the tip.
@@ -614,10 +610,8 @@ package mx.managers
 			}
 			else if (oldToolTip && !newToolTip)
 			{
-				target.removeEventListener(MouseEvent.MOUSE_OVER,
-					toolTipMouseOverHandler);
-				target.removeEventListener(MouseEvent.MOUSE_OUT,
-					toolTipMouseOutHandler);
+				target.removeEventListener(MouseEvent.MOUSE_OVER,toolTipMouseOverHandler);
+				target.removeEventListener(MouseEvent.MOUSE_OUT,toolTipMouseOutHandler);
 				
 				// If the mouse is over the object whose toolTip
 				// is being removed, hide the tip.
@@ -655,10 +649,8 @@ package mx.managers
 		{
 			if (!oldErrorString && newErrorString)
 			{
-				target.addEventListener(MouseEvent.MOUSE_OVER,
-					errorTipMouseOverHandler);
-				target.addEventListener(MouseEvent.MOUSE_OUT,
-					errorTipMouseOutHandler);
+				target.addEventListener(MouseEvent.MOUSE_OVER,errorTipMouseOverHandler);
+				target.addEventListener(MouseEvent.MOUSE_OUT,errorTipMouseOutHandler);
 				
 				// If the mouse is already over the object
 				// that's getting an errorTip, show the tip.
@@ -667,10 +659,8 @@ package mx.managers
 			}
 			else if (oldErrorString && !newErrorString)
 			{
-				target.removeEventListener(MouseEvent.MOUSE_OVER,
-					errorTipMouseOverHandler);
-				target.removeEventListener(MouseEvent.MOUSE_OUT,
-					errorTipMouseOutHandler);
+				target.removeEventListener(MouseEvent.MOUSE_OVER,errorTipMouseOverHandler);
+				target.removeEventListener(MouseEvent.MOUSE_OUT,errorTipMouseOutHandler);
 				
 				// If the mouse is over the object whose toolTip
 				// is being removed, hide the tip.
@@ -983,8 +973,7 @@ package mx.managers
 			
 			if (showEffect || hideEffect)
 			{
-				currentToolTip.addEventListener(EffectEvent.EFFECT_END,
-					effectEndHandler);
+				currentToolTip.addEventListener(EffectEvent.EFFECT_END,effectEndHandler);
 			}
 		}
 		

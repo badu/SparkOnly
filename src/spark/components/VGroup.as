@@ -21,6 +21,8 @@ package spark.components
 {
 	import flash.events.Event;
 	
+	import mx.resources.ResourceManager;
+	
 	import spark.layouts.VerticalLayout;
 	import spark.layouts.supportClasses.LayoutBase;
 	
@@ -531,7 +533,7 @@ package spark.components
 		 */
 		override public function set layout(value:LayoutBase):void
 		{
-			throw(new Error(resourceManager.getString("components", "layoutReadOnly")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "layoutReadOnly")));
 		}
 		
 		//--------------------------------------------------------------------------

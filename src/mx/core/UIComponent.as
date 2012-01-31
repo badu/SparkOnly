@@ -91,7 +91,6 @@ package mx.core
 	import mx.managers.SystemManager;
 	import mx.managers.SystemManagerGlobals;
 	import mx.managers.ToolTipManager;
-	import mx.resources.IResourceManager;
 	import mx.resources.ResourceManager;
 	import mx.states.State;
 	import mx.states.Transition;
@@ -1682,7 +1681,7 @@ package mx.core
 			
 			// Override  variables in superclasses.
 			focusRect = false; // We do our own focus drawing.
-			// We are tab enabled by default if IFocusManagerComponent
+			// We are tab enabled by default if Component
 			tabEnabled = (this is IFocusManagerComponent);
 			tabFocusEnabled = (this is IFocusManagerComponent);
 			
@@ -1717,7 +1716,7 @@ package mx.core
 			// Register as a weak listener for "change" events from ResourceManager.
 			// If UIComponents registered as a strong listener,
 			// they wouldn't get garbage collected.
-			resourceManager.addEventListener(
+			ResourceManager.getInstance().addEventListener(
 				Event.CHANGE, resourceManager_changeHandler, false, 0, true);
 			
 			_width = super.width;
@@ -3921,40 +3920,7 @@ package mx.core
 		{
 			_focusManager = value;
 			dispatchEvent(new FlexEvent(FlexEvent.ADD_FOCUS_MANAGER));
-		}
-		
-		//----------------------------------
-		//  resourceManager
-		//----------------------------------
-		
-		/**
-		 *  @private
-		 *  Storage for the resourceManager property.
-		 */
-		private var _resourceManager:IResourceManager = ResourceManager.getInstance();
-		
-		/**
-		 *  @private
-		 *  This metadata suppresses a trace() in PropertyWatcher:
-		 *  "warning: unable to bind to property 'resourceManager' ..."
-		 */
-		[Bindable("unused")]
-		
-		/**
-		 *  A reference to the object which manages
-		 *  all of the application's localized resources.
-		 *  This is a singleton instance which implements
-		 *  the IResourceManager interface.
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		protected function get resourceManager():IResourceManager
-		{
-			return _resourceManager;
-		}
+		}	
 		
 		//----------------------------------
 		//  styleManager
@@ -4077,15 +4043,13 @@ package mx.core
 		 */
 		mx_internal function getNonNullSystemManager():ISystemManager
 		{
-			var sm:ISystemManager = systemManager;
+			if (!systemManager)
+				systemManager = ISystemManager(SystemManager.getSWFRoot(this));
 			
-			if (!sm)
-				sm = ISystemManager(SystemManager.getSWFRoot(this));
-			
-			if (!sm)
+			if (!systemManager)
 				return SystemManagerGlobals.topLevelSystemManagers[0];
 			
-			return sm;
+			return systemManager;
 		}
 		
 		/**
@@ -4484,9 +4448,8 @@ package mx.core
 				if (p)
 					return p.document;
 				
-				var sm:ISystemManager = parent as ISystemManager;
-				if (sm)
-					return sm.document;
+				if (systemManager)
+					return systemManager.document;
 				
 				return null;
 			}
@@ -4511,9 +4474,7 @@ package mx.core
 		 */
 		public function get screen():Rectangle
 		{
-			var sm:ISystemManager = systemManager;
-			
-			return sm ? sm.screen : null;
+			return systemManager ? systemManager.screen : null;
 		}
 		
 		//--------------------------------------------------------------------------
@@ -6849,7 +6810,6 @@ package mx.core
 				
 				styleChanged("themeColor");
 				
-				var focusManager:IFocusManager = focusManager;
 				var focusObj:DisplayObject = focusManager ?
 					DisplayObject(focusManager.getFocus()) :
 					null;
@@ -7870,23 +7830,22 @@ package mx.core
 			
 			// Register to get the next "render" event
 			// just before the next rasterization.
-			var sm:ISystemManager = systemManager;
 			
 			// Stage can be null when an untrusted application is loaded by an application
 			// that isn't on stage yet.
-			if (sm && (sm.stage || usingBridge))
+			if (systemManager && (systemManager.stage || usingBridge))
 			{
 				if (!listeningForRender)
 				{
 					// trace("  added");
-					sm.addEventListener(FlexEvent.RENDER, callLaterDispatcher);
-					sm.addEventListener(FlexEvent.ENTER_FRAME, callLaterDispatcher);
+					systemManager.addEventListener(FlexEvent.RENDER, callLaterDispatcher);
+					systemManager.addEventListener(FlexEvent.ENTER_FRAME, callLaterDispatcher);
 					listeningForRender = true;
 				}
 				
 				// Force a "render" event to happen soon
-				if (sm.stage)
-					sm.stage.invalidate();
+				if (systemManager.stage)
+					systemManager.stage.invalidate();
 			}
 			
 			// trace("<<calllater " + this)
@@ -7897,17 +7856,15 @@ package mx.core
 		 *  Cancels all queued functions.
 		 */
 		mx_internal function cancelAllCallLaters():void
-		{
-			var sm:ISystemManager = systemManager;
-			
+		{			
 			// Stage can be null when an untrusted application is loaded by an application
 			// that isn't on stage yet.
-			if (sm && (sm.stage || usingBridge))
+			if (systemManager && (systemManager.stage || usingBridge))
 			{
 				if (listeningForRender)
 				{
-					sm.removeEventListener(FlexEvent.RENDER, callLaterDispatcher);
-					sm.removeEventListener(FlexEvent.ENTER_FRAME, callLaterDispatcher);
+					systemManager.removeEventListener(FlexEvent.RENDER, callLaterDispatcher);
+					systemManager.removeEventListener(FlexEvent.ENTER_FRAME, callLaterDispatcher);
 					listeningForRender = false;
 				}
 			}
@@ -9470,15 +9427,14 @@ package mx.core
 		 */
 		public function getFocus():InteractiveObject
 		{
-			var sm:ISystemManager = systemManager;
-			if (!sm)
+			if (!systemManager)
 				return null;
 			
 			if (UIComponentGlobals.nextFocusObject)
 				return UIComponentGlobals.nextFocusObject;
 			
-			if (sm.stage)
-				return sm.stage.focus;
+			if (systemManager.stage)
+				return systemManager.stage.focus;
 			
 			return null;
 		}
@@ -9498,18 +9454,17 @@ package mx.core
 		 */
 		public function setFocus():void
 		{
-			var sm:ISystemManager = systemManager;
-			if (sm && (sm.stage || usingBridge))
+			if (systemManager && (systemManager.stage || usingBridge))
 			{
 				if (UIComponentGlobals.callLaterDispatcherCount == 0)
 				{
-					sm.stage.focus = this;
+					systemManager.stage.focus = this;
 					UIComponentGlobals.nextFocusObject = null;
 				}
 				else
 				{
 					UIComponentGlobals.nextFocusObject = this;
-					sm.addEventListener(FlexEvent.ENTER_FRAME, setFocusLater);
+					systemManager.addEventListener(FlexEvent.ENTER_FRAME, setFocusLater);
 				}
 			}
 			else
@@ -9524,15 +9479,13 @@ package mx.core
 		 *  Returns the focus object
 		 */
 		mx_internal function getFocusObject():DisplayObject
-		{
-			var fm:IFocusManager = focusManager;
-			
-			if (!fm || !fm.focusPane)
+		{			
+			if (!focusManager || !focusManager.focusPane)
 				return null;
 			
-			return fm.focusPane.numChildren == 0 ?
+			return focusManager.focusPane.numChildren == 0 ?
 				null :
-				fm.focusPane.getChildAt(0);
+				focusManager.focusPane.getChildAt(0);
 		}
 		
 		/**
@@ -9670,8 +9623,7 @@ package mx.core
 			if (isNaN(width) || isNaN(height))
 				return;
 			
-			var fm:IFocusManager = focusManager;
-			if (!fm)
+			if (!focusManager)
 				return; // we've been unparented so ignore
 			
 			var focusObj:IFlexDisplayObject = IFlexDisplayObject(getFocusObject());
@@ -10201,7 +10153,7 @@ package mx.core
 			
 			if (throwOnUndefined)
 			{
-				var message:String = resourceManager.getString(
+				var message:String = ResourceManager.getInstance().getString(
 					"core", "stateUndefined", [ stateName ]);
 				throw new ArgumentError(message);
 			}
@@ -10856,7 +10808,7 @@ package mx.core
 			}
 			else
 			{
-				var message:String = resourceManager.getString(
+				var message:String = ResourceManager.getInstance().getString(
 					"core", "badParameter", [ styleClient ]);
 				throw new ArgumentError(message);
 			}
@@ -11710,15 +11662,14 @@ package mx.core
 				return;
 			
 			// trace("  >>calllaterdispatcher2");
-			var sm:ISystemManager = systemManager;
 			
 			// Stage can be null when an untrusted application is loaded by an application
 			// that isn't on stage yet.
-			if (sm && (sm.stage || usingBridge) && listeningForRender)
+			if (systemManager && (systemManager.stage || usingBridge) && listeningForRender)
 			{
 				// trace("  removed");
-				sm.removeEventListener(FlexEvent.RENDER, callLaterDispatcher);
-				sm.removeEventListener(FlexEvent.ENTER_FRAME, callLaterDispatcher);
+				systemManager.removeEventListener(FlexEvent.RENDER, callLaterDispatcher);
+				systemManager.removeEventListener(FlexEvent.ENTER_FRAME, callLaterDispatcher);
 				listeningForRender = false;
 			}
 			
@@ -11816,8 +11767,7 @@ package mx.core
 		{
 			if (isOurFocus(DisplayObject(event.target)))
 			{
-				var fm:IFocusManager = focusManager;
-				if (fm && fm.showFocusIndicator)
+				if (focusManager && focusManager.showFocusIndicator)
 					drawFocus(true);
 				
 				ContainerGlobals.checkFocus(event.relatedObject, this);
@@ -11925,12 +11875,11 @@ package mx.core
 		 */
 		private function setFocusLater(event:Event = null):void
 		{
-			var sm:ISystemManager = systemManager;
-			if (sm && sm.stage)
+			if (systemManager && systemManager.stage)
 			{
-				sm.stage.removeEventListener(Event.ENTER_FRAME, setFocusLater);
+				systemManager.stage.removeEventListener(Event.ENTER_FRAME, setFocusLater);
 				if (UIComponentGlobals.nextFocusObject)
-					sm.stage.focus = UIComponentGlobals.nextFocusObject;
+					systemManager.stage.focus = UIComponentGlobals.nextFocusObject;
 				UIComponentGlobals.nextFocusObject = null;
 			}
 		}

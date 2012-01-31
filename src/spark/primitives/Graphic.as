@@ -20,6 +20,8 @@
 package spark.primitives
 {
 	
+	import mx.resources.ResourceManager;
+	
 	import spark.components.Group;
 	import spark.components.ResizeMode;
 	import spark.layouts.BasicLayout;
@@ -239,7 +241,7 @@ package spark.primitives
 		 */
 		override public function set layout(value:LayoutBase):void
 		{
-			throw(new Error(resourceManager.getString("components", "layoutReadOnly")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "layoutReadOnly")));
 		}
 		
 		//--------------------------------------------------------------------------

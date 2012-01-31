@@ -50,6 +50,7 @@ package spark.components
 	import mx.events.PropertyChangeEvent;
 	import mx.events.TouchInteractionEvent;
 	import mx.managers.IFocusManagerComponent;
+	import mx.resources.ResourceManager;
 	import mx.styles.IStyleClient;
 	
 	import spark.components.supportClasses.GroupBase;
@@ -1274,7 +1275,7 @@ package spark.components
 			if (getStyle("interactionMode") == InteractionMode.TOUCH)
 			{
 				if (canScrollHorizontally && canScrollVertically)
-					throw new Error(resourceManager.getString("components", "operationSupportedForOneAxisOnly"));
+					throw new Error(ResourceManager.getInstance().getString("components", "operationSupportedForOneAxisOnly"));
 				
 				scrollRangesChanged = true;
 				pageScrollingChanged = true;
@@ -1341,7 +1342,7 @@ package spark.components
 			if (getStyle("interactionMode") == InteractionMode.TOUCH)
 			{
 				if (canScrollHorizontally && canScrollVertically)
-					throw new Error(resourceManager.getString("components", "operationSupportedForOneAxisOnly"));
+					throw new Error(ResourceManager.getInstance().getString("components", "operationSupportedForOneAxisOnly"));
 				
 				scrollRangesChanged = true;
 				snappingModeChanged = true;
@@ -1503,7 +1504,7 @@ package spark.components
 		{
 			var layout:LayoutBase = viewportLayout;
 			if (!layout)
-				throw new Error(resourceManager.getString("components", "operationRequiresViewportLayout"));
+				throw new Error(ResourceManager.getInstance().getString("components", "operationRequiresViewportLayout"));
 			
 			var elementBounds:Rectangle = layout.getElementBounds(elementIndex);
 			var snapScrollPosition:Number;
@@ -1514,7 +1515,7 @@ package spark.components
 			{
 				case ScrollSnappingMode.NONE:
 				{
-					throw new Error(resourceManager.getString("components", "operationRequiresSnappingMode"));
+					throw new Error(ResourceManager.getInstance().getString("components", "operationRequiresSnappingMode"));
 				}
 					
 				case ScrollSnappingMode.LEADING_EDGE:
@@ -2242,7 +2243,7 @@ package spark.components
 			if (viewport && index == 0)
 				return viewport;
 			else
-				throw new RangeError(resourceManager.getString("components", "indexOutOfRange", [index]));
+				throw new RangeError(ResourceManager.getInstance().getString("components", "indexOutOfRange", [index]));
 		}
 		
 		/**
@@ -2265,7 +2266,7 @@ package spark.components
 			if (element != null && element == viewport)
 				return 0;
 			else
-				throw ArgumentError(resourceManager.getString("components", "elementNotFoundInScroller", [element]));
+				throw ArgumentError(ResourceManager.getInstance().getString("components", "elementNotFoundInScroller", [element]));
 		}
 		
 		/**
@@ -2282,7 +2283,7 @@ package spark.components
 		 */
 		public function addElement(element:IVisualElement):IVisualElement
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2297,7 +2298,7 @@ package spark.components
 		 */
 		public function addElementAt(element:IVisualElement, index:int):IVisualElement
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2313,7 +2314,7 @@ package spark.components
 		 */
 		public function removeElement(element:IVisualElement):IVisualElement
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2329,7 +2330,7 @@ package spark.components
 		 */
 		public function removeElementAt(index:int):IVisualElement
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2345,7 +2346,7 @@ package spark.components
 		 */
 		public function removeAllElements():void
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2361,7 +2362,7 @@ package spark.components
 		 */
 		public function setElementIndex(element:IVisualElement, index:int):void
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2377,7 +2378,7 @@ package spark.components
 		 */
 		public function swapElements(element1:IVisualElement, element2:IVisualElement):void
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		/**
@@ -2393,7 +2394,7 @@ package spark.components
 		 */
 		public function swapElementsAt(index1:int, index2:int):void
 		{
-			throw new ArgumentError(resourceManager.getString("components", "operationNotSupported"));
+			throw new ArgumentError(ResourceManager.getInstance().getString("components", "operationNotSupported"));
 		}
 		
 		//--------------------------------------------------------------------------

@@ -37,7 +37,7 @@ package mx.managers
 	 *  @playerversion AIR 1.1
 	 *  @productversion Flex 3
 	 */
-	public interface IToolTipManagerClient extends IFlexDisplayObject
+	public interface IToolTipManagerClient 
 	{
 		//--------------------------------------------------------------------------
 		//

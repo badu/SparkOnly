@@ -156,11 +156,9 @@ package spark.components.supportClasses
 			// added don't trap the mouse events.
 			mouseChildren = false;
 			
-			var resourceManager:IResourceManager = ResourceManager.getInstance();
-			
 			if (!truncationIndicatorResource)
 			{
-				truncationIndicatorResource = resourceManager.getString(
+				truncationIndicatorResource = ResourceManager.getInstance().getString(
 					"core", "truncationIndicator");
 			}
 			
@@ -169,7 +167,7 @@ package spark.components.supportClasses
 			// Register as a weak listener for "change" events from ResourceManager.
 			// If TextBases registered as a strong listener,
 			// they wouldn't get garbage collected.
-			resourceManager.addEventListener(
+			ResourceManager.getInstance().addEventListener(
 				Event.CHANGE, resourceManager_changeHandler, false, 0, true);
 			
 			// Our background fill. 

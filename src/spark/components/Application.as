@@ -50,6 +50,7 @@ package spark.components
 	import mx.managers.ISystemManager;
 	import mx.managers.SystemManager;
 	import mx.managers.ToolTipManager;
+	import mx.resources.ResourceManager;
 	import mx.utils.BitFlagUtil;
 	import mx.utils.DensityUtil;
 	import mx.utils.LoaderUtil;
@@ -1579,7 +1580,7 @@ package spark.components
 			// "View Source" on the context menu
 			if (viewSourceCMI)
 			{
-				viewSourceCMI.caption = resourceManager.getString("components", "viewSource");
+				viewSourceCMI.caption = ResourceManager.getInstance().getString("components", "viewSource");
 			}
 		}
 		
@@ -1784,7 +1785,7 @@ package spark.components
 			if (_viewSourceURL)
 			{
 				// don't worry! this gets updated in resourcesChanged()
-				const caption:String = resourceManager.getString("components", "viewSource");
+				const caption:String = ResourceManager.getInstance().getString("components", "viewSource");
 				
 				viewSourceCMI = new ContextMenuItem(caption, true);
 				viewSourceCMI.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, menuItemSelectHandler);

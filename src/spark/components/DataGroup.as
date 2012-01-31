@@ -38,6 +38,7 @@ package spark.components
 	import mx.events.PropertyChangeEvent;
 	import mx.managers.ILayoutManagerClient;
 	import mx.managers.LayoutManager;
+	import mx.resources.ResourceManager;
 	import mx.utils.MatrixUtil;
 	
 	import spark.components.supportClasses.GroupBase;
@@ -925,9 +926,9 @@ package spark.components
 		{
 			var err:String;
 			if (itemIsRenderer(item))
-				err = resourceManager.getString("components", "cannotDisplayVisualElement");
+				err = ResourceManager.getInstance().getString("components", "cannotDisplayVisualElement");
 			else
-				err = resourceManager.getString("components", "unableToCreateRenderer", [item]);
+				err = ResourceManager.getInstance().getString("components", "unableToCreateRenderer", [item]);
 			
 			throw new Error(err);
 		}
@@ -1991,7 +1992,7 @@ package spark.components
 		 */
 		override public function addChild(child:DisplayObject):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "addChildDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "addChildDataGroupError")));
 		}
 		
 		/**
@@ -1999,7 +2000,7 @@ package spark.components
 		 */
 		override public function addChildAt(child:DisplayObject, index:int):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "addChildAtDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "addChildAtDataGroupError")));
 		}
 		
 		/**
@@ -2007,7 +2008,7 @@ package spark.components
 		 */
 		override public function removeChild(child:DisplayObject):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "removeChildDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "removeChildDataGroupError")));
 		}
 		
 		/**
@@ -2015,7 +2016,7 @@ package spark.components
 		 */
 		override public function removeChildAt(index:int):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "removeChildAtDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "removeChildAtDataGroupError")));
 		}
 		
 		/**
@@ -2023,7 +2024,7 @@ package spark.components
 		 */
 		override public function setChildIndex(child:DisplayObject, index:int):void
 		{
-			throw(new Error(resourceManager.getString("components", "setChildIndexDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "setChildIndexDataGroupError")));
 		}
 		
 		/**
@@ -2031,7 +2032,7 @@ package spark.components
 		 */
 		override public function swapChildren(child1:DisplayObject, child2:DisplayObject):void
 		{
-			throw(new Error(resourceManager.getString("components", "swapChildrenDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "swapChildrenDataGroupError")));
 		}
 		
 		/**
@@ -2039,7 +2040,7 @@ package spark.components
 		 */
 		override public function swapChildrenAt(index1:int, index2:int):void
 		{
-			throw(new Error(resourceManager.getString("components", "swapChildrenAtDataGroupError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "swapChildrenAtDataGroupError")));
 		}
 	}
 }

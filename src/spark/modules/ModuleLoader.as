@@ -33,6 +33,7 @@ package spark.modules
 	import mx.events.ModuleEvent;
 	import mx.modules.IModuleInfo;
 	import mx.modules.ModuleManager;
+	import mx.resources.ResourceManager;
 	
 	import spark.components.Group;
 	
@@ -779,7 +780,7 @@ package spark.modules
 			}
 			else
 			{
-				var message:String = resourceManager.getString(
+				var message:String = ResourceManager.getInstance().getString(
 					"modules", "couldNotCreateModule", [ module.factory.info()["mainClassName"] ]);
 				var moduleEvent:ModuleEvent = new ModuleEvent(
 					ModuleEvent.ERROR, false, false, 

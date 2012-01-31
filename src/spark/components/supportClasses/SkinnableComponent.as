@@ -32,6 +32,7 @@ package spark.components.supportClasses
 	import mx.core.UIComponent;
 	import mx.core.mx_internal;
 	import mx.events.PropertyChangeEvent;
+	import mx.resources.ResourceManager;
 	
 	import spark.events.SkinPartEvent;
 	import spark.utils.FTETextUtil;
@@ -701,7 +702,7 @@ package spark.components.supportClasses
 			}
 			else
 			{
-				throw(new Error(resourceManager.getString("components", "skinNotFound", [this])));
+				throw(new Error(ResourceManager.getInstance().getString("components", "skinNotFound", [this])));
 			}
 			
 			findSkinParts();
@@ -729,7 +730,7 @@ package spark.components.supportClasses
 					if (skinParts[id] == true)
 					{
 						if (!(id in skin))
-							throw(new Error(resourceManager.getString("components", "requiredSkinPartNotFound", [id])));
+							throw(new Error(ResourceManager.getInstance().getString("components", "requiredSkinPartNotFound", [id])));
 					}
 					
 					if (id in skin)
@@ -1126,7 +1127,7 @@ package spark.components.supportClasses
 		 */
 		override public function addChild(child:DisplayObject):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "addChildError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "addChildError")));
 		}
 		
 		/**
@@ -1134,7 +1135,7 @@ package spark.components.supportClasses
 		 */
 		override public function addChildAt(child:DisplayObject, index:int):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "addChildAtError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "addChildAtError")));
 		}
 		
 		/**
@@ -1142,7 +1143,7 @@ package spark.components.supportClasses
 		 */
 		override public function removeChild(child:DisplayObject):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "removeChildError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "removeChildError")));
 		}
 		
 		/**
@@ -1150,7 +1151,7 @@ package spark.components.supportClasses
 		 */
 		override public function removeChildAt(index:int):DisplayObject
 		{
-			throw(new Error(resourceManager.getString("components", "removeChildAtError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "removeChildAtError")));
 		}
 		
 		/**
@@ -1158,7 +1159,7 @@ package spark.components.supportClasses
 		 */
 		override public function setChildIndex(child:DisplayObject, index:int):void
 		{
-			throw(new Error(resourceManager.getString("components", "setChildIndexError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "setChildIndexError")));
 		}
 		
 		/**
@@ -1166,7 +1167,7 @@ package spark.components.supportClasses
 		 */
 		override public function swapChildren(child1:DisplayObject, child2:DisplayObject):void
 		{
-			throw(new Error(resourceManager.getString("components", "swapChildrenError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "swapChildrenError")));
 		}
 		
 		/**
@@ -1174,7 +1175,7 @@ package spark.components.supportClasses
 		 */
 		override public function swapChildrenAt(index1:int, index2:int):void
 		{
-			throw(new Error(resourceManager.getString("components", "swapChildrenAtError")));
+			throw(new Error(ResourceManager.getInstance().getString("components", "swapChildrenAtError")));
 		}
 		
 		//--------------------------------------------------------------------------
