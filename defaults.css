@@ -1,0 +1,527 @@
+/*
+ *
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version 2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+
+@namespace "library://ns.adobe.com/flex/spark";
+
+/* Default Skins */
+
+Application
+{
+    backgroundColor: #FFFFFF;
+    skinClass: ClassReference("spark.skins.spark.ApplicationSkin");
+}
+
+BorderContainer
+{
+    backgroundColor: #FFFFFF;
+    borderStyle : "solid"; 
+    cornerRadius: 0;
+    skinClass: ClassReference("spark.skins.spark.BorderContainerSkin");
+}
+
+Button
+{
+    skinClass: ClassReference("spark.skins.spark.ButtonSkin");
+}
+
+Button.emphasized
+{
+    skinClass: ClassReference("spark.skins.spark.DefaultButtonSkin");
+}
+
+ButtonBar
+{
+    skinClass: ClassReference("spark.skins.spark.ButtonBarSkin");
+}
+
+CheckBox
+{
+    skinClass: ClassReference("spark.skins.spark.CheckBoxSkin");
+}
+
+ComboBox
+{
+/*  dropShadowVisible: true; in spark.css */
+    paddingBottom: 3;
+    paddingLeft: 3;
+    paddingRight: 3;
+    paddingTop: 5;
+    skinClass: ClassReference("spark.skins.spark.ComboBoxSkin");
+}
+
+DataGrid
+{
+    skinClass: ClassReference("spark.skins.spark.DataGridSkin");
+    stretchCursor: Embed(source="Assets.swf",symbol="cursorStretch");    
+}
+
+DropDownList
+{
+/*  dropShadowVisible: true; in spark.css */
+    skinClass: ClassReference("spark.skins.spark.DropDownListSkin");
+}
+
+Form
+{
+    skinClass : ClassReference("spark.skins.spark.FormSkin");
+}
+
+FormHeading
+{
+    fontSize : 15;
+    fontWeight : "bold";
+    skinClass : ClassReference("spark.skins.spark.FormHeadingSkin");
+}
+
+FormItem
+{
+    errorIndicatorSource : Embed(source="assets/ErrorIndicator.png");
+    requiredIndicatorSource : Embed(source="assets/RequiredIndicator.png");
+    skinClass : ClassReference("spark.skins.spark.FormItemSkin");
+}
+
+GridColumnHeaderGroup
+{
+    separatorAffordance: 5;
+}
+
+HScrollBar
+{
+    skinClass: ClassReference("spark.skins.spark.HScrollBarSkin");
+}
+
+HSlider
+{
+    skinClass: ClassReference("spark.skins.spark.HSliderSkin");
+}
+
+Image
+{
+    skinClass: ClassReference("spark.skins.spark.ImageSkin");
+    enableLoadingState: false;
+    showErrorSkin : false;
+    smoothingQuality: "default";
+}
+
+List
+{
+    skinClass: ClassReference("spark.skins.spark.ListSkin");
+    dragIndicatorClass: ClassReference("spark.components.supportClasses.ListItemDragProxy");
+    dropIndicatorSkin: ClassReference("spark.skins.spark.ListDropIndicator");
+}
+
+MuteButton
+{
+    skinClass: ClassReference("spark.skins.spark.mediaClasses.normal.MuteButtonSkin");
+}
+
+NumericStepper
+{
+    skinClass: ClassReference("spark.skins.spark.NumericStepperSkin");
+}
+
+Panel
+{
+    backgroundColor: #FFFFFF;
+/* in spark.css */
+/*
+    borderAlpha: 0.5;
+    borderColor: 0;
+    cornerRadius: 0;
+    dropShadowVisible: true;
+*/
+	skinClass: ClassReference("spark.skins.spark.PanelSkin");
+}
+
+RadioButton
+{
+	skinClass: ClassReference("spark.skins.spark.RadioButtonSkin");
+}
+
+RichEditableText
+{
+    layoutDirection: "ltr";
+}
+
+Scroller
+{
+    skinClass: ClassReference("spark.skins.spark.ScrollerSkin");
+}
+
+ScrubBar
+{
+    skinClass: ClassReference("spark.skins.spark.mediaClasses.normal.ScrubBarSkin");
+}
+
+SkinnableDataContainer
+{
+    skinClass: ClassReference("spark.skins.spark.SkinnableDataContainerSkin");
+}
+
+SkinnableComponent
+{
+    errorSkin: ClassReference("spark.skins.spark.ErrorSkin");
+    focusSkin: ClassReference("spark.skins.spark.FocusSkin");
+}
+
+SkinnableContainer
+{
+    skinClass: ClassReference("spark.skins.spark.SkinnableContainerSkin");
+}
+
+SkinnablePopUpContainer
+{
+    skinClass: ClassReference("spark.skins.spark.SkinnablePopUpContainerSkin");
+}
+
+SkinnableTextBase:normalWithPrompt 
+{
+    color: #BABABA;
+    fontStyle: italic;
+}
+
+SkinnableTextBase:disabledWithPrompt 
+{
+    color: #BABABA;
+    fontStyle: italic;
+}
+
+Spinner
+{
+    skinClass: ClassReference("spark.skins.spark.SpinnerSkin");    
+}
+
+TabBar
+{
+    skinClass: ClassReference("spark.skins.spark.TabBarSkin");
+    cornerRadius: 4;
+}
+
+TextBase
+{
+    layoutDirection: "ltr";
+}
+
+TextArea
+{
+    paddingBottom: 3;
+    paddingLeft: 3;
+    paddingRight: 3;
+    paddingTop: 5;
+	skinClass: ClassReference("spark.skins.spark.TextAreaSkin");
+}
+
+TextInput
+{
+    paddingBottom: 3;
+    paddingLeft: 3;
+    paddingRight: 3;
+    paddingTop: 5;
+	skinClass: ClassReference("spark.skins.spark.TextInputSkin");
+}
+
+TitleWindow
+{
+/* in spark.css */
+/*
+	borderAlpha: 0.8;
+	borderColor: 0;
+	cornerRadius: 0;
+	dropShadowVisible: true;
+*/
+	skinClass: ClassReference("spark.skins.spark.TitleWindowSkin");
+}
+
+ToggleButton
+{
+	skinClass: ClassReference("spark.skins.spark.ToggleButtonSkin");
+}
+
+VideoDisplay
+{
+    layoutDirection: "ltr";
+}
+
+VideoPlayer
+{
+/*  dropShadowVisible: true; in spark.css */
+    layoutDirection: "ltr";
+    skinClass: ClassReference("spark.skins.spark.VideoPlayerSkin");
+}
+
+VolumeBar
+{
+    skinClass: ClassReference("spark.skins.spark.mediaClasses.normal.VolumeBarSkin");
+}
+
+VScrollBar
+{
+    skinClass: ClassReference("spark.skins.spark.VScrollBarSkin");
+}
+
+VSlider
+{
+    skinClass: ClassReference("spark.skins.spark.VSliderSkin");
+}
+
+global
+{
+    softKeyboardEffectDuration: 150;
+	/* framework styles */
+	accentColor: #0099FF;
+	alignmentBaseline: "useDominantBaseline";
+	backgroundAlpha: 1.0; /* this runs the opacity of nearly every square piece of the components */
+	/* backgroundDisabledColor: #DDDDDD; */
+	backgroundSize: "auto";
+	baselineShift: 0;
+	bevel: true;
+	blockProgression: "tb";
+	borderAlpha: 1.0;
+	borderCapColor: #919999;
+	borderColor: #696969;
+	borderSides: "left top right bottom";
+	borderStyle: "inset";
+	borderThickness: 1;
+	borderVisible: true;
+	breakOpportunity: "auto";
+	buttonColor: #6F7777;
+	caretColor: #0167FF;
+	cffHinting: "horizontalStem";
+	chromeColor: #CCCCCC;
+	closeDuration: 50;
+	color: #000000;
+	columnCount: "auto";
+	columnGap: 20;
+	columnWidth: "auto";
+	contentBackgroundAlpha: 1;
+	contentBackgroundColor: #FFFFFF;
+	cornerRadius: 2;
+	digitCase: "default";
+	digitWidth: "default";
+	direction: "ltr";
+	disabledAlpha: 0.5;
+	disabledColor: #AAB3B3;
+	disabledIconColor: #999999;
+	dominantBaseline: "auto";
+	dropShadowColor: #000000;
+	dropShadowVisible: false;
+	embedFonts: false;
+	errorColor: #FE0000;
+	fillAlphas: 0.6, 0.4, 0.75, 0.65; /* last pair are for OVER state */
+	fillColor: #FFFFFF; /* kill this?? */
+	fillColors: #FFFFFF, #CCCCCC, #FFFFFF, #EEEEEE;
+	filled: true;
+	firstBaselineOffset: "auto";
+	focusAlpha: 0.55;
+	focusBlendMode: "normal";
+	focusColor: #70B2EE;
+	focusRoundedCorners: "tl tr bl br";
+	focusSkin: ClassReference("mx.skins.halo.HaloFocusRect");
+	focusThickness: 2;
+	focusedTextSelectionColor: #A8C6EE;
+	fontAntiAliasType: "advanced";
+	fontFamily: "Arial";
+	fontGridFitType: "pixel";
+	fontLookup: "embeddedCFF";
+	fontSharpness: 0;
+	fontSize: 12;
+	fontStyle: "normal";
+	fontThickness: 0;
+	fontWeight: "normal";
+	/* footerColors: #E7E7E7, #C7C7C7; */
+	/* headerColors: #E7E7E7, #D9D9D9; */
+	/* headerHeight: 28; */
+	highlightAlphas: 0.3, 0; /* use this to control the 'light' cast on the components */
+	horizontalAlign: "left";
+	horizontalGap: 8;
+	horizontalGridLineColor: #F7F7F7;
+	horizontalGridLines: false;
+	iconColor: #111111;
+	iconPlacement: "left";
+	inactiveTextSelectionColor: #E8E8E8;
+	indentation: 17;
+	indicatorGap: 14;
+	interactionMode: "mouse";
+	justificationRule: "auto";
+	justificationStyle: "auto";
+	kerning: "default";
+	layoutDirection: "ltr";
+	leading: 2;
+	leadingModel: "auto";
+	ligatureLevel: "common";
+	letterSpacing: 0;
+	lineBreak: "toFit";
+	lineHeight: "120%";
+	lineThrough: false;
+	locale: "en";
+	modalTransparency: 0.5;
+	modalTransparencyBlur: 3;
+	modalTransparencyColor: #DDDDDD;
+	modalTransparencyDuration: 100;
+	openDuration: 1;
+	paddingBottom: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: 0;
+	paragraphEndIndent: 0;
+	paragraphSpaceAfter: 0;
+	paragraphSpaceBefore: 0;
+	paragraphStartIndent: 0;
+	renderingMode: "cff";
+	repeatDelay: 500;
+	repeatInterval: 35;
+	rollOverColor: #CEDBEF;
+	roundedBottomCorners: true;
+	selectionColor: #A8C6EE;
+	selectionDisabledColor: #DDDDDD;
+	selectionDuration: 250;
+	shadowCapColor: #D5DDDD;
+	shadowColor: #EEEEEE;
+	shadowDirection: "center";
+	shadowDistance: 2;
+	stroked: false;
+	strokeWidth: 1;
+	symbolColor: #000000;
+	tabStops: ClassReference(null);
+	textAlign: "start";
+	textAlignLast: "start";
+	textAlpha: 1.0;
+	textDecoration: "none";
+	textFieldClass: ClassReference("mx.core.UITextField");
+	textIndent: 0;
+	textJustify: "interWord";
+	textRollOverColor: 0;
+	textRotation: "auto";
+	textSelectedColor: 0;
+	themeColor: #70B2EE;	
+	/*
+	//themeColor: #80FF4D;		// haloGreen
+	//themeColor: #FFB600;		// haloOrange
+	//themeColor: #AECAD9;		// haloSilver
+	*/
+	trackingLeft: 0;
+	trackingRight: 0;
+	typographicCase: "default";
+	unfocusedTextSelectionColor: #E8E8E8;
+	showErrorSkin: true;
+	showErrorTip: true;
+	useRollOver: true;
+	version: "4.0.0";
+	verticalAlign: "top";
+	verticalGap: 6;
+	verticalGridLineColor: #D5DDDD;
+	verticalGridLines: true;
+	whiteSpaceCollapse: "collapse";
+	
+	
+	/* spark styles */
+	
+	/* Looks */
+	backgroundImageFillMode : "scale";
+	borderWeight : 1;
+	
+	/* Behaviors */
+	autoThumbVisibility: true;
+	fixedThumbSize: false;
+	fullScreenHideControlsDelay: 3000;
+	horizontalScrollPolicy: "auto";
+	liveDragging: true;
+	rollOverOpenDelay: 200;
+	slideDuration: 300;
+	smoothScrolling: true;
+	verticalScrollPolicy: "auto";
+}
+/*
+//------------------------------
+//  CursorManager
+//------------------------------
+*/
+
+CursorManager
+{
+	busyCursor: ClassReference("mx.skins.halo.BusyCursor");
+	busyCursorBackground: Embed(source="Assets.swf",symbol="mx.skins.cursor.BusyCursor");
+}
+
+/*
+//------------------------------
+//  DragManager
+//------------------------------
+*/
+
+DragManager
+{
+	copyCursor: Embed(source="Assets.swf",symbol="mx.skins.cursor.DragCopy");
+	defaultDragImageSkin: ClassReference("mx.skins.halo.DefaultDragImage");
+	linkCursor: Embed(source="Assets.swf",symbol="mx.skins.cursor.DragLink");
+	moveCursor: Embed(source="Assets.swf",symbol="mx.skins.cursor.DragMove");
+	rejectCursor: Embed(source="Assets.swf",symbol="mx.skins.cursor.DragReject");
+}
+
+/*
+//------------------------------
+//  .errorTip
+//------------------------------
+*/
+
+.errorTip
+{
+	borderColor: #CE2929;
+	borderStyle: "errorTipRight";
+	color: #FFFFFF;
+	fontSize: 10;
+	fontWeight: "bold";
+	shadowColor: #000000;
+	paddingBottom: 4;
+	paddingLeft: 4;
+	paddingRight: 4;
+	paddingTop: 4;
+}
+
+/*
+//------------------------------
+//  .headerDragProxyStyle
+//------------------------------
+*/
+
+.headerDragProxyStyle
+{
+	fontWeight: "bold";
+}
+
+/*
+//------------------------------
+//  ToolTip
+//------------------------------
+*/
+
+ToolTip
+{
+	backgroundColor: #FFFFCC;
+	backgroundAlpha: 0.95;
+	borderColor: #919999;
+	borderSkin: ClassReference("mx.skins.halo.ToolTipBorder");
+	borderStyle: "toolTip";
+	cornerRadius: 2;
+	fontSize: 10;
+	paddingBottom: 2;
+	paddingLeft: 4;
+	paddingRight: 4;
+	paddingTop: 2;
+}
