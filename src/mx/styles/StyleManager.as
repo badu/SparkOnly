@@ -24,6 +24,7 @@ package mx.styles
 	
 	import mx.core.IFlexModuleFactory;
 	import mx.core.Singleton;
+	import mx.managers.SystemManager;
 	import mx.managers.SystemManagerGlobals;
 	
 	/**

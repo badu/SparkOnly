@@ -38,6 +38,7 @@ package mx.styles
 	import mx.core.mx_internal;
 	import mx.effects.EffectManager;
 	import mx.managers.SystemManager;
+	import mx.managers.SystemManagerGlobals;
 	import mx.modules.IModule;
 	import mx.modules.ModuleManager;
 	import mx.utils.NameUtil;
@@ -754,15 +755,6 @@ package mx.styles
 				// This style property change may affect the layout of this
 				// object. Signal the LayoutManager to re-measure the object.
 				object.invalidateSize();
-			}
-			
-			// TODO (gosmith): Should initThemeColor() be in some interface?
-			if (!styleProp || 
-				styleProp == "styleName" ||
-				styleProp == "themeColor")
-			{
-				if (object is UIComponent)
-					object["initThemeColor"]();
 			}
 			
 			object.invalidateDisplayList();

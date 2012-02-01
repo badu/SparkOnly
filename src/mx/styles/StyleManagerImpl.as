@@ -36,6 +36,7 @@ package mx.styles
 	import mx.events.Request;
 	import mx.events.StyleEvent;
 	import mx.managers.ISystemManager;
+	import mx.managers.SystemManager;
 	import mx.managers.SystemManagerGlobals;
 	import mx.modules.IModuleInfo;
 	import mx.modules.ModuleManager;

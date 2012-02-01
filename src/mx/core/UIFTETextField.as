@@ -37,6 +37,7 @@ package mx.core
 	import mx.managers.ISystemManager;
 	import mx.managers.IToolTipManagerClient;
 	import mx.managers.SystemManager;
+	import mx.managers.SystemManagerGlobals;
 	import mx.managers.ToolTipManager;
 	import mx.resources.IResourceManager;
 	import mx.resources.ResourceManager;

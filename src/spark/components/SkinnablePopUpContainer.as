@@ -41,6 +41,7 @@ package spark.components
 	import mx.events.SandboxMouseEvent;
 	import mx.managers.PopUpManager;
 	import mx.managers.SystemManager;
+	import mx.managers.SystemManagerGlobals;
 	import mx.styles.StyleProtoChain;
 	
 	import spark.effects.Move;

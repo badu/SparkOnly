@@ -171,12 +171,7 @@ package mx.managers.systemClasses
 			
 			if (child is IStyleClient)
 				IStyleClient(child).notifyStyleChangeInChildren(null, true);
-			
-			// Need to check to see if the child is an UIComponent
-			// without actually linking in the UIComponent class.
-			if (child is UIComponent)
-				UIComponent(child).initThemeColor();
-			
+						
 			// Inform the component that it's style properties
 			// have been fully initialized. Most components won't care,
 			// but some need to react to even this early change.

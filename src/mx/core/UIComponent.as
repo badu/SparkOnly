@@ -1121,26 +1121,6 @@ package mx.core
 	 */
 	[Style(name="showErrorTip", type="Boolean", inherit="yes")]
 	
-	/**
-	 *  Theme color of a component. This property controls the appearance of highlights,
-	 *  appearance when a component is selected, and other similar visual cues, but it
-	 *  does not have any effect on the regular borders or background colors of the component.
-	 *  The preferred values are <code>haloGreen</code>, <code>haloBlue</code>,
-	 *  <code>haloOrange</code>, and <code>haloSilver</code>, although any valid color
-	 *  value can be used.
-	 *
-	 *  <p>The default values of the <code>rollOverColor</code> and
-	 *  <code>selectionColor</code> styles are based on the
-	 *  <code>themeColor</code> value.</p>
-	 *
-	 *  @default "haloBlue"
-	 *  
-	 *  @langversion 3.0
-	 *  @playerversion Flash 9
-	 *  @playerversion AIR 1.1
-	 *  @productversion Flex 3
-	 */
-	[Style(name="themeColor", type="uint", format="Color", inherit="yes", theme="halo")]
 	
 	//--------------------------------------
 	//  Effects
@@ -6422,8 +6402,7 @@ package mx.core
 				return;
 			
 			regenerateStyleCache(true);
-			
-			initThemeColor();
+
 			
 			styleChanged("styleName");
 			
@@ -7191,10 +7170,6 @@ package mx.core
 			
 			if (child is IStyleClient)
 				IStyleClient(child).notifyStyleChangeInChildren(null, true);
-			
-			if (child is UIComponent)
-				UIComponent(child).initThemeColor();
-			
 			// Inform the component that it's style properties
 			// have been fully initialized. Most components won't care,
 			// but some need to react to even this early change.
@@ -10616,7 +10591,7 @@ package mx.core
 					styleManager.hasPseudoCondition(newState)))
 			{
 				regenerateStyleCache(recursive);
-				initThemeColor();
+
 				styleChanged(null);
 				notifyStyleChangeInChildren(null, recursive);
 			}
@@ -10904,40 +10879,6 @@ package mx.core
 					}
 				}
 			}
-		}
-		
-		/**
-		 *  @private
-		 *  If this object has a themeColor style, which is not inherited,
-		 *  then set it inline.
-		 */
-		mx_internal function initThemeColor():Boolean
-		{
-			return true;			
-		}
-		
-		/**
-		 *  @private
-		 *  Calculate and set new roll over and selection colors based on theme color.
-		 */
-		mx_internal function setThemeColor(value:Object /* Number or String */):void
-		{
-			var newValue:Number;
-			
-			if (newValue is String)
-				newValue = parseInt(String(value));
-			else
-				newValue = Number(value);
-			
-			if (isNaN(newValue))
-				newValue = styleManager.getColorName(value);
-			
-			var newValueS:Number = ColorUtil.adjustBrightness2(newValue, 50);
-			
-			var newValueR:Number = ColorUtil.adjustBrightness2(newValue, 70);
-			
-			setStyle("selectionColor", newValueS);
-			setStyle("rollOverColor", newValueR);
 		}
 		
 		/**

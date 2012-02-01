@@ -80,7 +80,6 @@ package spark.components.supportClasses
 	//  Excluded APIs
 	//--------------------------------------
 	
-	[Exclude(name="themeColor", kind="style")]
 	[Exclude(name="addChild", kind="method")]
 	[Exclude(name="addChildAt", kind="method")]
 	[Exclude(name="removeChild", kind="method")]

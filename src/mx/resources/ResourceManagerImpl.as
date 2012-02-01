@@ -35,6 +35,7 @@ package mx.resources
 	import mx.events.FlexEvent;
 	import mx.events.ModuleEvent;
 	import mx.events.ResourceEvent;
+	import mx.managers.SystemManager;
 	import mx.managers.SystemManagerGlobals;
 	import mx.modules.IModuleInfo;
 	import mx.modules.ModuleManager;
