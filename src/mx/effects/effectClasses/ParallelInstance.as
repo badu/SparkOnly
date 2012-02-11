@@ -279,7 +279,7 @@ package mx.effects.effectClasses
 					childSets.splice(insertionIndex, 0, resizeChildSet);
 				}
 					// Check if the child is a Rotate and also check if it is a composite effect that has a Rotate
-				else if (childSet[0] is RotateInstance || (compChild != null && compChild.hasRotateInstance()))
+				else if (compChild != null && compChild.hasRotateInstance())
 				{
 					// Remove item we just added to the end and place it at the beginning
 					childSets.unshift(childSets.pop());

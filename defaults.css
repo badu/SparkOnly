@@ -68,7 +68,7 @@ ComboBox
 DataGrid
 {
     skinClass: ClassReference("spark.skins.spark.DataGridSkin");
-    stretchCursor: Embed(source="Assets.swf",symbol="cursorStretch");    
+	stretchCursor: Embed(source="assets/cursorStretch.png");    
 }
 
 DropDownList
@@ -332,7 +332,7 @@ global
 	focusBlendMode: "normal";
 	focusColor: #70B2EE;
 	focusRoundedCorners: "tl tr bl br";
-	focusSkin: ClassReference("mx.skins.halo.HaloFocusRect");
+	focusSkin: ClassReference("spark.skins.spark.FocusSkin");
 	focusThickness: 2;
 	focusedTextSelectionColor: #A8C6EE;
 	fontAntiAliasType: "advanced";
@@ -408,13 +408,7 @@ global
 	textJustify: "interWord";
 	textRollOverColor: 0;
 	textRotation: "auto";
-	textSelectedColor: 0;
-	themeColor: #70B2EE;	
-	/*
-	//themeColor: #80FF4D;		// haloGreen
-	//themeColor: #FFB600;		// haloOrange
-	//themeColor: #AECAD9;		// haloSilver
-	*/
+	textSelectedColor: 0;		
 	trackingLeft: 0;
 	trackingRight: 0;
 	typographicCase: "default";
@@ -476,26 +470,6 @@ DragManager
 
 /*
 //------------------------------
-//  .errorTip
-//------------------------------
-*/
-
-.errorTip
-{
-	borderColor: #CE2929;
-	borderStyle: "errorTipRight";
-	color: #FFFFFF;
-	fontSize: 10;
-	fontWeight: "bold";
-	shadowColor: #000000;
-	paddingBottom: 4;
-	paddingLeft: 4;
-	paddingRight: 4;
-	paddingTop: 4;
-}
-
-/*
-//------------------------------
 //  .headerDragProxyStyle
 //------------------------------
 */
@@ -513,15 +487,11 @@ DragManager
 
 ToolTip
 {
-	backgroundColor: #FFFFCC;
-	backgroundAlpha: 0.95;
-	borderColor: #919999;
-	borderSkin: ClassReference("mx.skins.halo.ToolTipBorder");
-	borderStyle: "toolTip";
-	cornerRadius: 2;
-	fontSize: 10;
-	paddingBottom: 2;
-	paddingLeft: 4;
-	paddingRight: 4;
-	paddingTop: 2;
+	skinClass: ClassReference("spark.skins.spark.ToolTipSkin"); 
+	color: #505050;
+	chromeColor: #e8e8e8;
+	errorTipColor : #FFFFFF;
+	errorTipChromeColor : #CE2929; 
+	fontSize: 11px;
+	maxWidth: 300px;
 }

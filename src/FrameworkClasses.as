@@ -38,7 +38,7 @@ internal class FrameworkClasses
 	import mx.binding.IWatcherSetupUtil; IWatcherSetupUtil;
 	import mx.binding.IWatcherSetupUtil2; IWatcherSetupUtil2;
 	import mx.binding.PropertyWatcher; PropertyWatcher;
-
+	import mx.managers.SystemManager;SystemManager;
 	import mx.binding.RepeaterComponentWatcher; RepeaterComponentWatcher;
 	import mx.binding.RepeaterItemWatcher; RepeaterItemWatcher;
 	import mx.binding.StaticPropertyWatcher; StaticPropertyWatcher;
@@ -51,8 +51,6 @@ internal class FrameworkClasses
 	import mx.collections.ModifiedCollectionView; ModifiedCollectionView;
 	import mx.containers.utilityClasses.FlexChildInfo; FlexChildInfo;
 	import mx.containers.utilityClasses.IConstraintLayout; IConstraintLayout;
-	import mx.core.BitmapAsset; BitmapAsset;
-	import mx.core.ButtonAsset; ButtonAsset;
 	import mx.core.ByteArrayAsset; ByteArrayAsset;
 	import mx.core.ClassFactory; ClassFactory;
 	import mx.core.ContainerGlobals; ContainerGlobals;
@@ -63,7 +61,6 @@ internal class FrameworkClasses
 	import mx.core.DesignLayer; DesignLayer;
     import mx.core.EmbeddedFontRegistry; EmbeddedFontRegistry;
 	import mx.core.FlexLoader; FlexLoader;
-	import mx.core.FontAsset; FontAsset;
 	import mx.core.IDataRenderer; IDataRenderer;
 	import mx.core.IDeferredInstance; IDeferredInstance;
 	import mx.core.INavigatorContent; INavigatorContent;
@@ -77,7 +74,6 @@ internal class FrameworkClasses
 	import mx.core.ScrollPolicy; ScrollPolicy;
 	import mx.core.SimpleApplication; SimpleApplication;
 	import mx.core.SoundAsset; SoundAsset;
-	import mx.core.TextFieldAsset; TextFieldAsset;
 	import mx.core.TextFieldFactory; TextFieldFactory;
 	import mx.effects.easing.Back; Back;
 	import mx.effects.easing.Bounce; Bounce;
@@ -120,7 +116,6 @@ internal class FrameworkClasses
 	import mx.managers.marshalClasses.ToolTipManagerMarshalMixin; ToolTipManagerMarshalMixin;
     import mx.managers.PopUpManager; PopUpManager;
 	import mx.managers.systemClasses.ActiveWindowManager; ActiveWindowManager;
-	import mx.managers.systemClasses.ChildManager; ChildManager;
 	import mx.managers.systemClasses.MarshallingSupport; MarshallingSupport;
 	import mx.messaging.config.LoaderConfig; LoaderConfig;
 	import mx.modules.IModuleInfo; IModuleInfo;
@@ -131,15 +126,7 @@ internal class FrameworkClasses
 	import mx.printing.FlexPrintJob; FlexPrintJob;
 	import mx.resources.Locale; Locale;
 	import mx.rpc.IResponder; IResponder;
-	import mx.skins.Border; Border;
-	import mx.skins.halo.BrokenImageBorderSkin; BrokenImageBorderSkin;
-	import mx.skins.halo.BusyCursor; BusyCursor;
-	import mx.skins.halo.DefaultDragImage; DefaultDragImage;
-	import mx.skins.halo.HaloFocusRect; HaloFocusRect;
-	
-	import mx.skins.halo.ToolTipBorder; ToolTipBorder;
-	import mx.skins.ProgrammaticSkin; ProgrammaticSkin;
-	import mx.skins.RectangularBorder; RectangularBorder;
+	import mx.skins.halo.BusyCursor; BusyCursor;		
 	import mx.styles.IStyleModule; IStyleModule;
 	import mx.styles.AdvancedStyleClient; AdvancedStyleClient;
 	import mx.utils.ArrayUtil; ArrayUtil;

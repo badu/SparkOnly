@@ -78,16 +78,6 @@ package mx.core
 		 */
 		public static const ALL:String = "all";
 		
-		/**
-		 *  Add the container to a creation queue.
-		 *  Deprecated since Flex 4.0.
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		public static const QUEUED:String = "queued";
 		
 		/**
 		 *  Do not create any children.

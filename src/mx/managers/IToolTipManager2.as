@@ -206,9 +206,7 @@ package mx.managers
 		/**
 		 *  @private
 		 */
-		function createToolTip(text:String, x:Number, y:Number,
-							   errorTipBorderStyle:String = null,
-							   context:IUIComponent = null):IToolTip;
+		function createToolTip(text:String, x:Number, y:Number, context:IUIComponent = null):IToolTip;
 		
 		/**
 		 *  @private

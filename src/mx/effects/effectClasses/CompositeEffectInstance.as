@@ -26,8 +26,9 @@ package mx.effects.effectClasses
 	import mx.core.mx_internal;
 	import mx.effects.EffectInstance;
 	import mx.effects.IEffectInstance;
-	import mx.effects.Tween;
 	import mx.events.EffectEvent;
+	
+	import spark.effects.Animate;
 	
 	use namespace mx_internal;
 	
@@ -145,7 +146,12 @@ package mx.effects.effectClasses
 			// appropriately. This logic just sets the internal time on
 			// the overall CompositeEffectInstance.
 			if (timerTween)
-				timerTween.seek(value);
+			{
+				/**
+				 * Bogdan : disabled, since Tween is replaced with Animate
+				 */
+				//timerTween.seek(value);			
+			}
 			else
 				_playheadTime = value;
 			super.playheadTime = value;
@@ -197,7 +203,7 @@ package mx.effects.effectClasses
 		 *  @private
 		 *  Used internally to obtain the playheadTime for the composite effect.
 		 */
-		mx_internal var timerTween:Tween;
+		mx_internal var timerTween:Animate;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -210,7 +216,10 @@ package mx.effects.effectClasses
 		 */
 		override public function play():void
 		{
-			timerTween = new Tween(this,0,0,durationWithoutRepeat);
+			/**
+			 * Bogdan : disabled, since Tween is replaced with Animate
+			 */
+			//new Tween(this,0,0,durationWithoutRepeat);
 			
 			super.play();
 		}
@@ -245,7 +254,13 @@ package mx.effects.effectClasses
 			super.end();
 			
 			if (timerTween)
-				timerTween.endTween();
+			{
+				/**
+				 * Bogdan : disabled, since Tween is replaced with Animate
+				 */
+				//timerTween.endTween();
+			}
+				
 		}
 		
 		/**
@@ -340,7 +355,7 @@ package mx.effects.effectClasses
 					{
 						var compChild:CompositeEffectInstance = childSets[i][0] as CompositeEffectInstance;
 						
-						if (childSets[i][0] is RotateInstance || (compChild && compChild.hasRotateInstance()))
+						if (compChild && compChild.hasRotateInstance())
 						{
 							return true;
 						}

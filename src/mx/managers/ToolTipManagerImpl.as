@@ -29,22 +29,23 @@ package mx.managers
 	import flash.geom.Rectangle;
 	import flash.utils.Timer;
 	
-	import mx.controls.ToolTip;
 	import mx.core.FlexGlobals;
 	import mx.core.IFlexModule;
 	import mx.core.IInvalidating;
-	import mx.core.ILayoutDirectionElement;
 	import mx.core.IToolTip;
 	import mx.core.IUIComponent;
-	import mx.core.LayoutDirection;
+	import mx.core.UIComponent;
 	import mx.core.mx_internal;
 	import mx.effects.EffectManager;
 	import mx.effects.IAbstractEffect;
 	import mx.events.DynamicEvent;
 	import mx.events.EffectEvent;
 	import mx.events.ToolTipEvent;
+	import mx.resources.ResourceManager;
 	import mx.styles.IStyleClient;
 	import mx.validators.IValidatorListener;
+	
+	import spark.components.ToolTip;
 	
 	use namespace mx_internal;
 	
@@ -122,7 +123,6 @@ package mx.managers
 					new mixins[i](this);
 				}
 			}
-			
 			if (hasEventListener("initialize"))
 				dispatchEvent(new Event("initialize"));
 			
@@ -775,7 +775,7 @@ package mx.managers
 					var showErrorTip:Boolean;
 					if (displayObject is IStyleClient)
 						showErrorTip = IStyleClient(displayObject).getStyle("showErrorTip");
-					if (currentText != null && currentText != "" && showErrorTip)
+					if (currentText && currentText!="" && showErrorTip)
 					{
 						currentTarget = displayObject;
 						isError = true;
@@ -784,8 +784,8 @@ package mx.managers
 				}
 				
 				if (displayObject is IToolTipManagerClient)
-				{
-					currentText = IToolTipManagerClient(displayObject).toolTip;
+				{	
+					currentText = IToolTipManagerClient(displayObject).toolTip;					
 					if (currentText != null)
 					{
 						currentTarget = displayObject;
@@ -839,8 +839,7 @@ package mx.managers
 			if (currentTarget)
 			{
 				// Don't display empty tooltips.
-				if (currentText == "")
-					return;
+				if (!currentText) return;
 				
 				// Dispatch a "startToolTip" event
 				// from the object displaying the tooltip.
@@ -957,8 +956,14 @@ package mx.managers
 			if (currentToolTip is IToolTip)
 				IToolTip(currentToolTip).text = currentText;
 			
-			if (isError && currentToolTip is IStyleClient)
-				IStyleClient(currentToolTip).setStyle("styleName", "errorTip");
+			if (isError)
+			{
+				currentToolTip.isErrorTooltip = true;
+			}
+			
+			// Set the text of the tooltip.
+			if (currentToolTip is IToolTip)
+				assignResourcesToToolTip();
 			
 			sizeTip(currentToolTip);
 			
@@ -976,7 +981,95 @@ package mx.managers
 				currentToolTip.addEventListener(EffectEvent.EFFECT_END,effectEndHandler);
 			}
 		}
+		/**
+		 * Assigns values from the resource bundle to the ToolTip.
+		 * Uses the value of the tooltip property or the errosString property 
+		 * on a component as the key to lookup resources.
+		 */
+		protected function assignResourcesToToolTip():void 
+		{			
+			if (!currentText || !currentToolTip) 
+			{
+				return;
+			}
+			if (currentText.charAt(0) != "^") 
+			{
+				return;
+			}
+			//eval the Bundle name to use, check if passed value is a bundle otherwise fallback on default
+			
+			var tokens:Array = currentText.split(".");
+			if (tokens.length <= 0) return;
+			if (tokens.length >= 1)
+			{
+				var bundleKey:String = tokens[0];
+				bundleKey = bundleKey.replace("^","");
+			}
+			var locale:String = ResourceManager.getInstance().localeChain[0];
 		
+			if (ResourceManager.getInstance().getResourceBundle(locale, bundleKey) == null) 
+			{
+				return;
+			}
+			var toolTipKey:String = isError ? "errorTip" : "toolTip";
+			
+			//eval the component instance key to use for resource lookup. 
+			//Either the second entry when set or the id of the UIComponent. 
+			//If neither is set use default
+			var targetKey:String;
+			
+			if (tokens.length > 1)
+			{
+				targetKey = tokens[1];
+			} 
+			else if (currentTarget is UIComponent && UIComponent(currentTarget).id != null) 
+			{
+				targetKey = UIComponent (currentTarget).id;
+			}
+			
+			var lookupKey:String = toolTipKey + "." + targetKey;
+			
+			//eval and apply color if any
+			var color:uint = ResourceManager.getInstance().getUint(bundleKey, lookupKey + ".color");			
+			if (color) 
+			{
+				IStyleClient(currentToolTip).setStyle("color", color);				
+			}
+			
+			//eval and apply chromeColor if any
+			var chromeColor:uint = ResourceManager.getInstance().getUint(bundleKey, lookupKey + ".chromeColor");
+			if (chromeColor)
+			{
+				IStyleClient(currentToolTip).setStyle("chromeColor", chromeColor);
+			}
+			
+			//eval and apply placement if any
+			var placement:String = ResourceManager.getInstance().getString(bundleKey, lookupKey + ".placement");
+			if (placement)
+			{
+				IStyleClient(currentToolTip).setStyle("placement", placement);
+			}
+			
+			//eval and apply text. If no text is found add a warning as the tooltip
+			var toolTipText:String = ResourceManager.getInstance().getString(bundleKey, lookupKey + ".text");
+			if (toolTipText) 
+			{
+				currentToolTip.text = toolTipText;
+			}
+			else 
+			{
+				currentToolTip.text = currentText;
+			}
+			//if the ToolTipClass is NiceToolTip eval and apply title if any
+			if (currentToolTip is ToolTip)
+			{
+				var toolTipTitle:String = ResourceManager.getInstance().getString(bundleKey, lookupKey + ".title");
+				if (toolTipTitle != null && toolTipTitle.length > 0) 
+				{
+					ToolTip(currentToolTip).title = toolTipTitle;
+				}
+			}
+		}
 		/**
 		 *  @private
 		 *  Objects added to the SystemManager's ToolTip layer don't get
@@ -1018,161 +1111,73 @@ package mx.managers
 		 */
 		mx_internal function positionTip():void
 		{
-			// Determine layoutDirection of the target component.
-			var layoutDirection:String;
-			if (currentTarget is ILayoutDirectionElement)
-				layoutDirection = ILayoutDirectionElement(currentTarget).layoutDirection;
-			else
-				layoutDirection = LayoutDirection.LTR;
-			
-			const mirror:Boolean = (layoutDirection == LayoutDirection.RTL);
-			
 			var x:Number;
 			var y:Number;
 			
 			var screenWidth:Number = currentToolTip.screen.width;
 			var screenHeight:Number = currentToolTip.screen.height;
 			
-			if (isError)
+			var targetPos:Point = currentTarget.localToGlobal(new Point(0, 0));
+			var targetWidth:Number = currentTarget.width;
+			var targetHeight:Number = currentTarget.height;
+			var toolTipWidth:Number = currentToolTip.width;
+			var toolTipHeight:Number = currentToolTip.height;
+			var toLeft:Boolean;
+			var toTop:Boolean;
+			
+			var sm:ISystemManager = getSystemManager(currentTarget);
+			
+			var ttPos:String = IStyleClient(currentToolTip).getStyle("placement");
+			
+			//Use the specified placement value to position the ToolTip but make sure
+			//it can be displayed completely
+			//If no placement value is set use automatic placement, prefer
+			//right over left and bottom over top
+			if (ttPos == "topLeft" || 
+				ttPos == "bottomLeft" || 
+				targetPos.x + targetWidth * .75 + toolTipWidth > screenWidth) 
 			{
-				// Tooltips are laid out in the same direction as the target 
-				// component.
-				var tipElt:ILayoutDirectionElement = 
-					currentToolTip as ILayoutDirectionElement;
-				
-				if (tipElt && 
-					tipElt.layoutDirection != layoutDirection)
-				{
-					tipElt.layoutDirection = layoutDirection;
-					// sizeTip below will call validateNow()
-					tipElt.invalidateLayoutDirection();
-				}
-				
-				var targetGlobalBounds:Rectangle = 
-					getGlobalBounds(currentTarget, currentToolTip.root, mirror);
-				
-				x = mirror ?
-					targetGlobalBounds.left - 4 :
-					targetGlobalBounds.right + 4;
-				y = targetGlobalBounds.top - 1;
-				
-				// If there's no room to the right (left) of the control, put it 
-				// above or below, with the left (right) edge of the error tip 
-				// aligned with the left (right) edge of the target.
-				var noRoom:Boolean = mirror ?
-					x < currentToolTip.width :    
-					x + currentToolTip.width > screenWidth;            
-				if (noRoom)
-				{
-					var newWidth:Number = NaN;
-					var oldWidth:Number = NaN;
-					
-					x = mirror ?
-						targetGlobalBounds.right + 2 - currentToolTip.width :
-						targetGlobalBounds.left - 2;
-					
-					// If the error tip would be too wide for the stage,
-					// reduce the maximum width to fit onstage. Note that
-					// we have to reassign the text in order to get the tip
-					// to relayout after changing the border style and maxWidth.
-					if (mirror)
-					{
-						if (x < currentToolTip.width + 4) 
-						{
-							// -4 on the left, +2 on the right = -2
-							x = 4;
-							newWidth = targetGlobalBounds.right - 2;                        
-						}
-					}
-					else
-					{
-						if (x + currentToolTip.width + 4 > screenWidth)
-							newWidth = screenWidth - x - 4;                            
-					}
-					
-					if (!isNaN(newWidth))
-					{
-						oldWidth = Object(toolTipClass).maxWidth;
-						Object(toolTipClass).maxWidth = newWidth;
-						if (currentToolTip is IStyleClient)
-							IStyleClient(currentToolTip).setStyle("borderStyle", "errorTipAbove");
-						currentToolTip["text"] = currentToolTip["text"];
-					} 
-						
-						// Even if the error tip will fit onstage, we still need to
-						// change the border style and get the error tip to relayout.
-					else
-					{
-						if (currentToolTip is IStyleClient)
-							IStyleClient(currentToolTip).setStyle("borderStyle", "errorTipAbove");
-						currentToolTip["text"] = currentToolTip["text"];
-					}
-					
-					if (currentToolTip.height + 2 < targetGlobalBounds.top)
-					{
-						// There's room to put it above the control.
-						y = targetGlobalBounds.top - (currentToolTip.height + 2);
-					}
-					else
-					{
-						// No room above, put it below the control.
-						y = targetGlobalBounds.bottom + 2;
-						
-						if (!isNaN(newWidth))
-							Object(toolTipClass).maxWidth = newWidth;
-						if (currentToolTip is IStyleClient)
-							IStyleClient(currentToolTip).setStyle("borderStyle", "errorTipBelow");
-						currentToolTip["text"] = currentToolTip["text"];
-					}
-				}
-				
-				// Since the border style of the error tip may have changed,
-				// we have to force a remeasurement and change its size.
-				// This is because objects in the toolTips layer
-				// don't undergo normal measurement and layout.
-				sizeTip(currentToolTip)
-				
-				// If we changed the tooltip max size, we change it back.
-				// Otherwise, if RTL, and x wasn't set for maxWidth, reposition 
-				// because the width may have changed during the remeasure.
-				if (!isNaN(oldWidth))
-					Object(toolTipClass).maxWidth = oldWidth;
-				else if (mirror)
-					x = targetGlobalBounds.right + 2 - currentToolTip.width;
+				toLeft = true;
 			}
-			else
+			
+			if (ttPos == "topLeft" ||
+				ttPos == "topRight" ||
+				targetPos.y + targetHeight/2 + toolTipWidth > screenHeight) 
 			{
-				var sm:ISystemManager = getSystemManager(currentTarget);
-				// Position the upper-left (upper-right) of the tooltip
-				// at the lower-right (lower-left) of the arrow cursor.
-				x = DisplayObject(sm).mouseX + 11; 
-				if (mirror)
-					x -= currentToolTip.width;
-				y = DisplayObject(sm).mouseY + 22;
-				
-				// If the tooltip is too wide to fit onstage, move it left (right).
-				var toolTipWidth:Number = currentToolTip.width;
-				if (mirror)
-				{
-					if (x < 2)
-						x = 2;
-				}
-				else if (x + toolTipWidth > screenWidth)
-				{
-					x = screenWidth - toolTipWidth;
-				}
-				
-				// If the tooltip is too tall to fit onstage, move it up.
-				var toolTipHeight:Number = currentToolTip.height;
-				if (y + toolTipHeight > screenHeight)
-					y = screenHeight - toolTipHeight;
-				
-				var pos:Point = new Point(x, y);
-				pos = DisplayObject(sm).localToGlobal(pos);
-				pos = DisplayObject(sm.getSandboxRoot()).globalToLocal(pos);
-				x = pos.x;
-				y = pos.y;
+				toTop = true;
 			}
+			
+			//Position the ToolTip and let the ToolTip Component know wich placement
+			//to use, so that the skin can draw itself accordingly
+			if (toLeft && toTop) 
+			{
+				IStyleClient(currentToolTip).setStyle("placement", "topLeft");
+				x = targetPos.x + Math.max (20, targetWidth * .1 - 25);
+				y = targetPos.y + targetHeight * .25;
+			} 
+			else if (toLeft && !toTop)
+			{
+				IStyleClient(currentToolTip).setStyle("placement", "bottomLeft");
+				x = targetPos.x + Math.max (20, targetWidth * .1 - 25);
+				y = targetPos.y + targetHeight * .75;
+			} 
+			else if (!toLeft && toTop) {
+				IStyleClient(currentToolTip).setStyle("placement", "topRight");
+				x = targetPos.x + targetWidth * .9 - 25;
+				y = targetPos.y + targetHeight * .25;
+			} 
+			else 
+			{
+				IStyleClient(currentToolTip).setStyle("placement", "bottomRight");
+				x = targetPos.x + targetWidth * .9 - 25;
+				y = targetPos.y + targetHeight * .75;
+			}
+			
+			var pos:Point = new Point(x, y);
+			pos = DisplayObject(sm).localToGlobal(pos);
+			pos = DisplayObject(sm.getSandboxRoot()).globalToLocal(pos);
+			x = pos.x;
+			y = pos.y;
 			
 			currentToolTip.move(x, y);
 		}
@@ -1375,15 +1380,6 @@ package mx.managers
 		 *  In case of multiple stages, the relevant stage is determined
 		 *  from the <code>context</code> argument.
 		 *
-		 *  @param errorTipBorderStyle The border style of an error tip. This method 
-		 *  argument can be null, "errorTipRight", "errorTipAbove", or "errorTipBelow". 
-		 *  If it is null, then the <code>createToolTip()</code> method creates a normal ToolTip. If it is 
-		 *  "errorTipRight", "errorTipAbove", or "errorTipBelow", then the <code>createToolTip()</code> 
-		 *  method creates an error tip, and this parameter determines where the arrow 
-		 *  of the error tip points to (the error's target). For example, if you pass "errorTipRight", Flex 
-		 *  positions the error tip (via the x and y arguments) to the 
-		 *  right of the error target; the arrow is on the left edge of the error tip.
-		 *
 		 *  @param context This property is not currently used.
 		 *
 		 *  @return The newly created ToolTip.
@@ -1394,9 +1390,7 @@ package mx.managers
 		 *  @playerversion AIR 1.1
 		 *  @productversion Flex 3
 		 */
-		public function createToolTip(text:String, x:Number, y:Number,
-									  errorTipBorderStyle:String = null,
-									  context:IUIComponent = null):IToolTip
+		public function createToolTip(text:String, x:Number, y:Number, context:IUIComponent = null):IToolTip
 		{
 			var toolTip:ToolTip = new ToolTip();
 			
@@ -1420,14 +1414,8 @@ package mx.managers
 			{
 				sm.topLevelSystemManager.toolTipChildren.addChild(toolTip as DisplayObject);
 			}
-			
-			if (errorTipBorderStyle)
-			{
-				toolTip.setStyle("styleName", "errorTip");
-				toolTip.setStyle("borderStyle", errorTipBorderStyle);
-			}
-			
-			toolTip.text = text;
+						
+			toolTip.text= text;
 			
 			sizeTip(toolTip);
 			

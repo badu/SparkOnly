@@ -214,6 +214,7 @@ package spark.components
 		 *  @playerversion AIR 1.5
 		 *  @productversion Flex 4
 		 */
+		[Bindable]
 		public function set displayPopUp(value:Boolean):void
 		{
 			if (_displayPopUp == value)
@@ -239,7 +240,7 @@ package spark.components
 		
 		private var _popUp:IFlexDisplayObject;
 		
-		[Bindable ("popUpChanged")]
+		[Bindable("popUpChanged")]
 		
 		/**
 		 *  The IFlexDisplayObject to add to the PopUpManager when the PopUpAnchor is opened. 

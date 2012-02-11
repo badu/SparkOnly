@@ -21,7 +21,7 @@ package mx.core
 {
 	
 	import flash.geom.Rectangle;
-	
+
 	/**
 	 *  The IToolTip interface defines the API that tooltip-like components
 	 *  must implement in order to work with the ToolTipManager.
@@ -76,6 +76,9 @@ package mx.core
 		 *  @private
 		 */
 		function set text(value:String):void;
+		
+		function set isErrorTooltip(value:Boolean):void;
+		function get isErrorTooltip():Boolean;	
 	}
 	
 }

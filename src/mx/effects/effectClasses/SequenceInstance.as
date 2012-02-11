@@ -25,7 +25,6 @@ package mx.effects.effectClasses
 	import mx.effects.EffectInstance;
 	import mx.effects.IEffectInstance;
 	import mx.effects.Sequence;
-	import mx.effects.Tween;
 	
 	use namespace mx_internal;
 	
@@ -406,7 +405,11 @@ package mx.effects.effectClasses
 			// Dispatch an effectStart event from the target.
 			super.play();
 			
-			startTime = Tween.intervalTime;
+			startTime = 0;
+			/**
+			 * Bogdan : disabled, since Tween is replaced with Animate
+			 */
+			//startTime = Tween.intervalTime;
 			
 			if (activeEffectQueue.length == 0)
 			{

@@ -50,7 +50,6 @@
     <classEntry path="mx.containers.utilityClasses.FlexChildInfo"/>
     <classEntry path="mx.containers.utilityClasses.IConstraintLayout"/>
     <classEntry path="mx.controls.IFlexContextMenu"/>
-    <classEntry path="mx.controls.ToolTip"/>
     <classEntry path="mx.core.AdvancedLayoutFeatures"/>
     <classEntry path="mx.core.ApplicationDomainTarget"/>
     <classEntry path="mx.core.BitmapAsset"/>
@@ -105,10 +104,8 @@
     <classEntry path="mx.core.ILayoutElement"/>
     <classEntry path="mx.core.IMXMLObject"/>
     <classEntry path="mx.core.INavigatorContent"/>
-    <classEntry path="mx.core.IProgrammaticSkin"/>
     <classEntry path="mx.core.IPropertyChangeNotifier"/>
     <classEntry path="mx.core.IRawChildrenContainer"/>
-    <classEntry path="mx.core.IRectangularBorder"/>
     <classEntry path="mx.core.ISWFBridgeGroup"/>
     <classEntry path="mx.core.ISWFBridgeProvider"/>
     <classEntry path="mx.core.ISWFLoader"/>
@@ -159,12 +156,9 @@
     <classEntry path="mx.effects.IEffect"/>
     <classEntry path="mx.effects.IEffectInstance"/>
     <classEntry path="mx.effects.IEffectTargetHost"/>
-    <classEntry path="mx.effects.Iris"/>
-    <classEntry path="mx.effects.MaskEffect"/>
     <classEntry path="mx.effects.Parallel"/>
     <classEntry path="mx.effects.Sequence"/>
     <classEntry path="mx.effects.SetStyleAction"/>
-    <classEntry path="mx.effects.SoundEffect"/>
     <classEntry path="mx.effects.easing.Back"/>
     <classEntry path="mx.effects.easing.Bounce"/>
     <classEntry path="mx.effects.easing.Circular"/>
@@ -174,13 +168,10 @@
     <classEntry path="mx.effects.effectClasses.AddRemoveEffectTargetFilter"/>
     <classEntry path="mx.effects.effectClasses.CompositeEffectInstance"/>
     <classEntry path="mx.effects.effectClasses.HideShowEffectTargetFilter"/>
-    <classEntry path="mx.effects.effectClasses.IrisInstance"/>
-    <classEntry path="mx.effects.effectClasses.MaskEffectInstance"/>
     <classEntry path="mx.effects.effectClasses.ParallelInstance"/>
     <classEntry path="mx.effects.effectClasses.PropertyChanges"/>
     <classEntry path="mx.effects.effectClasses.SequenceInstance"/>
     <classEntry path="mx.effects.effectClasses.SetStyleActionInstance"/>
-    <classEntry path="mx.effects.effectClasses.SoundEffectInstance"/>
     <classEntry path="mx.events.BrowserChangeEvent"/>
     <classEntry path="mx.events.ChildExistenceChangedEvent"/>
     <classEntry path="mx.events.CloseEvent"/>
@@ -299,7 +290,6 @@
     <classEntry path="mx.managers.IPopUpManager"/>
     <classEntry path="mx.managers.ISystemManager"/>
     <classEntry path="mx.managers.ISystemManagerChildManager"/>
-    <classEntry path="mx.managers.IToolTipManager"/>
     <classEntry path="mx.managers.IToolTipManager2"/>
     <classEntry path="mx.managers.IToolTipManagerClient"/>
     <classEntry path="mx.managers.LayoutManager"/>
@@ -350,14 +340,8 @@
     <classEntry path="mx.resources.ResourceManager"/>
     <classEntry path="mx.resources.ResourceManagerImpl"/>
     <classEntry path="mx.rpc.IResponder"/>
-    <classEntry path="mx.skins.Border"/>
-    <classEntry path="mx.skins.ProgrammaticSkin"/>
-    <classEntry path="mx.skins.RectangularBorder"/>
-    <classEntry path="mx.skins.halo.BrokenImageBorderSkin"/>
     <classEntry path="mx.skins.halo.BusyCursor"/>
     <classEntry path="mx.skins.halo.DefaultDragImage"/>
-    <classEntry path="mx.skins.halo.HaloFocusRect"/>
-    <classEntry path="mx.skins.halo.ToolTipBorder"/>
     <classEntry path="mx.states.AddChild"/>
     <classEntry path="mx.states.AddItems"/>
     <classEntry path="mx.states.IOverride"/>
@@ -378,7 +362,6 @@
     <classEntry path="mx.styles.IAdvancedStyleClient"/>
     <classEntry path="mx.styles.ISimpleStyleClient"/>
     <classEntry path="mx.styles.IStyleClient"/>
-    <classEntry path="mx.styles.IStyleManager"/>
     <classEntry path="mx.styles.IStyleManager2"/>
     <classEntry path="mx.styles.IStyleModule"/>
     <classEntry path="mx.styles.StyleManager"/>
@@ -818,7 +801,13 @@
     <classEntry path="spark.validators.supportClasses.GlobalizationValidatorBase"/>
     <classEntry path="spark.validators.supportClasses.NumberValidatorBase"/>
   </includeClasses>
-  <includeResources/>
+  <includeResources>
+    <resourceEntry destPath="Assets.swf" sourcePath="Assets.swf"/>
+    <resourceEntry destPath="CalendarIcon.png" sourcePath="CalendarIcon.png"/>
+    <resourceEntry destPath="ErrorIndicator.png" sourcePath="ErrorIndicator.png"/>
+    <resourceEntry destPath="RequiredIndicator.png" sourcePath="RequiredIndicator.png"/>
+    <resourceEntry destPath="cursorStretch.png" sourcePath="cursorStretch.png"/>
+  </includeResources>
   <namespaceManifests>
     <namespaceManifestEntry manifest="E:/sdk_experiments/framework_clean/manifest.xml" namespace="library://ns.adobe.com/flex/spark"/>
   </namespaceManifests>

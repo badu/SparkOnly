@@ -486,11 +486,9 @@ package mx.managers
 		 *  @playerversion AIR 1.1
 		 *  @productversion Flex 3
 		 */
-		public static function createToolTip(text:String, x:Number, y:Number,
-											 errorTipBorderStyle:String = null,
-											 context:IUIComponent = null):IToolTip
-		{
-			return impl.createToolTip(text, x, y, errorTipBorderStyle, context);
+		public static function createToolTip(text:String, x:Number, y:Number, context:IUIComponent = null):IToolTip
+		{			
+			return impl.createToolTip(text, x, y, context);
 		}
 		
 		/**

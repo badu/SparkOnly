@@ -108,7 +108,7 @@ package mx.core
 		
 		// Softlink FlexVersion and MatrixUtil to remove dependencies of embeds on
 		// framework classes. This helps to reduce swf size in AS-only projects.
-		private static var FlexVersionClass:Class;
+		
 		private static var MatrixUtilClass:Class;
 		
 		//--------------------------------------------------------------------------
@@ -133,15 +133,7 @@ package mx.core
 			_measuredWidth = width;
 			_measuredHeight = height;
 			
-			if (FlexVersionClass == null)
-			{
-				var appDomain:ApplicationDomain = ApplicationDomain.currentDomain;
-				if (appDomain.hasDefinition("mx.core::FlexVersion"))
-					FlexVersionClass = Class(appDomain.getDefinition("mx.core::FlexVersion"));
-			}
-			
-			if (FlexVersionClass && FlexVersionClass["compatibilityVersion"] >= FlexVersionClass["VERSION_4_0"])
-				this.addEventListener(Event.ADDED, addedHandler);
+			this.addEventListener(Event.ADDED, addedHandler);
 		}
 		
 		//--------------------------------------------------------------------------
