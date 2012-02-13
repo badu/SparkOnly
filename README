@@ -1,6 +1,7 @@
 What is it?
 ==================
-Apache Flex 4.6 library which contains unified framework and spark and no MX components.
+Apache Flex 4.6 library which contains unified framework and Spark without MX components.
+Includes AIR classes.
 
 Purpose
 ==================
@@ -17,7 +18,3 @@ Intructions on how to use it
 7) Add the imported library (SparkOnly)
 8) Enjoy!
 
-Notes
-==================
-Assets.swf contains MX graphics. I've left it there since I'm planning to use those symbols when I'll construct the missing MX components for Spark (
-ColorPicker, DateChooser, DateField , LinkButton , Menu , PopUpButton , VideoDisplay , VideoPlayer , ProgressBar , SWFLoader , TabNavigator , ViewStack , Tree , etc)
