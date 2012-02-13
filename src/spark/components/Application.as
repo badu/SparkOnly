@@ -681,7 +681,7 @@ package spark.components
 		//  preloader
 		//----------------------------------
 		
-		[Inspectable(defaultValue="mx.preloaders.DownloadProgressBar")]
+		[Inspectable(defaultValue="mx.preloaders.SparkDownloadProgressBar")]
 		
 		/**
 		 *  The application container supports an application preloader that 

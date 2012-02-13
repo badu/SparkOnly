@@ -287,8 +287,7 @@
     <component id="MiniDebugTarget" class="mx.logging.targets.MiniDebugTarget" lookupOnly="true"/>
     <component id="TraceTarget" class="mx.logging.targets.TraceTarget" lookupOnly="true"/>
     
-    <!-- cleaned framework -->
-    <component id="AddChild" class="mx.states.AddChild"/>
+    <!-- cleaned framework -->    
     <component id="AddItems" class="mx.states.AddItems"/>
     <component id="ArrayCollection" class="mx.collections.ArrayCollection"/>
     <component id="ArrayList" class="mx.collections.ArrayList"/>
@@ -318,13 +317,8 @@
     <component id="RadialGradient" class="mx.graphics.RadialGradient"/>
     <component id="RadialGradientStroke" class="mx.graphics.RadialGradientStroke"/>
     <component id="RegExpValidator" class="mx.validators.RegExpValidator"/>
-    <component id="AsyncListView" class="mx.collections.AsyncListView"/>
-    <component id="RemoveChild" class="mx.states.RemoveChild"/>
+    <component id="AsyncListView" class="mx.collections.AsyncListView"/>    
     <component id="Sequence" class="mx.effects.Sequence"/>
-    <component id="SetEventHandler" class="mx.states.SetEventHandler"/>
-    <component id="SetProperty" class="mx.states.SetProperty"/>
-    <component id="SetStyle" class="mx.states.SetStyle"/>
-    <component id="SetStyleAction" class="mx.effects.SetStyleAction"/>
     <component id="SocialSecurityValidator" class="mx.validators.SocialSecurityValidator"/>
     <component id="SolidColor" class="mx.graphics.SolidColor"/>
     <component id="SolidColorStroke" class="mx.graphics.SolidColorStroke"/>
@@ -348,6 +342,13 @@
     <component id="DragManager" class="mx.managers.DragManager" />
     <component id="ToolTip" class="spark.components.ToolTip" />
     <component id="UIComponent" class="mx.core.UIComponent" />
+	<!-- AIR -->
+    <component id="WindowedApplication" class="spark.components.WindowedApplication"/>
+    <component id="Window" class="spark.components.Window"/>
+    <component id="TitleBar" class="spark.components.windowClasses.TitleBar"/>
 
+    <!-- Spark Graphics -->
+    <component id="BitmapGraphic" class="spark.primitives.BitmapImage" lookupOnly="true"/>
+    <component id="BitmapImage" class="spark.primitives.BitmapImage" lookupOnly="true"/>
   
 </componentPackage>

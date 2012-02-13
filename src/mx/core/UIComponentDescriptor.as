@@ -129,33 +129,7 @@ package mx.core
 		 */
 		public var effects:Array;
 		
-		//----------------------------------
-		//  instanceIndices
-		//----------------------------------
-		
-		/**
-		 *  @private
-		 */
-		mx_internal var instanceIndices:Array /* of int */;
-		
-		//----------------------------------
-		//  repeaterIndices
-		//----------------------------------
-		
-		/**
-		 *  @private
-		 */
-		mx_internal var repeaterIndices:Array /* of int */;
-		
-		//----------------------------------
-		//  repeaters
-		//----------------------------------
-		
-		/**
-		 *  @private
-		 */
-		mx_internal var repeaters:Array /* of Repeater */;
-		
+			
 		//----------------------------------
 		//  stylesFactory
 		//----------------------------------

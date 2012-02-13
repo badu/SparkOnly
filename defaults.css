@@ -495,3 +495,46 @@ ToolTip
 	fontSize: 11px;
 	maxWidth: 300px;
 }
+
+/**
+	AIR
+*/
+
+/*
+//------------------------------
+//  Spark TitleBar
+//------------------------------
+*/
+
+TitleBar
+{
+	skinClass: ClassReference("spark.skins.spark.windowChrome.TitleBarSkin");
+}
+
+/*
+//------------------------------
+//  Spark WindowedApplication
+//------------------------------
+*/
+
+WindowedApplication
+{
+	backgroundAlpha: 1;
+	backgroundColor: #FFFFFF;
+	resizeAffordanceWidth: 6;
+	skinClass: ClassReference("spark.skins.spark.WindowedApplicationSkin");
+}
+
+/*
+//------------------------------
+//  Spark Window
+//------------------------------
+*/
+
+Window
+{
+	backgroundAlpha: 1;
+	backgroundColor: #FFFFFF;
+	resizeAffordanceWidth: 6;
+	skinClass: ClassReference("spark.skins.spark.WindowedApplicationSkin");
+}

@@ -73,7 +73,6 @@ package spark.components
 	import flashx.textLayout.tlf_internal;
 	import flashx.undo.IUndoManager;
 	
-	import mx.core.FlexVersion;
 	import mx.core.IFlexModuleFactory;
 	import mx.core.IIMESupport;
 	import mx.core.ISystemCursorClient;
@@ -2534,8 +2533,8 @@ package spark.components
 			
 			if (textChanged)
 			{
-				if (FlexVersion.compatibilityVersion > FlexVersion.VERSION_4_5) 
-					preserveSelectionOnSetText = true;
+				
+				preserveSelectionOnSetText = true;
 				
 				// If the text has linebreaks (CR, LF, or CF+LF)
 				// create a multi-paragraph TextFlow from it

@@ -38,7 +38,6 @@ package mx.managers
 	import mx.automation.IAutomationObject;
 	import mx.core.FlexGlobals;
 	import mx.core.FlexSprite;
-	import mx.core.FlexVersion;
 	import mx.core.IChildList;
 	import mx.core.IFlexDisplayObject;
 	import mx.core.IFlexModule;
@@ -534,16 +533,8 @@ package mx.managers
 				else
 					isTopLevelRoot = systemManager.isTopLevelRoot();
 				
-				if (isTopLevelRoot && (FlexVersion.compatibilityVersion < FlexVersion.VERSION_4_6))
-				{
-					// The sandbox root is the top level root.
-					// The application width is just the screen width.
-					var screen:Rectangle = systemManager.screen;
-					appWidth = screen.width;
-					appHeight = screen.height;
-				}
-				else
-				{
+				if (isTopLevelRoot )
+				{					
 					rect = systemManager.getVisibleApplicationRect();
 					rect.topLeft = DisplayObject(systemManager).globalToLocal(rect.topLeft);
 					rect.bottomRight = DisplayObject(systemManager).globalToLocal(rect.bottomRight);

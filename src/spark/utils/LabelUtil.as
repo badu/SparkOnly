@@ -20,7 +20,7 @@
 package spark.utils
 {
 	
-	import mx.core.FlexVersion;
+	
 	
 	/**
 	 *  The LabelUtil class is used by components to determine the correct
@@ -111,8 +111,7 @@ package spark.utils
 				return String(item);
 			
 			// special case for empty labelField
-			if (labelField == "" && FlexVersion.compatibilityVersion >= FlexVersion.VERSION_4_5)
-				return "";
+			if (labelField == "") return "";
 			
 			try
 			{

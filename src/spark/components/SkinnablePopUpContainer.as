@@ -32,7 +32,6 @@ package spark.components
 	
 	import mx.core.EventPriority;
 	import mx.core.FlexGlobals;
-	import mx.core.FlexVersion;
 	import mx.core.mx_internal;
 	import mx.effects.IEffect;
 	import mx.effects.Parallel;
@@ -41,7 +40,6 @@ package spark.components
 	import mx.events.SandboxMouseEvent;
 	import mx.managers.PopUpManager;
 	import mx.managers.SystemManager;
-	import mx.managers.SystemManagerGlobals;
 	import mx.styles.StyleProtoChain;
 	
 	import spark.effects.Move;
@@ -797,10 +795,7 @@ package spark.components
 		override mx_internal function initProtoChain():void
 		{
 			// Maintain backwards compatibility of popup style inheritance
-			if (FlexVersion.compatibilityVersion < FlexVersion.VERSION_4_6)
-				super.initProtoChain();
-			else
-				StyleProtoChain.initProtoChain(this, false);
+			StyleProtoChain.initProtoChain(this, false);
 		}
 		
 		/**

@@ -32,13 +32,32 @@ package mx.core
 	 *  @playerversion AIR 1.1
 	 *  @productversion Flex 3
 	 */
-	public interface IStateClient2 extends IEventDispatcher, IStateClient 
+	public interface IStateClient2 extends IEventDispatcher 
 	{   
 		//--------------------------------------------------------------------------
 		//
 		//  Properties
 		//
 		//--------------------------------------------------------------------------
+		
+		//----------------------------------
+		//  currentState
+		//----------------------------------
+		
+		/**
+		 *  The current view state.
+		 *  
+		 *  @langversion 3.0
+		 *  @playerversion Flash 9
+		 *  @playerversion AIR 1.1
+		 *  @productversion Flex 3
+		 */
+		function get currentState():String;
+		
+		/**
+		 *  @private
+		 */
+		function set currentState(value:String):void;
 		
 		//----------------------------------
 		//  states

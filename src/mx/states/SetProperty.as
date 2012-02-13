@@ -18,8 +18,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 package mx.states
-{
-	
+{	
 	import mx.core.IDeferredInstance;
 	import mx.core.UIComponent;
 	import mx.core.mx_internal;
@@ -286,7 +285,8 @@ package mx.states
 		 */
 		private function getPseudonym(obj:*, name:String):String
 		{
-			var propName:String;        
+			var propName:String;
+			
 			propName = PSEUDONYMS[name];
 			if (!(propName in obj))
 			{

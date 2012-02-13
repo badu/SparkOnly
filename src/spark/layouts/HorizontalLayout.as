@@ -24,7 +24,6 @@ package spark.layouts
 	import flash.geom.Rectangle;
 	
 	import mx.containers.utilityClasses.Flex;
-	import mx.core.FlexVersion;
 	import mx.core.ILayoutElement;
 	import mx.core.IVisualElement;
 	import mx.core.mx_internal;
@@ -143,20 +142,12 @@ package spark.layouts
 		private static function calculatePercentHeight(layoutElement:ILayoutElement, height:Number):Number
 		{
 			var percentHeight:Number;
-			if (FlexVersion.compatibilityVersion < FlexVersion.VERSION_4_6)
-			{
-				percentHeight = LayoutElementHelper.pinBetween(Math.round(layoutElement.percentHeight * 0.01 * height),
-					layoutElement.getMinBoundsHeight(),
-					layoutElement.getMaxBoundsHeight() );
-				return percentHeight < height ? percentHeight : height;
-			}
-			else
-			{
-				percentHeight = LayoutElementHelper.pinBetween(Math.min(Math.round(layoutElement.percentHeight * 0.01 * height), height),
-					layoutElement.getMinBoundsHeight(),
-					layoutElement.getMaxBoundsHeight() );
-				return percentHeight;
-			}
+			
+			percentHeight = LayoutElementHelper.pinBetween(Math.min(Math.round(layoutElement.percentHeight * 0.01 * height), height),
+				layoutElement.getMinBoundsHeight(),
+				layoutElement.getMaxBoundsHeight() );
+			return percentHeight;
+			
 		}
 		
 		private static function sizeLayoutElement(layoutElement:ILayoutElement, height:Number, 

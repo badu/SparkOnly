@@ -47,8 +47,7 @@ package mx.core
 	import mx.utils.StringUtil;
 	
 	use namespace mx_internal;
-	
-	include "../styles/metadata/LeadingStyle.as"
+		
 	include "../styles/metadata/PaddingStyles.as"
 	include "../styles/metadata/TextStyles.as"
 	

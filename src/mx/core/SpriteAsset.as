@@ -105,10 +105,7 @@ package mx.core
 		ILayoutDirectionElement
 	{
 		include "../core/Version.as";
-		
-		// Softlink FlexVersion and MatrixUtil to remove dependencies of embeds on
-		// framework classes. This helps to reduce swf size in AS-only projects.
-		
+				
 		private static var MatrixUtilClass:Class;
 		
 		//--------------------------------------------------------------------------

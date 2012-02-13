@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="false" useMultiPlatformConfig="false" version="3">
   <includeClasses>
+    <classEntry path="AIRFrameworkClasses"/>
     <classEntry path="FrameworkClasses"/>
     <classEntry path="SparkClasses"/>
     <classEntry path="mx.accessibility.AccConst"/>
@@ -19,7 +20,6 @@
     <classEntry path="mx.binding.PropertyWatcher"/>
     <classEntry path="mx.binding.RepeaterComponentWatcher"/>
     <classEntry path="mx.binding.RepeaterItemWatcher"/>
-    <classEntry path="mx.binding.StaticPropertyWatcher"/>
     <classEntry path="mx.binding.Watcher"/>
     <classEntry path="mx.binding.XMLWatcher"/>
     <classEntry path="mx.binding.utils.BindingUtils"/>
@@ -49,7 +49,14 @@
     <classEntry path="mx.containers.utilityClasses.Flex"/>
     <classEntry path="mx.containers.utilityClasses.FlexChildInfo"/>
     <classEntry path="mx.containers.utilityClasses.IConstraintLayout"/>
+    <classEntry path="mx.controls.FlexNativeMenu"/>
     <classEntry path="mx.controls.IFlexContextMenu"/>
+    <classEntry path="mx.controls.menuClasses.IMenuDataDescriptor"/>
+    <classEntry path="mx.controls.treeClasses.DefaultDataDescriptor"/>
+    <classEntry path="mx.controls.treeClasses.HierarchicalCollectionView"/>
+    <classEntry path="mx.controls.treeClasses.HierarchicalViewCursor"/>
+    <classEntry path="mx.controls.treeClasses.ITreeDataDescriptor"/>
+    <classEntry path="mx.controls.treeClasses.ITreeDataDescriptor2"/>
     <classEntry path="mx.core.AdvancedLayoutFeatures"/>
     <classEntry path="mx.core.ApplicationDomainTarget"/>
     <classEntry path="mx.core.BitmapAsset"/>
@@ -70,6 +77,7 @@
     <classEntry path="mx.core.EmbeddedFont"/>
     <classEntry path="mx.core.EmbeddedFontRegistry"/>
     <classEntry path="mx.core.EventPriority"/>
+    <classEntry path="mx.core.FTETextField"/>
     <classEntry path="mx.core.FlexApplicationBootstrap"/>
     <classEntry path="mx.core.FlexBitmap"/>
     <classEntry path="mx.core.FlexGlobals"/>
@@ -86,6 +94,7 @@
     <classEntry path="mx.core.IBorder"/>
     <classEntry path="mx.core.IButton"/>
     <classEntry path="mx.core.IChildList"/>
+    <classEntry path="mx.core.IConstraintClient"/>
     <classEntry path="mx.core.IContainer"/>
     <classEntry path="mx.core.IDataRenderer"/>
     <classEntry path="mx.core.IDeferredContentOwner"/>
@@ -110,18 +119,17 @@
     <classEntry path="mx.core.ISWFBridgeProvider"/>
     <classEntry path="mx.core.ISWFLoader"/>
     <classEntry path="mx.core.ISelectableList"/>
-    <classEntry path="mx.core.IStateClient"/>
     <classEntry path="mx.core.IStateClient2"/>
     <classEntry path="mx.core.ISystemCursorClient"/>
     <classEntry path="mx.core.ITextFieldFactory"/>
     <classEntry path="mx.core.IToggleButton"/>
     <classEntry path="mx.core.IToolTip"/>
-    <classEntry path="mx.core.ITransientDeferredInstance"/>
     <classEntry path="mx.core.IUIComponent"/>
     <classEntry path="mx.core.IUID"/>
     <classEntry path="mx.core.IUITextField"/>
     <classEntry path="mx.core.IVisualElement"/>
     <classEntry path="mx.core.IVisualElementContainer"/>
+    <classEntry path="mx.core.IWindow"/>
     <classEntry path="mx.core.InteractionMode"/>
     <classEntry path="mx.core.LayoutDirection"/>
     <classEntry path="mx.core.LayoutElementUIComponentUtils"/>
@@ -141,9 +149,11 @@
     <classEntry path="mx.core.SpriteAsset"/>
     <classEntry path="mx.core.TextFieldAsset"/>
     <classEntry path="mx.core.TextFieldFactory"/>
+    <classEntry path="mx.core.UIComponent"/>
     <classEntry path="mx.core.UIComponentCachePolicy"/>
     <classEntry path="mx.core.UIComponentDescriptor"/>
     <classEntry path="mx.core.UIComponentGlobals"/>
+    <classEntry path="mx.core.UIFTETextField"/>
     <classEntry path="mx.core.UITextField"/>
     <classEntry path="mx.core.UITextFormat"/>
     <classEntry path="mx.core.mx_internal"/>
@@ -172,6 +182,7 @@
     <classEntry path="mx.effects.effectClasses.PropertyChanges"/>
     <classEntry path="mx.effects.effectClasses.SequenceInstance"/>
     <classEntry path="mx.effects.effectClasses.SetStyleActionInstance"/>
+    <classEntry path="mx.events.AIREvent"/>
     <classEntry path="mx.events.BrowserChangeEvent"/>
     <classEntry path="mx.events.ChildExistenceChangedEvent"/>
     <classEntry path="mx.events.CloseEvent"/>
@@ -185,6 +196,8 @@
     <classEntry path="mx.events.FlexChangeEvent"/>
     <classEntry path="mx.events.FlexEvent"/>
     <classEntry path="mx.events.FlexMouseEvent"/>
+    <classEntry path="mx.events.FlexNativeMenuEvent"/>
+    <classEntry path="mx.events.FlexNativeWindowBoundsEvent"/>
     <classEntry path="mx.events.FocusRequestDirection"/>
     <classEntry path="mx.events.IndexChangedEvent"/>
     <classEntry path="mx.events.InterDragManagerEvent"/>
@@ -207,8 +220,8 @@
     <classEntry path="mx.events.ToolTipEvent"/>
     <classEntry path="mx.events.TouchInteractionEvent"/>
     <classEntry path="mx.events.TouchInteractionReason"/>
-    <classEntry path="mx.events.TweenEvent"/>
     <classEntry path="mx.events.ValidationResultEvent"/>
+    <classEntry path="mx.events.WindowExistenceEvent"/>
     <classEntry path="mx.filters.BaseDimensionFilter"/>
     <classEntry path="mx.filters.BaseFilter"/>
     <classEntry path="mx.filters.IBitmapFilter"/>
@@ -293,6 +306,7 @@
     <classEntry path="mx.managers.IToolTipManager2"/>
     <classEntry path="mx.managers.IToolTipManagerClient"/>
     <classEntry path="mx.managers.LayoutManager"/>
+    <classEntry path="mx.managers.NativeDragManagerImpl"/>
     <classEntry path="mx.managers.PopUpData"/>
     <classEntry path="mx.managers.PopUpManager"/>
     <classEntry path="mx.managers.PopUpManagerChildList"/>
@@ -304,6 +318,9 @@
     <classEntry path="mx.managers.SystemRawChildrenList"/>
     <classEntry path="mx.managers.ToolTipManager"/>
     <classEntry path="mx.managers.ToolTipManagerImpl"/>
+    <classEntry path="mx.managers.WindowedSystemChildrenList"/>
+    <classEntry path="mx.managers.WindowedSystemManager"/>
+    <classEntry path="mx.managers.WindowedSystemRawChildrenList"/>
     <classEntry path="mx.managers.dragClasses.DragProxy"/>
     <classEntry path="mx.managers.layoutClasses.LayoutDebugHelper"/>
     <classEntry path="mx.managers.layoutClasses.PriorityQueue"/>
@@ -325,7 +342,6 @@
     <classEntry path="mx.modules.ModuleBase"/>
     <classEntry path="mx.modules.ModuleManager"/>
     <classEntry path="mx.modules.ModuleManagerGlobals"/>
-    <classEntry path="mx.preloaders.DownloadProgressBar"/>
     <classEntry path="mx.preloaders.IPreloaderDisplay"/>
     <classEntry path="mx.preloaders.Preloader"/>
     <classEntry path="mx.preloaders.SparkDownloadProgressBar"/>
@@ -342,15 +358,10 @@
     <classEntry path="mx.rpc.IResponder"/>
     <classEntry path="mx.skins.halo.BusyCursor"/>
     <classEntry path="mx.skins.halo.DefaultDragImage"/>
-    <classEntry path="mx.states.AddChild"/>
     <classEntry path="mx.states.AddItems"/>
     <classEntry path="mx.states.IOverride"/>
     <classEntry path="mx.states.InterruptionBehavior"/>
     <classEntry path="mx.states.OverrideBase"/>
-    <classEntry path="mx.states.RemoveChild"/>
-    <classEntry path="mx.states.SetEventHandler"/>
-    <classEntry path="mx.states.SetProperty"/>
-    <classEntry path="mx.states.SetStyle"/>
     <classEntry path="mx.states.State"/>
     <classEntry path="mx.states.Transition"/>
     <classEntry path="mx.styles.AdvancedStyleClient"/>
@@ -490,11 +501,14 @@
     <classEntry path="spark.components.TileGroup"/>
     <classEntry path="spark.components.TitleWindow"/>
     <classEntry path="spark.components.ToggleButton"/>
+    <classEntry path="spark.components.ToolTip"/>
     <classEntry path="spark.components.VGroup"/>
     <classEntry path="spark.components.VScrollBar"/>
     <classEntry path="spark.components.VSlider"/>
     <classEntry path="spark.components.VideoDisplay"/>
     <classEntry path="spark.components.VideoPlayer"/>
+    <classEntry path="spark.components.Window"/>
+    <classEntry path="spark.components.WindowedApplication"/>
     <classEntry path="spark.components.calendarClasses.DateSelectorDisplayMode"/>
     <classEntry path="spark.components.gridClasses.CellPosition"/>
     <classEntry path="spark.components.gridClasses.CellRegion"/>
@@ -551,6 +565,7 @@
     <classEntry path="spark.components.supportClasses.ToggleButtonBase"/>
     <classEntry path="spark.components.supportClasses.TouchScrollHelper"/>
     <classEntry path="spark.components.supportClasses.TrackBase"/>
+    <classEntry path="spark.components.windowClasses.TitleBar"/>
     <classEntry path="spark.core.CSSTextLayoutFormat"/>
     <classEntry path="spark.core.ContentCache"/>
     <classEntry path="spark.core.ContentRequest"/>
@@ -747,6 +762,7 @@
     <classEntry path="spark.skins.spark.SkinnableContainerSkin"/>
     <classEntry path="spark.skins.spark.SkinnableDataContainerSkin"/>
     <classEntry path="spark.skins.spark.SkinnablePopUpContainerSkin"/>
+    <classEntry path="spark.skins.spark.SparkChromeWindowedApplicationSkin"/>
     <classEntry path="spark.skins.spark.SpinnerDecrementButtonSkin"/>
     <classEntry path="spark.skins.spark.SpinnerIncrementButtonSkin"/>
     <classEntry path="spark.skins.spark.SpinnerSkin"/>
@@ -760,6 +776,7 @@
     <classEntry path="spark.skins.spark.TitleWindowCloseButtonSkin"/>
     <classEntry path="spark.skins.spark.TitleWindowSkin"/>
     <classEntry path="spark.skins.spark.ToggleButtonSkin"/>
+    <classEntry path="spark.skins.spark.ToolTipSkin"/>
     <classEntry path="spark.skins.spark.UITextFieldGridItemRenderer"/>
     <classEntry path="spark.skins.spark.VScrollBarSkin"/>
     <classEntry path="spark.skins.spark.VScrollBarThumbSkin"/>
@@ -768,6 +785,7 @@
     <classEntry path="spark.skins.spark.VSliderThumbSkin"/>
     <classEntry path="spark.skins.spark.VSliderTrackSkin"/>
     <classEntry path="spark.skins.spark.VideoPlayerSkin"/>
+    <classEntry path="spark.skins.spark.WindowedApplicationSkin"/>
     <classEntry path="spark.skins.spark.mediaClasses.fullScreen.FullScreenButtonSkin"/>
     <classEntry path="spark.skins.spark.mediaClasses.fullScreen.MuteButtonSkin"/>
     <classEntry path="spark.skins.spark.mediaClasses.fullScreen.PlayPauseButtonSkin"/>
@@ -786,6 +804,16 @@
     <classEntry path="spark.skins.spark.mediaClasses.normal.VolumeBarSkin"/>
     <classEntry path="spark.skins.spark.mediaClasses.normal.VolumeBarThumbSkin"/>
     <classEntry path="spark.skins.spark.mediaClasses.normal.VolumeBarTrackSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.CloseButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.GripperSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.MacCloseButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.MacMaximizeButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.MacMinimizeButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.MacTitleBarSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.MaximizeButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.MinimizeButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.RestoreButtonSkin"/>
+    <classEntry path="spark.skins.spark.windowChrome.TitleBarSkin"/>
     <classEntry path="spark.utils.BitmapUtil"/>
     <classEntry path="spark.utils.DataItem"/>
     <classEntry path="spark.utils.FTETextUtil"/>
@@ -802,11 +830,37 @@
     <classEntry path="spark.validators.supportClasses.NumberValidatorBase"/>
   </includeClasses>
   <includeResources>
+    <resourceEntry destPath="win_restore_over.png" sourcePath="win_restore_over.png"/>
+    <resourceEntry destPath="gripper_up.png" sourcePath="gripper_up.png"/>
+    <resourceEntry destPath="mac_max_over.png" sourcePath="mac_max_over.png"/>
+    <resourceEntry destPath="mac_max_dis.png" sourcePath="mac_max_dis.png"/>
+    <resourceEntry destPath="mac_min_down.png" sourcePath="mac_min_down.png"/>
+    <resourceEntry destPath="win_max_down.png" sourcePath="win_max_down.png"/>
+    <resourceEntry destPath="win_max_up.png" sourcePath="win_max_up.png"/>
+    <resourceEntry destPath="win_close_up.png" sourcePath="win_close_up.png"/>
+    <resourceEntry destPath="win_restore_up.png" sourcePath="win_restore_up.png"/>
+    <resourceEntry destPath="mac_max_down.png" sourcePath="mac_max_down.png"/>
+    <resourceEntry destPath="win_min_over.png" sourcePath="win_min_over.png"/>
+    <resourceEntry destPath="win_max_over.png" sourcePath="win_max_over.png"/>
     <resourceEntry destPath="Assets.swf" sourcePath="Assets.swf"/>
-    <resourceEntry destPath="CalendarIcon.png" sourcePath="CalendarIcon.png"/>
-    <resourceEntry destPath="ErrorIndicator.png" sourcePath="ErrorIndicator.png"/>
-    <resourceEntry destPath="RequiredIndicator.png" sourcePath="RequiredIndicator.png"/>
+    <resourceEntry destPath="mac_min_up.png" sourcePath="mac_min_up.png"/>
+    <resourceEntry destPath="mac_min_over.png" sourcePath="mac_min_over.png"/>
+    <resourceEntry destPath="mac_max_up.png" sourcePath="mac_max_up.png"/>
     <resourceEntry destPath="cursorStretch.png" sourcePath="cursorStretch.png"/>
+    <resourceEntry destPath="win_max_dis.png" sourcePath="win_max_dis.png"/>
+    <resourceEntry destPath="win_min_up.png" sourcePath="win_min_up.png"/>
+    <resourceEntry destPath="win_restore_down.png" sourcePath="win_restore_down.png"/>
+    <resourceEntry destPath="win_min_dis.png" sourcePath="win_min_dis.png"/>
+    <resourceEntry destPath="mac_close_up.png" sourcePath="mac_close_up.png"/>
+    <resourceEntry destPath="win_min_down.png" sourcePath="win_min_down.png"/>
+    <resourceEntry destPath="mac_min_dis.png" sourcePath="mac_min_dis.png"/>
+    <resourceEntry destPath="ErrorIndicator.png" sourcePath="ErrorIndicator.png"/>
+    <resourceEntry destPath="win_close_down.png" sourcePath="win_close_down.png"/>
+    <resourceEntry destPath="win_close_over.png" sourcePath="win_close_over.png"/>
+    <resourceEntry destPath="mac_close_down.png" sourcePath="mac_close_down.png"/>
+    <resourceEntry destPath="mac_close_over.png" sourcePath="mac_close_over.png"/>
+    <resourceEntry destPath="RequiredIndicator.png" sourcePath="RequiredIndicator.png"/>
+    <resourceEntry destPath="CalendarIcon.png" sourcePath="CalendarIcon.png"/>
   </includeResources>
   <namespaceManifests>
     <namespaceManifestEntry manifest="E:/sdk_experiments/framework_clean/manifest.xml" namespace="library://ns.adobe.com/flex/spark"/>

@@ -25,7 +25,6 @@ package spark.components.supportClasses
 	import flash.geom.Point;
 	import flash.utils.*;
 	
-	import mx.core.FlexVersion;
 	import mx.core.IFactory;
 	import mx.core.ILayoutElement;
 	import mx.core.IVisualElement;
@@ -502,23 +501,12 @@ package spark.components.supportClasses
 		override protected function measure():void
 		{
 			if (skin)
-			{
-				if (FlexVersion.compatibilityVersion < FlexVersion.VERSION_4_5)
-				{
-					measuredWidth = skin.getExplicitOrMeasuredWidth();
-					measuredHeight = skin.getExplicitOrMeasuredHeight();
-					
-					measuredMinWidth = isNaN( skin.explicitWidth ) ? skin.minWidth : skin.explicitWidth;
-					measuredMinHeight = isNaN( skin.explicitHeight ) ? skin.minHeight : skin.explicitHeight;
-				}
-				else
-				{
-					measuredWidth = skin.getExplicitOrMeasuredWidth(); 
-					measuredHeight = skin.getExplicitOrMeasuredHeight();
-					
-					measuredMinWidth = skin.minWidth;
-					measuredMinHeight = skin.minHeight;
-				}
+			{	
+				measuredWidth = skin.getExplicitOrMeasuredWidth(); 
+				measuredHeight = skin.getExplicitOrMeasuredHeight();
+				
+				measuredMinWidth = skin.minWidth;
+				measuredMinHeight = skin.minHeight;				
 			}
 		}
 		

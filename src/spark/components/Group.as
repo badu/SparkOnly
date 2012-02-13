@@ -24,7 +24,6 @@ package spark.components
 	import flash.display.DisplayObject;
 	import flash.geom.Rectangle;
 	
-	import mx.core.FlexVersion;
 	import mx.core.IFlexModule;
 	import mx.core.IFontContextComponent;
 	import mx.core.IUIComponent;
@@ -264,9 +263,6 @@ package spark.components
 		 */
 		override public function get baselinePosition():Number
 		{
-			if (FlexVersion.compatibilityVersion < FlexVersion.VERSION_4_5)
-				return super.baselinePosition;
-			
 			if (!validateBaselinePosition())
 				return NaN;
 			

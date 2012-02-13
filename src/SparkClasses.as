@@ -20,35 +20,35 @@
 package
 {
 	
-
-internal class SparkClasses
-{
-
-/**
- *  @private
- *  This class is used to link additional classes into spark.swc
- *  beyond those that are found by dependecy analysis starting
- *  from the classes specified in manifest.xml.
- *  For example, Button does not have a reference to ButtonSkin,
- *  but ButtonSkin needs to be in framework.swc along with Button.
- */
-
-import mx.core.UIFTETextField; UIFTETextField;
-import spark.core.ContentCache; ContentCache;
-import spark.core.IDisplayText; IDisplayText;
-import spark.core.IEditableText; IEditableText;
-import spark.core.SpriteVisualElement; SpriteVisualElement;
-import spark.collections.OnDemandDataProvider; OnDemandDataProvider;
-import spark.components.IconPlacement; IconPlacement;
-import spark.components.calendarClasses.DateSelectorDisplayMode; DateSelectorDisplayMode;
-import spark.components.gridClasses.CellPosition; CellPosition;
-import spark.components.gridClasses.CellRegion; CellRegion;
-import spark.components.supportClasses.ListItemDragProxy; ListItemDragProxy;
-import spark.components.supportClasses.InteractionStateDetector; InteractionStateDetector;
-import spark.globalization.supportClasses.CalendarDate; CalendarDate;
-import spark.globalization.supportClasses.DateTimeFormatterEx; DateTimeFormatterEx;
-import spark.utils.TextFlowUtil; TextFlowUtil;
-import spark.components.ToolTip;ToolTip;
-}
-
+	
+	internal class SparkClasses
+	{
+		
+		/**
+		 *  @private
+		 *  This class is used to link additional classes into spark.swc
+		 *  beyond those that are found by dependecy analysis starting
+		 *  from the classes specified in manifest.xml.
+		 *  For example, Button does not have a reference to ButtonSkin,
+		 *  but ButtonSkin needs to be in framework.swc along with Button.
+		 */
+		
+		import mx.core.UIFTETextField; UIFTETextField;
+		import spark.core.ContentCache; ContentCache;
+		import spark.core.IDisplayText; IDisplayText;
+		import spark.core.IEditableText; IEditableText;
+		import spark.core.SpriteVisualElement; SpriteVisualElement;
+		import spark.collections.OnDemandDataProvider; OnDemandDataProvider;
+		import spark.components.IconPlacement; IconPlacement;
+		import spark.components.calendarClasses.DateSelectorDisplayMode; DateSelectorDisplayMode;
+		import spark.components.gridClasses.CellPosition; CellPosition;
+		import spark.components.gridClasses.CellRegion; CellRegion;
+		import spark.components.supportClasses.ListItemDragProxy; ListItemDragProxy;
+		import spark.components.supportClasses.InteractionStateDetector; InteractionStateDetector;
+		import spark.globalization.supportClasses.CalendarDate; CalendarDate;
+		import spark.globalization.supportClasses.DateTimeFormatterEx; DateTimeFormatterEx;
+		import spark.utils.TextFlowUtil; TextFlowUtil;
+		import spark.components.ToolTip;ToolTip;
+	}
+	
 }
