@@ -166,9 +166,7 @@ package mx.managers
 	 *  @playerversion AIR 1.1
 	 *  @productversion Flex 3
 	 */
-	public class SystemManager extends MovieClip
-		implements IChildList, IFlexDisplayObject,
-		IFlexModuleFactory, ISystemManager
+	public class SystemManager extends MovieClip implements IChildList, IFlexDisplayObject, IFlexModuleFactory, ISystemManager
 	{
 		include "../core/Version.as";
 		
@@ -224,6 +222,7 @@ package mx.managers
 		 */
 		public function SystemManager()
 		{
+			if (CONFIG::LOGGING) trace("new SystemManager");
 			CONFIG::performanceInstrumentation
 			{
 				var perfUtil:mx.utils.PerfUtil = mx.utils.PerfUtil.getInstance();
@@ -272,6 +271,7 @@ package mx.managers
 		 */
 		private function deferredNextFrame():void
 		{
+			if (CONFIG::LOGGING) trace("deferredNextFrame()");
 			if (currentFrame + 1 > totalFrames)
 				return;
 			
@@ -1931,7 +1931,7 @@ package mx.managers
 				var slash:int = url.lastIndexOf("/");
 				mainClassName = url.substring(slash + 1, dot);
 			}
-			
+			if (CONFIG::LOGGING) trace("CREATE "+mainClassName);
 			var mainClass:Class = Class(getDefinitionByName(mainClassName));
 			
 			return mainClass ? new mainClass() : null;
@@ -1974,7 +1974,7 @@ package mx.managers
 				_width = loaderInfo.width;
 				_height = loaderInfo.height;
 			}
-			
+			if (CONFIG::LOGGING) trace("initialize() :: creating preloader");
 			// Create an instance of the preloader and add it to the stage
 			preloader = new Preloader();
 			
@@ -2094,11 +2094,8 @@ package mx.managers
 		mx_internal function rawChildren_addChild(child:DisplayObject):DisplayObject
 		{
 			childManager.addingChild(child);
-			
-			super.addChild(child);
-			
-			childManager.childAdded(child); // calls child.createChildren()
-			
+			super.addChild(child);			
+			childManager.childAdded(child); // calls child.createChildren()			
 			return child;
 		}
 		
@@ -2518,6 +2515,7 @@ package mx.managers
 		 */
 		private function initHandler(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("initHandler(event)");
 			CONFIG::performanceInstrumentation
 			{
 				var perfUtil:mx.utils.PerfUtil = mx.utils.PerfUtil.getInstance();
@@ -2574,6 +2572,7 @@ package mx.managers
 		
 		private function docFrameListener(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("docFrameListener(event)");
 			if (currentFrame == 2)
 			{
 				removeEventListener(Event.ENTER_FRAME, docFrameListener);
@@ -2586,6 +2585,7 @@ package mx.managers
 		
 		private function extraFrameListener(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("extraFrameListener(event)");
 			if (lastFrame == currentFrame)
 				return;
 			
@@ -2605,6 +2605,7 @@ package mx.managers
 		 */
 		private function preloader_preloaderDocFrameReadyHandler(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("preloader_preloaderDocFrameReadyHandler()");
 			// Advance the next frame
 			preloader.removeEventListener(FlexEvent.PRELOADER_DOC_FRAME_READY,
 				preloader_preloaderDocFrameReadyHandler);
@@ -2618,6 +2619,7 @@ package mx.managers
 		 */
 		private function preloader_preloaderDoneHandler(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("preloader_preloaderDoneHandler()");
 			var app:IUIComponent = topLevelWindow;
 			
 			// Once the preloader dispatches the PRELOADER_DONE event, remove the preloader
@@ -2630,6 +2632,7 @@ package mx.managers
 			_popUpChildren.removeChild(preloader);
 			preloader = null;
 			
+			if (CONFIG::LOGGING) trace("preloader_preloaderDoneHandler() :: creating mouse catcher");
 			// Add the mouseCatcher as child 0.
 			mouseCatcher = new FlexSprite();
 			mouseCatcher.name = "mouseCatcher";
@@ -2668,6 +2671,7 @@ package mx.managers
 		 */
 		private function preloader_rslCompleteHandler(event:RSLEvent):void
 		{
+			if (CONFIG::LOGGING) trace("preloader_rslCompleteHandler()");
 			if (!event.isResourceModule && event.loaderInfo)
 			{
 				var rsl:Vector.<RSLData> = Vector.<RSLData>(rslDataList[event.rslIndex]);
@@ -2690,7 +2694,7 @@ package mx.managers
 		 */
 		mx_internal function docFrameHandler(event:Event = null):void
 		{
-			
+			if (CONFIG::LOGGING) trace("docFrameHandler(event)");
 			if (readyForKickOff)
 				kickOff();
 		}
@@ -2701,6 +2705,7 @@ package mx.managers
 		 */
 		mx_internal function preloader_completeHandler(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("preloader_completeHandler()");
 			preloader.removeEventListener(Event.COMPLETE,
 				preloader_completeHandler);
 			readyForKickOff = true;
@@ -2716,7 +2721,14 @@ package mx.managers
 		{
 			// already been here
 			if (document)
+			{
+				if (CONFIG::LOGGING) trace("kickOff() prevented.");
 				return;
+			}
+			else
+			{
+				if (CONFIG::LOGGING) trace("kickOff()");
+			}
 			
 			CONFIG::performanceInstrumentation
 			{
@@ -2728,36 +2740,36 @@ package mx.managers
 				SystemManagerGlobals.topLevelSystemManagers[0].
 					// dispatch a FocusEvent so we can pass ourselves along
 					dispatchEvent(new FocusEvent(FlexEvent.NEW_CHILD_APPLICATION, false, false, this));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating EmbeddedFontRegistry");
 			// Generated code will bring in EmbeddedFontRegistry
 			Singleton.registerClass("mx.core::IEmbeddedFontRegistry",
 				Class(getDefinitionByName("mx.core::EmbeddedFontRegistry")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating StyleManagerImpl for IStyleManager");
 			Singleton.registerClass("mx.styles::IStyleManager",
 				Class(getDefinitionByName("mx.styles::StyleManagerImpl")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating StyleManagerImpl for IStyleManager2");
 			Singleton.registerClass("mx.styles::IStyleManager2",
 				Class(getDefinitionByName("mx.styles::StyleManagerImpl")));
 			
 			// Register other singleton classes.
 			// Note: getDefinitionByName() will return null
 			// if the class can't be found.
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating BrowserManagerImpl");
 			Singleton.registerClass("mx.managers::IBrowserManager",
 				Class(getDefinitionByName("mx.managers::BrowserManagerImpl")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating CursorManagerImpl");
 			Singleton.registerClass("mx.managers::ICursorManager",
 				Class(getDefinitionByName("mx.managers::CursorManagerImpl")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating HistoryManagerImpl");
 			Singleton.registerClass("mx.managers::IHistoryManager",
 				Class(getDefinitionByName("mx.managers::HistoryManagerImpl")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating LayoutManager");
 			Singleton.registerClass("mx.managers::ILayoutManager",
 				Class(getDefinitionByName("mx.managers::LayoutManager")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating PopUpManagerImpl");
 			Singleton.registerClass("mx.managers::IPopUpManager",
 				Class(getDefinitionByName("mx.managers::PopUpManagerImpl")));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating ToolTipManagerImpl");
 			Singleton.registerClass("mx.managers::IToolTipManager2",
 				Class(getDefinitionByName("mx.managers::ToolTipManagerImpl")));
 			
@@ -2772,15 +2784,15 @@ package mx.managers
 			var dmInfo:Object = info()["useNativeDragManager"];
 			
 			var useNative:Boolean = dmInfo == null ? true : String(dmInfo) == "true";
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating NativeDragManagerImpl");
 			if (useNative)
 				dragManagerClass = Class(getDefinitionByName("mx.managers::NativeDragManagerImpl"));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating DragManagerImpl");
 			if (dragManagerClass == null)
 				dragManagerClass = Class(getDefinitionByName("mx.managers::DragManagerImpl"));
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating IDragManager");
 			Singleton.registerClass("mx.managers::IDragManager", dragManagerClass);
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating ITextFieldFactory");
 			Singleton.registerClass("mx.core::ITextFieldFactory", 
 				Class(getDefinitionByName("mx.core::TextFieldFactory")));
 			
@@ -2794,9 +2806,10 @@ package mx.managers
 					{
 						var token:int = perfUtil.markStart();
 					}
-					
+					if (CONFIG::LOGGING) trace("kickOff() :: creating [MIXIN] "+mixinList[i]);
 					// trace("initializing mixin " + mixinList[i]);
 					var c:Class = Class(getDefinitionByName(mixinList[i]));
+					if (CONFIG::LOGGING) trace("kickOff() :: init(sysMan:ISystemManager) [MIXIN] "+mixinList[i]);
 					c["init"](this);
 					
 					CONFIG::performanceInstrumentation
@@ -2805,13 +2818,13 @@ package mx.managers
 					}
 				}
 			}
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating IActiveWindowManager");
 			c = Singleton.getClass("mx.managers::IActiveWindowManager");
 			if (c)
 			{
 				registerImplementation("mx.managers::IActiveWindowManager", new c(this));
 			}
-			
+			if (CONFIG::LOGGING) trace("kickOff() :: creating IMarshalSystemManager");
 			// depends on having IActiveWindowManager installed first
 			c = Singleton.getClass("mx.managers::IMarshalSystemManager");
 			if (c)
@@ -2906,6 +2919,7 @@ package mx.managers
 		
 		private function extraFrameHandler(event:Event = null):void
 		{
+			if (CONFIG::LOGGING) trace("extraFrameHandler(event)");
 			var frameList:Object = info()["frames"];
 			
 			if (frameList && frameList[currentLabel])
@@ -2927,6 +2941,7 @@ package mx.managers
 		 */
 		private function nextFrameTimerHandler(event:TimerEvent):void
 		{
+			if (CONFIG::LOGGING) trace("nextFrameTimerHandler()");
 			if (currentFrame + 1 <= framesLoaded)
 			{
 				nextFrame();
@@ -2944,6 +2959,7 @@ package mx.managers
 		 */
 		private function initializeTopLevelWindow(event:Event):void
 		{
+			if (CONFIG::LOGGING) trace("initializeTopLevelWindow() :: mounting listeners");
 			// This listener is intended to run before any other KeyboardEvent listeners
 			// so that it can redispatch a cancelable=true copy of the event. 
 			if (getSandboxRoot() == this)
@@ -3054,6 +3070,7 @@ package mx.managers
 		 */
 		private function appCreationCompleteHandler(event:FlexEvent):void
 		{
+			if (CONFIG::LOGGING) trace("appCreationCompleteHandler()");
 			invalidateParentSizeAndDisplayList();
 		}
 		
@@ -3093,6 +3110,7 @@ package mx.managers
 		 */
 		private function Stage_resizeHandler(event:Event = null):void
 		{   
+			if (CONFIG::LOGGING) trace("Stage_resizeHandler()");
 			if (isDispatchingResizeEvent)
 				return;
 			
@@ -3470,6 +3488,7 @@ package mx.managers
 		public function registerImplementation(interfaceName:String,
 											   impl:Object):void
 		{
+			if (CONFIG::LOGGING) trace("registerImplementation() :: interface "+interfaceName+" with implementation "+impl);
 			var c:Object = implMap[interfaceName];
 			if (!c)
 				implMap[interfaceName] = impl;
@@ -3487,6 +3506,7 @@ package mx.managers
 		 */
 		public function getImplementation(interfaceName:String):Object
 		{
+			
 			var c:Object = implMap[interfaceName];
 			return c;
 		}

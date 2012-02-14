@@ -60,17 +60,17 @@ package mx.managers.systemClasses
 	import mx.managers.PopUpManagerChildList;
 	import mx.managers.SystemManagerGlobals;
 	import mx.managers.SystemManagerProxy;
-	import mx.managers.marshalClasses.CursorManagerMarshalMixin;
-	import mx.managers.marshalClasses.DragManagerMarshalMixin;
-	import mx.managers.marshalClasses.FocusManagerMarshalMixin;
-	import mx.managers.marshalClasses.PopUpManagerMarshalMixin;
-	import mx.managers.marshalClasses.ToolTipManagerMarshalMixin;
 	import mx.utils.EventUtil;
 	import mx.utils.NameUtil;
 	import mx.utils.SecurityUtil;
 	
 	use namespace mx_internal;
 	
+	[Frame(extraClass="mx.managers.marshalClasses.CursorManagerMarshalMixin")]
+	[Frame(extraClass="mx.managers.marshalClasses.DragManagerMarshalMixin")]
+	[Frame(extraClass="mx.managers.marshalClasses.FocusManagerMarshalMixin")]
+	[Frame(extraClass="mx.managers.marshalClasses.PopUpManagerMarshalMixin")]
+	[Frame(extraClass="mx.managers.marshalClasses.ToolTipManagerMarshalMixin")]
 	[ExcludeClass]
 	[Mixin]
 	
@@ -88,32 +88,6 @@ package mx.managers.systemClasses
 		{
 			Singleton.registerClass("mx.managers::IMarshalSystemManager", MarshallingSupport);
 		}
-		
-		/**
-		 *  @private
-		 */
-		private static function weakDependency():void { CursorManagerMarshalMixin};
-		
-		/**
-		 *  @private
-		 */
-		private static function weakDependency2():void { DragManagerMarshalMixin };
-		
-		/**
-		 *  @private
-		 */
-		private static function weakDependency3():void { FocusManagerMarshalMixin };
-		
-		/**
-		 *  @private
-		 */
-		private static function weakDependency4():void { PopUpManagerMarshalMixin };
-		
-		/**
-		 *  @private
-		 */
-		private static function weakDependency5():void { ToolTipManagerMarshalMixin };
-		
 		
 		
 		//--------------------------------------------------------------------------

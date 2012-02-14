@@ -36,6 +36,7 @@ package spark.modules
 	import mx.resources.ResourceManager;
 	
 	import spark.components.Group;
+	import spark.events.ElementExistenceEvent;
 	
 	//--------------------------------------
 	//  Events
@@ -618,10 +619,18 @@ package spark.modules
 			
 			if (!loadRequested && creationPolicy != ContainerCreationPolicy.NONE)
 				createDeferredContent();
+			/**
+			 * Bogdan : if it's self disposable, we're listening for parent's add / remove so we can load / unload
+			 * module. Was tested with state change, with includeIn. 
+			 */
+			if (_isAutoDisposingContent)
+			{
+				parent.addEventListener(ElementExistenceEvent.ELEMENT_REMOVE , anElementWasAddedOrRemoved);
+				parent.addEventListener(ElementExistenceEvent.ELEMENT_ADD,anElementWasAddedOrRemoved);
+			}
 			
 			super.createChildren();
-		}
-		
+		}		
 		//--------------------------------------------------------------------------
 		//
 		//  Methods
@@ -805,6 +814,39 @@ package spark.modules
 		private function moduleUnloadHandler(event:ModuleEvent):void
 		{
 			dispatchEvent(event);
+		}
+		
+		/**
+		 * Bogdan : 
+		 * Functionality for unloading content when removed
+		 */
+		private var _isAutoDisposingContent : Boolean;	
+		public function get isAutoDisposingContent():Boolean
+		{
+			return _isAutoDisposingContent;
+		}
+		/**
+		 * 
+		 */
+		public function set isAutoDisposingContent(value:Boolean):void
+		{
+			_isAutoDisposingContent = value;
+		}
+		
+		protected function anElementWasAddedOrRemoved(e:ElementExistenceEvent):void
+		{
+			if (this is IVisualElement  && e.element === this)
+			{
+				if (e.type == ElementExistenceEvent.ELEMENT_ADD)
+				{
+					if (!loadRequested) createDeferredContent();
+				}
+				else if (e.type == ElementExistenceEvent.ELEMENT_REMOVE)
+				{
+					loadRequested = false;					
+					unloadModule();
+				}
+			}		
 		}
 	}
 	

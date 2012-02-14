@@ -281,11 +281,20 @@ package mx.core
 	 *  @productversion Flex 3
 	 */
 	public class UIComponent extends FlexSprite
-		implements IAutomationObject, IChildList, IConstraintClient,
-		IDeferredInstantiationUIComponent, IFlexModule,
-		IInvalidating, ILayoutManagerClient, IPropertyChangeNotifier,
-		IStateClient2, IAdvancedStyleClient, IToolTipManagerClient,
-		IValidatorListener, IVisualElement
+		implements 
+		IAutomationObject, 
+		IChildList, 
+		IConstraintClient,
+		IDeferredInstantiationUIComponent, 
+		IFlexModule,
+		IInvalidating, 
+		ILayoutManagerClient, 
+		IPropertyChangeNotifier,
+		IStateClient2, 
+		IAdvancedStyleClient, 
+		IToolTipManagerClient,
+		IValidatorListener, 
+		IVisualElement
 	{
 		include "../core/Version.as";
 		

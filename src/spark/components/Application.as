@@ -266,12 +266,16 @@ package spark.components
 		 */
 		public function Application()
 		{
+			if (CONFIG::LOGGING) trace("new Application()");
 			UIComponentGlobals.layoutManager = ILayoutManager(
 				Singleton.getInstance("mx.managers::ILayoutManager"));
 			UIComponentGlobals.layoutManager.usePhasedInstantiation = true;
 			
 			if (!FlexGlobals.topLevelApplication)
+			{
+				if (CONFIG::LOGGING) trace("new Application() :: setting FlexGlobals.topLevelApplication");
 				FlexGlobals.topLevelApplication = this;
+			}
 			
 			super();
 			

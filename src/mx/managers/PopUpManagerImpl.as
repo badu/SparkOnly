@@ -55,7 +55,7 @@ package mx.managers
 	import mx.events.FlexEvent;
 	import mx.events.FlexMouseEvent;
 	import mx.events.Request;
-	import mx.managers.systemClasses.ActiveWindowManager;
+	
 	import mx.styles.IStyleClient;
 	
 	import spark.effects.AnimateFilter;
@@ -64,8 +64,9 @@ package mx.managers
 	
 	use namespace mx_internal;
 	
-	[ExcludeClass]
 	
+	[ExcludeClass]
+	[Frame(extraClass="mx.managers.systemClasses.ActiveWindowManager")]
 	/**
 	 *  @private
 	 *  The PopUpManager singleton class creates new top-level windows and
@@ -117,11 +118,6 @@ package mx.managers
 		//  Class methods
 		//
 		//--------------------------------------------------------------------------
-		
-		/**
-		 *  @private
-		 */
-		private static function weakDependency():void { ActiveWindowManager };
 		
 		/**
 		 *  @private

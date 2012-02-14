@@ -431,6 +431,7 @@ package spark.components
 	 *
 	 *  @includeExample examples/WindowedApplicationSample.mxml -noswf
 	 */
+	
 	public class WindowedApplication extends Application implements IWindow
 	{
 		include "../core/Version.as";
@@ -463,7 +464,7 @@ package spark.components
 		public function WindowedApplication()
 		{
 			super();
-			
+			if (CONFIG::LOGGING) trace("new WindowedApplication()");
 			addEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
 			addEventListener(FlexEvent.PREINITIALIZE, preinitializeHandler);
 			addEventListener(FlexEvent.UPDATE_COMPLETE, updateComplete_handler);

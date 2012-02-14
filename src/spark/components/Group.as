@@ -213,7 +213,8 @@ package spark.components
 	 *  @playerversion AIR 1.5
 	 *  @productversion Flex 4
 	 */
-	public class Group extends GroupBase implements IVisualElementContainer, 
+	public class Group extends GroupBase implements 
+		IVisualElementContainer, 
 		IGraphicElementContainer, 
 		ISharedDisplayObject
 	{

@@ -20,6 +20,13 @@ package mx.utils
 {
 	import flash.display.DisplayObject;
 	import flash.utils.getTimer;
+	!CONFIG::performanceInstrumentation
+	{
+		public final class PerfUtil
+		{
+			
+		}
+	}
 	
 	CONFIG::performanceInstrumentation
 	public final class PerfUtil

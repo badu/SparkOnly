@@ -620,14 +620,16 @@ private function applyState(stateName:String, lastState:String):void
 	{
 		// Apply "basedOn" overrides first
 		if (state.basedOn != lastState)
+		{
 			applyState(state.basedOn, lastState);
-		
+		}
 		// Apply new state overrides
 		var overrides:Array = state.overrides;
 		
 		for (var i:int = 0; i < overrides.length; i++)
+		{			
 			overrides[i].apply(this);
-		
+		}
 		// Dispatch the "enterState" event
 		state.dispatchEnterState();
 	}

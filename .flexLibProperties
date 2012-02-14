@@ -122,7 +122,6 @@
     <classEntry path="mx.core.IStateClient2"/>
     <classEntry path="mx.core.ISystemCursorClient"/>
     <classEntry path="mx.core.ITextFieldFactory"/>
-    <classEntry path="mx.core.IToggleButton"/>
     <classEntry path="mx.core.IToolTip"/>
     <classEntry path="mx.core.IUIComponent"/>
     <classEntry path="mx.core.IUID"/>
@@ -403,7 +402,6 @@
     <classEntry path="mx.utils.ObjectUtil"/>
     <classEntry path="mx.utils.OnDemandEventDispatcher"/>
     <classEntry path="mx.utils.OrderedObject"/>
-    <classEntry path="mx.utils.PerfUtil"/>
     <classEntry path="mx.utils.PopUpUtil"/>
     <classEntry path="mx.utils.SHA256"/>
     <classEntry path="mx.utils.SecurityUtil"/>
@@ -845,12 +843,12 @@
     <resourceEntry destPath="Assets.swf" sourcePath="Assets.swf"/>
     <resourceEntry destPath="mac_min_up.png" sourcePath="mac_min_up.png"/>
     <resourceEntry destPath="mac_min_over.png" sourcePath="mac_min_over.png"/>
-    <resourceEntry destPath="mac_max_up.png" sourcePath="mac_max_up.png"/>
     <resourceEntry destPath="cursorStretch.png" sourcePath="cursorStretch.png"/>
+    <resourceEntry destPath="mac_max_up.png" sourcePath="mac_max_up.png"/>
     <resourceEntry destPath="win_max_dis.png" sourcePath="win_max_dis.png"/>
     <resourceEntry destPath="win_min_up.png" sourcePath="win_min_up.png"/>
-    <resourceEntry destPath="win_restore_down.png" sourcePath="win_restore_down.png"/>
     <resourceEntry destPath="win_min_dis.png" sourcePath="win_min_dis.png"/>
+    <resourceEntry destPath="win_restore_down.png" sourcePath="win_restore_down.png"/>
     <resourceEntry destPath="mac_close_up.png" sourcePath="mac_close_up.png"/>
     <resourceEntry destPath="win_min_down.png" sourcePath="win_min_down.png"/>
     <resourceEntry destPath="mac_min_dis.png" sourcePath="mac_min_dis.png"/>

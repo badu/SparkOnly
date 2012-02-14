@@ -41,7 +41,6 @@ package mx.managers
 	import mx.core.IIMESupport;
 	import mx.core.IRawChildrenContainer;
 	import mx.core.ISWFLoader;
-	import mx.core.IToggleButton;
 	import mx.core.IUIComponent;
 	import mx.core.IVisualElement;
 	import mx.core.mx_internal;
@@ -639,8 +638,7 @@ package mx.managers
 			{
 				if (_defaultButton)
 				{
-					if (target is IButton && target != _defaultButton 
-						&& !(target is IToggleButton))
+					if (target is IButton && target != _defaultButton)
 						_defaultButton.emphasized = false;
 					else if (_defaultButtonEnabled)
 						_defaultButton.emphasized = true;
@@ -665,7 +663,7 @@ package mx.managers
 				// handle default button here
 				// we can't check for Button because of cross-versioning so
 				// for now we just check for an emphasized property
-				if (_lastFocus is IButton && !(_lastFocus is IToggleButton))
+				if (_lastFocus is IButton)
 				{
 					defButton = _lastFocus as IButton;
 				}
