@@ -18,3 +18,17 @@ Intructions on how to use it
 7) Add the imported library (SparkOnly)
 8) Enjoy!
 
+New things
+==================
+1) There is a Spark Tooltip which replaced old MX Tooltip
+You can use tooltips as in MX
+If you want to use tooltips with more functionality (like having a title, changing color and chromeColor):
+A) You have to create a ResourceBundle file like in the example below
+toolTip.aButton.title=<img source='assets/icons/refresh.png' width='24' height='24' /><span fontWeight='bold' fontSize='24'> Undo delete actions</span>
+toolTip.aButton.color=0x505050
+toolTip.aButton.chromeColor=0xe8e8e8
+toolTip.aButton.text=Will restore last deleted item in the same position<br/>if no operations were done after delete, or at the end<br/>of current form if adding fields were done.
+B) The rules for the above are : always start with particle "toolTip." followed by the component "id" (if you don't want to specify it in the referenced id in the toolTip of that component - e.g. <s:Button id="aButton" toolTip="^ToolTipBundle" />), followed by particles for title, color, chromeColor and text. Title and text can be TextFlow.
+C) Add to the component that you want to have that tooltip, a tooltip declaration which starts with ^ char.  Example <s:Button toolTip="^ToolTipBundle.ahaButton" />
+==================
+2) ModuleLoader has isAutoDisposingContent which allows it to unload the module if the parent of a ModuleLoader instance has removed instance (with removeElement)
