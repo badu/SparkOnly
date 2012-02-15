@@ -45,7 +45,7 @@ import flash.ui.ContextMenu;
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
-import mx.core.EventPriority;
+import mx.enums.EventPriority;
 import mx.core.FlexSprite;
 import mx.core.IChildList;
 import mx.core.IFlexDisplayObject;

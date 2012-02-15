@@ -25,7 +25,7 @@ package mx.utils
 	import flash.system.Capabilities;
 	import flash.utils.Dictionary;
 	
-	import mx.core.ApplicationDomainTarget;
+	import mx.enums.ApplicationDomainTarget;
 	import mx.core.IFlexModuleFactory;
 	import mx.core.RSLData;
 	import mx.core.mx_internal;

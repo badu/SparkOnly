@@ -50,6 +50,7 @@ package mx.core
 	import mx.utils.StringUtil;
 	
 	import spark.utils.TextUtil;
+	import mx.enums.LayoutDirection;
 	
 	use namespace mx_internal;
 	
@@ -2045,7 +2046,6 @@ package mx.core
 			textFormat.sharpness = sharpness;
 			textFormat.thickness = thickness;
 			
-			textFormat.useFTE = true;
 			textFormat.direction = direction;
 			textFormat.locale = locale;
 			

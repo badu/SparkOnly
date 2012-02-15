@@ -124,7 +124,8 @@ and <code>sortIndicator</code> properties.</p>
             import spark.components.GridColumnHeaderGroup;
             import spark.components.gridClasses.GridColumn;
             import spark.primitives.supportClasses.GraphicElement;
-
+			import mx.core.IFactory;
+			
             // chrome color constants and variables
             private static const DEFAULT_COLOR_VALUE:uint = 0xCC;
             private static const DEFAULT_COLOR:uint = 0xCCCCCC;

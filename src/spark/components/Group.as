@@ -26,8 +26,7 @@ package spark.components
 	
 	import mx.core.IFlexModule;
 	import mx.core.IFontContextComponent;
-	import mx.core.IUIComponent;
-	import mx.core.IUITextField;
+	import mx.core.IUIComponent;	
 	import mx.core.IVisualElement;
 	import mx.core.IVisualElementContainer;
 	import mx.core.UIComponent;
@@ -1243,13 +1242,6 @@ package spark.components
 					{
 						IStyleClient(child).regenerateStyleCache(recursive);
 					}
-				}
-				else if (child is IUITextField)
-				{
-					// Does this object already have a proto chain?
-					// If not, there's no need to regenerate a new one.
-					if (IUITextField(child).inheritingStyles)
-						StyleProtoChain.initTextField(IUITextField(child));
 				}
 			}
 			

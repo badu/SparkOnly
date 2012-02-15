@@ -318,9 +318,7 @@ protected function focusInHandler(event:FocusEvent):void
 	if (isOurFocus(DisplayObject(event.target)))
 	{
 		if (focusManager && focusManager.showFocusIndicator)
-			drawFocus(true);
-		
-		ContainerGlobals.checkFocus(event.relatedObject, this);
+			drawFocus(true);		
 	}
 }
 
@@ -371,20 +369,7 @@ private function addedHandler(event:Event):void
 	//reset systemManager in case we've been reparented to a new Window.
 	//systemManager will be set on get systemManager()
 	if (event.eventPhase != EventPhase.AT_TARGET)
-		return;
-	
-	try
-	{
-		if (parent is IContainer && IContainer(parent).creatingContentPane)
-		{
-			event.stopImmediatePropagation();
-			return;
-		}
-	}
-	catch (error:SecurityError)
-	{
-		
-	} 
+		return;	
 }
 
 /**
@@ -394,20 +379,7 @@ private function addedHandler(event:Event):void
 private function removedHandler(event:Event):void
 {
 	if (event.eventPhase != EventPhase.AT_TARGET)
-		return;
-	
-	try
-	{
-		if (parent is IContainer && IContainer(parent).creatingContentPane)
-		{
-			event.stopImmediatePropagation();
-			return;
-		}
-	}
-	catch (error:SecurityError)
-	{
-		
-	}
+		return;	
 }
 
 /**

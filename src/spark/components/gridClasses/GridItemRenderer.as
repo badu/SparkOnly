@@ -26,7 +26,7 @@ package spark.components.gridClasses
 	
 	import mx.core.IToolTip;
 	import mx.core.IUIComponent;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.mx_internal;
 	import mx.events.FlexEvent;
 	import mx.events.ToolTipEvent;
@@ -92,9 +92,7 @@ package spark.components.gridClasses
 	 *  <p>If an item renderer's responsibility is limited to displaying
 	 *  one or more lines of text, then developers should seriously
 	 *  consider using the DefaultItemRenderer class which does so very
-	 *  economically (an application that's only going to be deployed on
-	 *  Windows one can gain some additional performance by using the
-	 *  UITextFieldGridItemRenderer class instead).  The most efficient
+	 *  economically.  The most efficient
 	 *  way to use GridItemRenderer to display the GridColumn's dataField
 	 *  as text is to identify the GridItemRenderer's text displaying
 	 *  element with <code>id="labelDisplay"</code>.  The labelDisplay
@@ -182,9 +180,8 @@ package spark.components.gridClasses
 		/**
 		 *  Shows the tooltip for one of the grid's item renderers.
 		 *  This is the handler for the <code>ToolTipEvent.TOOL_TIP_SHOW</code>
-		 *  event in GridItemRenderer, DefaultGridItemRenderer, and 
-		 *  UITextFieldGridItemRenderer which are installed by the corresponding
-		 *  constructors.
+		 *  event in GridItemRenderer, DefaultGridItemRenderer
+		 *  which are installed by the corresponding constructors.
 		 *  The item renderer's tool tip is computed just before it is shown.
 		 * 
 		 *  If the item renderer's column <code>showDataTips<code> property is true, 

@@ -58,17 +58,14 @@
     <classEntry path="mx.controls.treeClasses.ITreeDataDescriptor"/>
     <classEntry path="mx.controls.treeClasses.ITreeDataDescriptor2"/>
     <classEntry path="mx.core.AdvancedLayoutFeatures"/>
-    <classEntry path="mx.core.ApplicationDomainTarget"/>
+    <classEntry path="mx.enums.ApplicationDomainTarget"/>
     <classEntry path="mx.core.BitmapAsset"/>
-    <classEntry path="mx.core.ButtonAsset"/>
-    <classEntry path="mx.core.ByteArrayAsset"/>
     <classEntry path="mx.core.ClassFactory"/>
     <classEntry path="mx.core.ComponentDescriptor"/>
-    <classEntry path="mx.core.ContainerCreationPolicy"/>
-    <classEntry path="mx.core.ContainerGlobals"/>
+    <classEntry path="mx.enums.ContainerCreationPolicy"/>
     <classEntry path="mx.core.ContextualClassFactory"/>
     <classEntry path="mx.core.CrossDomainRSLItem"/>
-    <classEntry path="mx.core.DPIClassification"/>
+    <classEntry path="mx.enums.DPIClassification"/>
     <classEntry path="mx.core.DeferredInstanceFromClass"/>
     <classEntry path="mx.core.DeferredInstanceFromFunction"/>
     <classEntry path="mx.core.DesignLayer"/>
@@ -76,18 +73,13 @@
     <classEntry path="mx.core.EdgeMetrics"/>
     <classEntry path="mx.core.EmbeddedFont"/>
     <classEntry path="mx.core.EmbeddedFontRegistry"/>
-    <classEntry path="mx.core.EventPriority"/>
+    <classEntry path="mx.enums.EventPriority"/>
     <classEntry path="mx.core.FTETextField"/>
-    <classEntry path="mx.core.FlexApplicationBootstrap"/>
     <classEntry path="mx.core.FlexBitmap"/>
     <classEntry path="mx.core.FlexGlobals"/>
-    <classEntry path="mx.core.FlexLoader"/>
     <classEntry path="mx.core.FlexModuleFactory"/>
-    <classEntry path="mx.core.FlexMovieClip"/>
     <classEntry path="mx.core.FlexShape"/>
-    <classEntry path="mx.core.FlexSimpleButton"/>
     <classEntry path="mx.core.FlexSprite"/>
-    <classEntry path="mx.core.FlexTextField"/>
     <classEntry path="mx.core.FlexVersion"/>
     <classEntry path="mx.core.FontAsset"/>
     <classEntry path="mx.core.IAssetLayoutFeatures"/>
@@ -95,7 +87,6 @@
     <classEntry path="mx.core.IButton"/>
     <classEntry path="mx.core.IChildList"/>
     <classEntry path="mx.core.IConstraintClient"/>
-    <classEntry path="mx.core.IContainer"/>
     <classEntry path="mx.core.IDataRenderer"/>
     <classEntry path="mx.core.IDeferredContentOwner"/>
     <classEntry path="mx.core.IDeferredInstance"/>
@@ -130,30 +121,25 @@
     <classEntry path="mx.core.IVisualElementContainer"/>
     <classEntry path="mx.core.IWindow"/>
     <classEntry path="mx.core.InteractionMode"/>
-    <classEntry path="mx.core.LayoutDirection"/>
+    <classEntry path="mx.enums.LayoutDirection"/>
     <classEntry path="mx.core.LayoutElementUIComponentUtils"/>
     <classEntry path="mx.core.MXMLObjectAdapter"/>
-    <classEntry path="mx.core.MovieClipAsset"/>
-    <classEntry path="mx.core.MovieClipLoaderAsset"/>
     <classEntry path="mx.core.RSLData"/>
     <classEntry path="mx.core.RSLItem"/>
     <classEntry path="mx.core.RSLListLoader"/>
     <classEntry path="mx.core.ResourceModuleRSLItem"/>
     <classEntry path="mx.core.RuntimeDPIProvider"/>
     <classEntry path="mx.core.SWFBridgeGroup"/>
-    <classEntry path="mx.core.ScrollPolicy"/>
-    <classEntry path="mx.core.SimpleApplication"/>
+    <classEntry path="mx.enums.ScrollPolicy"/>
     <classEntry path="mx.core.Singleton"/>
     <classEntry path="mx.core.SoundAsset"/>
     <classEntry path="mx.core.SpriteAsset"/>
-    <classEntry path="mx.core.TextFieldAsset"/>
     <classEntry path="mx.core.TextFieldFactory"/>
     <classEntry path="mx.core.UIComponent"/>
     <classEntry path="mx.core.UIComponentCachePolicy"/>
     <classEntry path="mx.core.UIComponentDescriptor"/>
     <classEntry path="mx.core.UIComponentGlobals"/>
     <classEntry path="mx.core.UIFTETextField"/>
-    <classEntry path="mx.core.UITextField"/>
     <classEntry path="mx.core.UITextFormat"/>
     <classEntry path="mx.core.mx_internal"/>
     <classEntry path="mx.effects.CompositeEffect"/>
@@ -775,7 +761,6 @@
     <classEntry path="spark.skins.spark.TitleWindowSkin"/>
     <classEntry path="spark.skins.spark.ToggleButtonSkin"/>
     <classEntry path="spark.skins.spark.ToolTipSkin"/>
-    <classEntry path="spark.skins.spark.UITextFieldGridItemRenderer"/>
     <classEntry path="spark.skins.spark.VScrollBarSkin"/>
     <classEntry path="spark.skins.spark.VScrollBarThumbSkin"/>
     <classEntry path="spark.skins.spark.VScrollBarTrackSkin"/>
@@ -826,36 +811,37 @@
     <classEntry path="spark.validators.supportClasses.GlobalizationUtils"/>
     <classEntry path="spark.validators.supportClasses.GlobalizationValidatorBase"/>
     <classEntry path="spark.validators.supportClasses.NumberValidatorBase"/>
+    <classEntry path="mx.core.ByteArrayAsset"/>
   </includeClasses>
   <includeResources>
-    <resourceEntry destPath="win_restore_over.png" sourcePath="win_restore_over.png"/>
     <resourceEntry destPath="gripper_up.png" sourcePath="gripper_up.png"/>
-    <resourceEntry destPath="mac_max_over.png" sourcePath="mac_max_over.png"/>
+    <resourceEntry destPath="win_restore_over.png" sourcePath="win_restore_over.png"/>
     <resourceEntry destPath="mac_max_dis.png" sourcePath="mac_max_dis.png"/>
+    <resourceEntry destPath="mac_max_over.png" sourcePath="mac_max_over.png"/>
     <resourceEntry destPath="mac_min_down.png" sourcePath="mac_min_down.png"/>
     <resourceEntry destPath="win_max_down.png" sourcePath="win_max_down.png"/>
-    <resourceEntry destPath="win_max_up.png" sourcePath="win_max_up.png"/>
     <resourceEntry destPath="win_close_up.png" sourcePath="win_close_up.png"/>
-    <resourceEntry destPath="win_restore_up.png" sourcePath="win_restore_up.png"/>
+    <resourceEntry destPath="win_max_up.png" sourcePath="win_max_up.png"/>
     <resourceEntry destPath="mac_max_down.png" sourcePath="mac_max_down.png"/>
+    <resourceEntry destPath="win_restore_up.png" sourcePath="win_restore_up.png"/>
     <resourceEntry destPath="win_min_over.png" sourcePath="win_min_over.png"/>
     <resourceEntry destPath="win_max_over.png" sourcePath="win_max_over.png"/>
     <resourceEntry destPath="Assets.swf" sourcePath="Assets.swf"/>
     <resourceEntry destPath="mac_min_up.png" sourcePath="mac_min_up.png"/>
     <resourceEntry destPath="mac_min_over.png" sourcePath="mac_min_over.png"/>
-    <resourceEntry destPath="cursorStretch.png" sourcePath="cursorStretch.png"/>
     <resourceEntry destPath="mac_max_up.png" sourcePath="mac_max_up.png"/>
+    <resourceEntry destPath="cursorStretch.png" sourcePath="cursorStretch.png"/>
     <resourceEntry destPath="win_max_dis.png" sourcePath="win_max_dis.png"/>
     <resourceEntry destPath="win_min_up.png" sourcePath="win_min_up.png"/>
-    <resourceEntry destPath="win_min_dis.png" sourcePath="win_min_dis.png"/>
     <resourceEntry destPath="win_restore_down.png" sourcePath="win_restore_down.png"/>
+    <resourceEntry destPath="win_min_dis.png" sourcePath="win_min_dis.png"/>
     <resourceEntry destPath="mac_close_up.png" sourcePath="mac_close_up.png"/>
     <resourceEntry destPath="win_min_down.png" sourcePath="win_min_down.png"/>
     <resourceEntry destPath="mac_min_dis.png" sourcePath="mac_min_dis.png"/>
     <resourceEntry destPath="ErrorIndicator.png" sourcePath="ErrorIndicator.png"/>
     <resourceEntry destPath="win_close_down.png" sourcePath="win_close_down.png"/>
-    <resourceEntry destPath="win_close_over.png" sourcePath="win_close_over.png"/>
     <resourceEntry destPath="mac_close_down.png" sourcePath="mac_close_down.png"/>
+    <resourceEntry destPath="win_close_over.png" sourcePath="win_close_over.png"/>
     <resourceEntry destPath="mac_close_over.png" sourcePath="mac_close_over.png"/>
     <resourceEntry destPath="RequiredIndicator.png" sourcePath="RequiredIndicator.png"/>
     <resourceEntry destPath="CalendarIcon.png" sourcePath="CalendarIcon.png"/>

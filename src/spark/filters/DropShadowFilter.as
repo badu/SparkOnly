@@ -31,7 +31,7 @@ package spark.filters
 	 * The shadow algorithm is based on the same box filter that the blur filter uses. You have 
 	 * several options for the style of the drop shadow, including inner or outer shadow and knockout mode.
 	 * You can apply the filter to any display object (that is, objects that inherit from the DisplayObject class), 
-	 * such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
+	 * such as MovieClip, TextField, and Video objects, as well as to BitmapData objects.
 	 * 
 	 * <p>The use of filters depends on the object to which you apply the filter:</p>
 	 * <ul><li>To apply filters to display objects use the

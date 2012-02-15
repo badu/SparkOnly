@@ -1,46 +1,4 @@
 //----------------------------------
-//  contentMouseX
-//----------------------------------
-
-/**
- *  Returns the <i>x</i> position of the mouse, in the content coordinate system.
- *  Content coordinates specify a pixel position relative to the upper left
- *  corner of the component's content, and include all of the component's
- *  content area, including any regions that are currently clipped and must
- *  be accessed by scrolling the component.
- *  
- *  @langversion 3.0
- *  @playerversion Flash 9
- *  @playerversion AIR 1.1
- *  @productversion Flex 3
- */
-public function get contentMouseX():Number
-{
-	return mouseX;
-}
-
-//----------------------------------
-//  contentMouseY
-//----------------------------------
-
-/**
- *  Returns the <i>y</i> position of the mouse, in the content coordinate system.
- *  Content coordinates specify a pixel position relative to the upper left
- *  corner of the component's content, and include all of the component's
- *  content area, including any regions that are currently clipped and must
- *  be accessed by scrolling the component.
- *  
- *  @langversion 3.0
- *  @playerversion Flash 9
- *  @playerversion AIR 1.1
- *  @productversion Flex 3
- */
-public function get contentMouseY():Number
-{
-	return mouseY;
-}
-
-//----------------------------------
 //  tweeningProperties
 //----------------------------------
 

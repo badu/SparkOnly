@@ -47,8 +47,7 @@
     
     <fx:Script>
         <![CDATA[
-            import spark.components.gridClasses.IGridItemRenderer;
-            import mx.core.IUITextField;
+            import spark.components.gridClasses.IGridItemRenderer;            
             import mx.core.IVisualElement;
             
             import spark.core.IEditableText;
@@ -93,12 +92,7 @@
                 var textDisplay:IEditableText = textArea.textDisplay;
                 var itemRenderer:IGridItemRenderer = dataGrid.grid.getItemRendererAt(rowIndex, columnIndex);
                 
-                if (itemRenderer is IUITextField)
-                {
-                    textDisplay.multiline = IUITextField(itemRenderer).multiline;
-                    textDisplay.lineBreak = IUITextField(itemRenderer).wordWrap ? "toFit" : "explicit";
-                }
-                else if ("multiline" in itemRenderer)
+                if ("multiline" in itemRenderer)
                 {
                     textDisplay.multiline = itemRenderer["multiline"];                    
                 }

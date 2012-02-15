@@ -21,7 +21,7 @@ package spark.components
 {
 	import flash.events.Event;
 	
-	import mx.core.ContainerCreationPolicy;
+	import mx.enums.ContainerCreationPolicy;
 	import mx.core.IDeferredContentOwner;
 	import mx.core.INavigatorContent;
 		

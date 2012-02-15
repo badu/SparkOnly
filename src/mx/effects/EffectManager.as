@@ -28,7 +28,7 @@ package mx.effects
 	import flash.system.ApplicationDomain;
 	import flash.utils.Dictionary;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.FlexGlobals;
 	import mx.core.IDeferredInstantiationUIComponent;
 	import mx.core.IFlexDisplayObject;

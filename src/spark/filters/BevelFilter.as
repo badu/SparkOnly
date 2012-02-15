@@ -33,7 +33,7 @@ package spark.filters
 	 * of blur on the bevel, the angle of the bevel, the placement of the bevel, 
 	 * and a knockout effect.
 	 * You can apply the filter to any display object (that is, objects that inherit from the 
-	 * DisplayObject class), such as MovieClip, SimpleButton, TextField, and Video objects, 
+	 * DisplayObject class), such as MovieClip, TextField, and Video objects, 
 	 * as well as to BitmapData objects.
 	 *
 	 * <p>To create a new filter, use the constructor <code>new BevelFilter()</code>.

@@ -34,7 +34,7 @@ package mx.managers
 	import mx.core.IFlexModuleFactory;
 	import mx.core.ILayoutDirectionElement;
 	import mx.core.IUIComponent;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.UIComponentGlobals;
 	import mx.core.mx_internal;
 	import mx.events.DragEvent;

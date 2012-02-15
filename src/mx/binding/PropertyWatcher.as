@@ -24,7 +24,7 @@ package mx.binding
 	import flash.events.IEventDispatcher;
 	import flash.utils.getQualifiedClassName;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.mx_internal;
 	import mx.events.PropertyChangeEvent;
 	import mx.utils.DescribeTypeCache;

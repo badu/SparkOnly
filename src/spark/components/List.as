@@ -33,13 +33,13 @@ package spark.components
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
 	import mx.core.DragSource;
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.IFactory;
 	import mx.core.IFlexDisplayObject;
 	import mx.core.IUID;
 	import mx.core.IVisualElement;
 	import mx.core.InteractionMode;
-	import mx.core.ScrollPolicy;
+	import mx.enums.ScrollPolicy;
 	import mx.core.UIComponentGlobals;
 	import mx.core.mx_internal;
 	import mx.events.DragEvent;

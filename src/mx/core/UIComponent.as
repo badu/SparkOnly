@@ -109,7 +109,9 @@ package mx.core
 	import mx.utils.TransformUtil;
 	import mx.validators.IValidatorListener;
 	import mx.validators.ValidationResult;
+	import mx.enums.LayoutDirection;
 	
+		
 	use namespace mx_internal;
 	
 	// Excluding the property to enable code hinting for the layoutDirection style

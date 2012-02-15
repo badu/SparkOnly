@@ -763,7 +763,7 @@ package spark.components.gridClasses
 			
 			if (isNaN(columnWidth))
 			{
-				// Sadly, IUIComponent, UITextField, and UIFTETextField all have an 
+				// Sadly, IUIComponent, and UIFTETextField all have an 
 				// explicitWidth property but do not share a common type.  
 				if ("explicitWidth" in renderer)
 					columnWidth = Object(renderer).explicitWidth;
@@ -1113,7 +1113,8 @@ package spark.components.gridClasses
 						renderer = newVisibleItemRenderers[index];                    
 						
 						// We're using layoutBoundsX,Y,Width instead of x,y.width because
-						// the IUITextField item renderers pad their x,y,width,height properties 
+						// the IUITextField item renderers pad their x,y,width,height properties
+						// Bogdan - NOTE : IUITextField  was removed
 						var rendererX:Number = renderer.getLayoutBoundsX();
 						var rendererY:Number = renderer.getLayoutBoundsY();
 						var rendererWidth:Number = renderer.getLayoutBoundsWidth();
@@ -1195,7 +1196,7 @@ package spark.components.gridClasses
 			
 			// We're using layoutBoundsX,Y,Width,Height instead of x,y,width,height because
 			// the IUITextField item renderers pad their x,y,width,height properties 
-			
+			// Bogdan - NOTE : IUITextField  was removed
 			const rendererX:Number = renderer.getLayoutBoundsX();
 			const rendererY:Number = renderer.getLayoutBoundsY();
 			const rendererWidth:Number = renderer.getLayoutBoundsWidth();
@@ -1206,7 +1207,7 @@ package spark.components.gridClasses
 			// If the renderer's preferredHeight has changed and variableRowHeight=true, then
 			// the row's height may have changed, which implies we need to layout -everything-.
 			// Warning: the unconditional getPreferredBoundsHeight() call also serves to 
-			// force DefaultGridItemRenderer and UITextFieldGridItemRenderer to validate;
+			// force DefaultGridItemRenderer to validate;
 			// similar to what happens in layoutItemRenderers() and updateTypicalCellSizes()
 			
 			const preferredRendererHeight:Number = renderer.getPreferredBoundsHeight();

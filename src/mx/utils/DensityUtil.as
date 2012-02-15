@@ -19,7 +19,7 @@
 
 package mx.utils
 {
-	import mx.core.DPIClassification;
+	import mx.enums.DPIClassification;
 	import mx.core.RuntimeDPIProvider;
 	import mx.core.Singleton;
 	

@@ -23,7 +23,7 @@ package spark.components
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.IInvalidating;
 	import mx.core.InteractionMode;
 	import mx.core.mx_internal;

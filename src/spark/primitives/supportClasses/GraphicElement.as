@@ -45,7 +45,7 @@ package spark.primitives.supportClasses
 	import mx.core.IMXMLObject;
 	import mx.core.IUIComponent;
 	import mx.core.IVisualElement;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.UIComponent;
 	import mx.core.UIComponentGlobals;
 	import mx.core.mx_internal;

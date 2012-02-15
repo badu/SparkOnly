@@ -37,7 +37,7 @@ package spark.components
 	import flash.utils.Dictionary;
 	import flash.utils.setInterval;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.FlexGlobals;
 	import mx.core.IInvalidating;
 	import mx.core.InteractionMode;

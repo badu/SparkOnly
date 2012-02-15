@@ -24,7 +24,7 @@ package mx.states
 	import flash.events.IEventDispatcher;
 	
 	import mx.collections.IList;
-	import mx.core.ContainerCreationPolicy;
+	import mx.enums.ContainerCreationPolicy;
 	import mx.core.IChildList;
 	import mx.core.IDeferredContentOwner;
 	import mx.core.ITransientDeferredInstance;

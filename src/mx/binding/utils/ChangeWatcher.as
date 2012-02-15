@@ -23,7 +23,7 @@ package mx.binding.utils
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.events.PropertyChangeEvent;
 	import mx.utils.DescribeTypeCache;
 	

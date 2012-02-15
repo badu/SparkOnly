@@ -204,7 +204,7 @@ package spark.components.windowClasses
 		//----------------------------------
 		
 		/**
-		 *  The skin part that defines the UITextField control that displays the application title text.
+		 *  The skin part that defines the TextBase control that displays the application title text.
 		 *  
 		 *  @langversion 3.0
 		 *  @playerversion AIR 1.5

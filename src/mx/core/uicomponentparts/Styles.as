@@ -283,14 +283,7 @@ public function regenerateStyleCache(recursive:Boolean):void
 			{
 				IStyleClient(child).regenerateStyleCache(recursive);
 			}
-		}
-		else if (child is IUITextField)
-		{
-			// Does this object already have a proto chain?
-			// If not, there's no need to regenerate a new one.
-			if (IUITextField(child).inheritingStyles)
-				StyleProtoChain.initTextField(IUITextField(child));
-		}
+		}		
 	}
 	
 	// Call this method on each non-visual StyleClient

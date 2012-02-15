@@ -31,11 +31,11 @@ package spark.components
 	import mx.collections.IList;
 	import mx.collections.ISort;
 	import mx.collections.ISortField;
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.IFactory;
 	import mx.core.IIMESupport;
-	import mx.core.LayoutDirection;
-	import mx.core.ScrollPolicy;
+	import mx.enums.LayoutDirection;
+	import mx.enums.ScrollPolicy;
 	import mx.core.UIComponent;
 	import mx.core.mx_internal;
 	import mx.events.FlexEvent;

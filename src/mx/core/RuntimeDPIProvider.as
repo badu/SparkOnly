@@ -20,6 +20,7 @@
 package mx.core
 {
 	import flash.system.Capabilities;
+	import mx.enums.DPIClassification;
 	
 	use namespace mx_internal;
 	

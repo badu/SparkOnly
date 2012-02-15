@@ -22,7 +22,7 @@ package spark.components
 	import flash.events.Event;
 	
 	import mx.collections.IList;
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.IFactory;
 	import mx.core.mx_internal;
 	import mx.events.CollectionEvent;

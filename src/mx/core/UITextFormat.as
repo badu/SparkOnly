@@ -452,27 +452,6 @@ package mx.core
 		 */
 		public var thickness:Number;
 		
-		//----------------------------------
-		//  useFTE
-		//----------------------------------
-		
-		/**
-		 *  Determines how the <code>measureText()</code>
-		 *  and <code>measureHTMLText()</code> methods do text measurement.
-		 * 
-		 *  <p>If <code>true</code>, they use an offscreen instance
-		 *  of the FTETextField class in the Text Layout Framework.
-		 *  If <code>false</code>, they use an offscreen instance
-		 *  of the TextField class in the Flash Player.</p>
-		 * 
-		 *  @default false
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		public var useFTE:Boolean = false;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -548,7 +527,7 @@ package mx.core
 			var fontModuleFactory:IFlexModuleFactory = (noEmbeddedFonts || !embeddedFontRegistry) ? 
 				null : 
 				embeddedFontRegistry.getAssociatedModuleFactory(
-					font, bold, italic, this, moduleFactory, systemManager, useFTE);
+					font, bold, italic, this, moduleFactory, systemManager, true);
 			
 			embeddedFont = (fontModuleFactory != null);
 			if (fontModuleFactory == null)
@@ -558,10 +537,7 @@ package mx.core
 				fontModuleFactory = systemManager;
 			}
 			
-			var measurementTextField:Object /* either TextField or FTETextField */ =
-				useFTE ?
-				textFieldFactory.createFTETextField(fontModuleFactory) :
-				textFieldFactory.createTextField(fontModuleFactory);
+			var measurementTextField:Object = textFieldFactory.createFTETextField(fontModuleFactory);
 			
 			// Clear any old text from the TextField.
 			// Otherwise, new text will get the old TextFormat. 
@@ -573,24 +549,10 @@ package mx.core
 			// Make the measurement TextField use this TextFormat.
 			measurementTextField.defaultTextFormat = this;
 			measurementTextField.embedFonts = embeddedFont;
-			
-			// Set other properties based on CSS styles.
-			if (!useFTE)
-			{
-				// These properties do not have meaning in FTETextField,
-				// and have been implemented to return either null or NaN,
-				// so don't try to set them on a FTETextField.
-				measurementTextField.antiAliasType = antiAliasType;
-				measurementTextField.gridFitType = gridFitType;
-				measurementTextField.sharpness = sharpness;
-				measurementTextField.thickness = thickness;
-			}
-			else
-			{
-				// The properties have meaning only on a FTETextField.
-				measurementTextField.direction = direction;
-				measurementTextField.locale = locale;
-			}
+						
+			// The properties have meaning only on a FTETextField.
+			measurementTextField.direction = direction;
+			measurementTextField.locale = locale;			
 			
 			// Set the text to be measured into the TextField.
 			if (html)

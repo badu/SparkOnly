@@ -112,18 +112,6 @@ protected function createInFontContext(classObj:Class):Object
 	
 	var className:String = getQualifiedClassName(classObj);
 	
-	// If the caller requests a UITextField,
-	// we may actually return a UITLFTextField,
-	// depending on the version number
-	// and the value of the textFieldClass style.
-	if (className == "mx.core::UITextField")
-	{
-		className = getTextFieldClassName();
-		if (className == "mx.core::UIFTETextField")
-			classObj = Class(ApplicationDomain.currentDomain.
-				getDefinition(className));
-	}
-	
 	// Save for hasFontContextChanged().
 	oldEmbeddedFontContext = getFontContext(fontName, bold, italic, 
 		className == "mx.core::UIFTETextField");
@@ -159,18 +147,6 @@ private function getTextFieldClassName():String
 	return getQualifiedClassName(c);
 }
 
-/**
- *  @private
- *  Returns either "mx.core::TextInput" or "mx.core::MXFTETextInput",
- *  based on the version number and the textInputClass style.
- */
-private function getTextInputClassName():String
-{
-	var c:Class = getStyle("textInputClass");			
-	if (!c)
-		return "mx.core::TextInput";			
-	return getQualifiedClassName(c);
-}
 
 /**
  *  Creates the object using a given moduleFactory.

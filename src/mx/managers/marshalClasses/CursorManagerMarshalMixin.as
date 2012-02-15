@@ -27,7 +27,7 @@ package mx.managers.marshalClasses
 	import flash.events.MouseEvent;
 	import flash.ui.Mouse;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.FlexSprite;
 	import mx.core.IFlexModuleFactory;
 	import mx.core.mx_internal;

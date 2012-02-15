@@ -32,3 +32,5 @@ B) The rules for the above are : always start with particle "toolTip." followed 
 C) Add to the component that you want to have that tooltip, a tooltip declaration which starts with ^ char.  Example <s:Button toolTip="^ToolTipBundle.ahaButton" />
 ==================
 2) ModuleLoader has isAutoDisposingContent which allows it to unload the module if the parent of a ModuleLoader instance has removed instance (with removeElement)
+==================
+3) Introduced package mx.enums. So far, only classes that were in mx.core were moved

@@ -34,14 +34,14 @@ package spark.components
 	import flash.ui.Keyboard;
 	import flash.utils.Timer;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.FlexGlobals;
 	import mx.core.IFactory;
 	import mx.core.IInvalidating;
 	import mx.core.IVisualElement;
 	import mx.core.IVisualElementContainer;
 	import mx.core.InteractionMode;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.UIComponent;
 	import mx.core.mx_internal;
 	import mx.events.EffectEvent;

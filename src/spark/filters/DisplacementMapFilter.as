@@ -34,7 +34,7 @@ package spark.filters
 	 * (called the <i>displacement map image</i>) to perform a displacement of an object.
 	 * You can use this filter to apply a warped 
 	 * or mottled effect to any object that inherits from the DisplayObject class, 
-	 * such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
+	 * such as MovieClip, TextField, and Video objects, as well as to BitmapData objects.
 	 * 
 	 * <p>The use of filters depends on the object to which you apply the filter:</p>
 	 * <ul><li>To apply filters to a display object, use the

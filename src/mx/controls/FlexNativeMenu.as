@@ -39,7 +39,7 @@ package mx.controls
 	import mx.collections.errors.ItemPendingError;
 	import mx.controls.menuClasses.IMenuDataDescriptor;
 	import mx.controls.treeClasses.DefaultDataDescriptor;
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.UIComponentGlobals;
 	import mx.core.mx_internal;
 	import mx.events.CollectionEvent;

@@ -319,24 +319,6 @@
  */
 [Style(name="textDecoration", type="String", enumeration="none,underline", inherit="yes")]
 
-/**
- *  The class implementing IUITextField that is used by this component
- *  to render text.
- *
- *  <p>It can be set to either the mx.core.UITextField class
- *  (to use the classic TextField class built into Flash Player)
- *  or the mx.core.UIFTETextField class
- *  (to use the Text Layout Framework to get improved text rendering,
- *  including bidirectional layout).</p>
- *
- *  @default mx.core.UITextField
- *  
- *  @langversion 3.0
- *  @playerversion Flash 10
- *  @playerversion AIR 1.5
- *  @productversion Flex 4
- */
-[Style(name="textFieldClass", type="Class", inherit="no")]
 
 /**
  *  Offset of first line of text from the left side of the container, in pixels.

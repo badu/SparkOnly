@@ -20,7 +20,6 @@
 package spark.components.supportClasses
 {
 	
-	import mx.core.ContainerGlobals;
 	import mx.core.IFlexDisplayObject;
 	import mx.managers.IFocusManagerContainer;
 	
@@ -123,7 +122,6 @@ package spark.components.supportClasses
 		public function set defaultButton(value:IFlexDisplayObject):void
 		{
 			_defaultButton = value;
-			ContainerGlobals.focusedContainer = null;
 		}
 		
 		//--------------------------------------------------------------------------

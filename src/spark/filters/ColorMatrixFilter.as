@@ -30,7 +30,7 @@ package spark.filters
 	 *  with a new set of RGBA color and alpha values. It allows saturation changes, hue 
 	 *  rotation, luminance to alpha, and various other effects. You can apply the filter 
 	 *  to any display object (that is, objects that inherit from the DisplayObject class), 
-	 *  such as MovieClip, SimpleButton, TextField, and Video objects, as well as to 
+	 *  such as MovieClip, TextField, and Video objects, as well as to 
 	 *  BitmapData objects.
 	 * 
 	 *  @mxml 

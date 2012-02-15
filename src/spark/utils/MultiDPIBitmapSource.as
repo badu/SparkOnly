@@ -19,7 +19,7 @@
 
 package spark.utils
 {
-	import mx.core.DPIClassification;
+	import mx.enums.DPIClassification;
 	
 	/**
 	 *  This class provides a list of bitmaps for various runtime densities.  It is supplied

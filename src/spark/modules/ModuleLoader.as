@@ -24,7 +24,7 @@ package spark.modules
 	import flash.system.SecurityDomain;
 	import flash.utils.ByteArray;
 	
-	import mx.core.ContainerCreationPolicy;
+	import mx.enums.ContainerCreationPolicy;
 	import mx.core.IDeferredContentOwner;
 	import mx.core.IFlexModuleFactory;
 	import mx.core.INavigatorContent;

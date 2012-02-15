@@ -32,7 +32,7 @@ package spark.filters
 	 * The glow filter is similar to the drop shadow filter with the <code>distance</code>
 	 * and <code>angle</code> properties of the drop shadow filter set to 0. 
 	 * You can apply the filter to any display object (that is, objects that inherit from the DisplayObject class), 
-	 * such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
+	 * such as MovieClip, TextField, and Video objects, as well as to BitmapData objects.
 	 *
 	 * <p>The use of filters depends on the object to which you apply the filter:</p>
 	 * <ul><li>To apply filters to display objects, use the

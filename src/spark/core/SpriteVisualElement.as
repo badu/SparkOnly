@@ -41,10 +41,9 @@ package spark.core
 	import mx.core.IInvalidating;
 	import mx.core.ILayoutDirectionElement;
 	import mx.core.IMXMLObject;
-	import mx.core.IUIComponent;
-	import mx.core.IUITextField;
+	import mx.core.IUIComponent;	
 	import mx.core.IVisualElement;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.mx_internal;
 	import mx.events.PropertyChangeEvent;
 	import mx.filters.BaseFilter;
@@ -2253,8 +2252,7 @@ package spark.core
 			// concept of nestLevel for SVE
 			if (child is ILayoutManagerClient)
 				ILayoutManagerClient(child).nestLevel = 2;
-			else if (child is IUITextField)
-				IUITextField(child).nestLevel = 2;
+			
 		}
 		
 		/**

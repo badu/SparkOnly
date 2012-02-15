@@ -32,21 +32,6 @@ package mx.core
 	 */
 	public interface ITextFieldFactory
 	{
-		/**
-		 *  Creates an instance of TextField
-		 *  in the context of the specified IFlexModuleFactory.
-		 *
-		 *  @param moduleFactory The IFlexModuleFactory requesting the TextField.
-		 *
-		 *	@return A FTETextField created in the context
-		 *  of <code>moduleFactory</code>.
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		function createTextField(moduleFactory:IFlexModuleFactory):TextField;
 		
 		/**
 		 *  Creates an instance of FTETextField

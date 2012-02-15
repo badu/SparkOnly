@@ -1,3 +1,5 @@
+import mx.enums.EventPriority;
+
 /**
  *  For each effect event, registers the EffectManager
  *  as one of the event listeners.
@@ -20,8 +22,7 @@ public function registerEffects(effects:Array /* of String */):void
 		
 		if (event != null && event != "")
 		{
-			addEventListener(event, EffectManager.eventHandler,
-				false, EventPriority.EFFECT);
+			addEventListener(event, EffectManager.eventHandler, false, EventPriority.EFFECT);
 		}
 	}
 }

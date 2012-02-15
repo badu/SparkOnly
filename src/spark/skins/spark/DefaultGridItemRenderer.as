@@ -17,11 +17,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-// Warning: the implementation of this class is identical to UITextFieldGridItemRenderer.
-// Although most of the common code has been factored into the "IUITextFieldGridItemRenderer.as"
-// include file, the imports metadata and other code below have been copied.  All changes 
-// to this file should be mirrored by TextFieldGridItemRendererInclude.as.
-
 package spark.skins.spark
 {
 	import flash.text.TextFieldAutoSize;

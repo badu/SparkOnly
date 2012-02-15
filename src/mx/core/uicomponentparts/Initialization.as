@@ -112,8 +112,6 @@ mx_internal function addingChild(child:DisplayObject):void
 	// descendants of the child that exist.
 	if (child is ILayoutManagerClient)
 		ILayoutManagerClient(child).nestLevel = nestLevel + 1;
-	else if (child is IUITextField)
-		IUITextField(child).nestLevel = nestLevel + 1;
 	
 	if (child is InteractiveObject)
 		if (doubleClickEnabled)
@@ -125,8 +123,6 @@ mx_internal function addingChild(child:DisplayObject):void
 	// then reinitialize the children's proto chains.
 	if (child is IStyleClient)
 		IStyleClient(child).regenerateStyleCache(true);
-	else if (child is IUITextField && IUITextField(child).inheritingStyles)
-		StyleProtoChain.initTextField(IUITextField(child));
 	
 	if (child is ISimpleStyleClient)
 		ISimpleStyleClient(child).styleChanged(null);

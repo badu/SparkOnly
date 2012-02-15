@@ -35,7 +35,7 @@ package spark.filters
 	 * When the <code>quality</code> property is set to high, it approximates a Gaussian blur
 	 * filter.  You can apply the filter to any display object (that is, objects that inherit 
 	 * from the DisplayObject class), 
-	 * such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
+	 * such as MovieClip, TextField, and Video objects, as well as to BitmapData objects.
 	 *
 	 * <p>To create a new filter, use the constructor <code>new BlurFilter()</code>. 
 	 * The use of filters depends on the object to which you apply the filter:</p>

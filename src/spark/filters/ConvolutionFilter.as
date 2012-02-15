@@ -31,7 +31,7 @@ package spark.filters
 	 * effects can be achieved through convolutions, including blurring, edge detection, sharpening,
 	 * embossing, and beveling. You can apply the filter to any display object (that is, objects that
 	 * inherit from the DisplayObject class), 
-	 * such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
+	 * such as MovieClip, TextField, and Video objects, as well as to BitmapData objects.
 	 *
 	 * <p>To create a convolution filter, use the syntax <code>new ConvolutionFilter()</code>.
 	 * The use of filters depends on the object to which you apply the filter:</p>

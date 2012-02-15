@@ -25,7 +25,7 @@ package spark.components
 	import flash.geom.Rectangle;
 	
 	import mx.core.IDataRenderer;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.mx_internal;
 	import mx.utils.PopUpUtil;
 	

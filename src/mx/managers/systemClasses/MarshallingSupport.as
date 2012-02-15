@@ -31,7 +31,7 @@ package mx.managers.systemClasses
 	import flash.geom.Rectangle;
 	import flash.utils.Dictionary;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.IChildList;
 	import mx.core.IFlexDisplayObject;
 	import mx.core.IFlexModuleFactory;

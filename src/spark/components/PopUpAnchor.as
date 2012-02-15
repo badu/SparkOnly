@@ -28,7 +28,7 @@ package spark.components
 	
 	import mx.core.IFlexDisplayObject;
 	import mx.core.IUIComponent;
-	import mx.core.LayoutDirection;
+	import mx.enums.LayoutDirection;
 	import mx.core.UIComponent;
 	import mx.core.mx_internal;
 	import mx.managers.PopUpManager;

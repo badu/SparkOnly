@@ -19,7 +19,7 @@
 
 package spark.components
 {
-	import mx.core.ContainerCreationPolicy;
+	import mx.enums.ContainerCreationPolicy;
 	import mx.core.IDeferredContentOwner;
 	import mx.core.IDeferredInstance;
 	import mx.core.IFlexModuleFactory;

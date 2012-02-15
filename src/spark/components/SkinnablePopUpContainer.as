@@ -30,7 +30,7 @@ package spark.components
 	import flash.geom.Rectangle;
 	import flash.utils.Timer;
 	
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.FlexGlobals;
 	import mx.core.mx_internal;
 	import mx.effects.IEffect;

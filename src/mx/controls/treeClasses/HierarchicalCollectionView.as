@@ -29,7 +29,7 @@ package mx.controls.treeClasses
 	import mx.collections.XMLListAdapter;
 	import mx.collections.XMLListCollection;
 	import mx.collections.errors.ItemPendingError;
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.mx_internal;
 	import mx.events.CollectionEvent;
 	import mx.events.CollectionEventKind;

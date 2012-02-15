@@ -73,16 +73,7 @@ package mx.core
 		//  Variables
 		//
 		//--------------------------------------------------------------------------
-		
-		/**
-		 *  @private
-		 *  Cache of TextFields. Limit of one per module factory.
-		 *  In this Dictionary, each key is a weak reference
-		 *  to an IFlexModuleFactory and each value is a Dictionary
-		 *  with a single entry (a TextField as a weak key).
-		 */
-		private var textFields:Dictionary = new Dictionary(true);
-		
+				
 		/**
 		 *  @private
 		 *  Cache of FTETextFields. Limit of one per module factory.
@@ -97,54 +88,6 @@ package mx.core
 		//  Methods
 		//
 		//--------------------------------------------------------------------------
-		
-		/**
-		 *  @private
-		 *  Creates an instance of TextField
-		 *  in the context of the specified IFlexModuleFactory.
-		 *
-		 *  @param moduleFactory The IFlexModuleFactory requesting the TextField.
-		 *
-		 *	@return A FTETextField created in the context
-		 *  of <code>moduleFactory</code>.
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		public function createTextField(moduleFactory:IFlexModuleFactory):TextField
-		{
-			// Check to see if we already have a text field for this module factory.
-			var textField:TextField = null;
-			var textFieldDictionary:Dictionary = textFields[moduleFactory];
-			
-			if (textFieldDictionary)
-			{
-				for (var iter:Object in textFieldDictionary)
-				{
-					textField = TextField(iter);
-					break;
-				}
-			}
-			if (!textField)
-			{
-				if (moduleFactory)
-					textField = TextField(moduleFactory.create("flash.text.TextField"));			
-				else 
-					textField = new TextField();	
-				
-				// The dictionary could be empty, but not null because entries in the dictionary
-				// could be garbage collected.
-				if (!textFieldDictionary)
-					textFieldDictionary = new Dictionary(true);
-				textFieldDictionary[textField] = 1;
-				textFields[moduleFactory] = textFieldDictionary;
-			}
-			
-			return textField;
-		}
-		
 		/**
 		 *  @private
 		 *  Creates an instance of FTETextField

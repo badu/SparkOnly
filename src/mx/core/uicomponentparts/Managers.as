@@ -295,12 +295,5 @@ public function set nestLevel(value:int):void
 		{
 			ui.nestLevel = value;
 		}
-		else
-		{
-			var textField:IUITextField = childList.getChildAt(i) as IUITextField;
-			
-			if (textField)
-				textField.nestLevel = value;
-		}
 	}
 }

@@ -256,11 +256,10 @@ package mx.printing
 			
 			var appExplicitWidth:Number;
 			var appExplicitHeight:Number;
-			var applicationClass:Class = Class(obj.systemManager.getDefinitionByName("mx.core::Application"));
+			
 			var fxApplicationClass:Class = Class(obj.systemManager.getDefinitionByName("spark.components::Application"));
 			
-			if ((applicationClass && obj is applicationClass) || 
-				(fxApplicationClass && obj is fxApplicationClass))
+			if ((fxApplicationClass && obj is fxApplicationClass))
 			{
 				// The following loop is required only for scenario where 
 				// application may have a few children with percent
@@ -376,8 +375,7 @@ package mx.printing
 			
 			var arrPrintData:Array = prepareToPrintObject(obj);
 			
-			if ((applicationClass && obj is applicationClass) || 
-				(fxApplicationClass && obj is fxApplicationClass))
+			if ((fxApplicationClass && obj is fxApplicationClass))
 			{
 				objWidth *= ratio;
 				objHeight *= ratio;
@@ -437,8 +435,7 @@ package mx.printing
 			obj.scaleX /= ratio;
 			obj.scaleY /= ratio;
 			
-			if ((applicationClass && obj is applicationClass) || 
-				(fxApplicationClass && obj is fxApplicationClass))
+			if ((fxApplicationClass && obj is fxApplicationClass))
 			{
 				if (!isNaN(appExplicitWidth)) //&& !isNaN(appExplicitHeight))
 				{

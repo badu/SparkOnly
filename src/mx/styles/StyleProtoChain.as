@@ -581,11 +581,9 @@ package mx.styles
 				chain = obj.styleDeclaration.addStyleToProtoChain(chain, target, filterMap);
 			
 			return chain;
-		}
+		}		
 		
-		/**
-		 *  @private
-		 */
+		
 		public static function initTextField(obj:IUITextField):void
 		{
 			// TextFields never have any inline styles or type selector, so
@@ -888,8 +886,7 @@ package mx.styles
 		private static function isStopClass(value:String):Boolean
 		{
 			return value == null ||
-				value == "mx.core::UIComponent" ||
-				value == "mx.core::UITextField" ||
+				value == "mx.core::UIComponent" ||				
 				value == "mx.graphics.baseClasses::GraphicElement";
 		}
 		

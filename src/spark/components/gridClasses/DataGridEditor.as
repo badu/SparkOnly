@@ -34,7 +34,7 @@ package spark.components.gridClasses
 	import flash.utils.Timer;
 	
 	import mx.core.ClassFactory;
-	import mx.core.EventPriority;
+	import mx.enums.EventPriority;
 	import mx.core.IFactory;
 	import mx.core.IIMESupport;
 	import mx.core.IInvalidating;

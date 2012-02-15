@@ -17,92 +17,67 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package mx.core
+package mx.enums
 {
 	
-	import mx.managers.IFocusManager;
-	
 	/**
-	 *  IContainer is a interface that indicates a component
-	 *  extends or mimics mx.core.Container
+	 *  Values for the <code>horizontalScrollPolicy</code> and
+	 *  <code>verticalScrollPolicy</code> properties
+	 *  of the Container and ScrollControlBase classes.
 	 *
 	 *  @see mx.core.Container
+	 *  @see mx.core.ScrollControlBase
 	 *  
 	 *  @langversion 3.0
 	 *  @playerversion Flash 9
 	 *  @playerversion AIR 1.1
 	 *  @productversion Flex 3
 	 */
-	public interface IContainer extends IUIComponent
+	public final class ScrollPolicy
 	{
+		include "../core/Version.as";
 		
-		include "ISpriteInterface.as"
-		include "IDisplayObjectContainerInterface.as"
-		include "IInteractiveObjectInterface.as"
+		//--------------------------------------------------------------------------
+		//
+		//  Class constants
+		//
+		//--------------------------------------------------------------------------
 		
 		/**
-		 *  @copy mx.core.Container#defaultButton
+		 *  Show the scrollbar if the children exceed the owner's dimension.
+		 *  The size of the owner is not adjusted to account
+		 *  for the scrollbars when they appear, so this may cause the
+		 *  scrollbar to obscure the contents of the control or container.
 		 *  
 		 *  @langversion 3.0
 		 *  @playerversion Flash 9
 		 *  @playerversion AIR 1.1
 		 *  @productversion Flex 3
 		 */
-		function get defaultButton():IFlexDisplayObject;
-		function set defaultButton(value:IFlexDisplayObject):void;
+		public static const AUTO:String = "auto";
 		
 		/**
-		 *  @copy mx.core.Container#creatingContentPane
+		 *  Never show the scrollbar.
 		 *  
 		 *  @langversion 3.0
 		 *  @playerversion Flash 9
 		 *  @playerversion AIR 1.1
 		 *  @productversion Flex 3
 		 */
-		function get creatingContentPane():Boolean;
-		function set creatingContentPane(value:Boolean):void;
+		public static const OFF:String = "off";
 		
 		/**
-		 *  @copy mx.core.Container#viewMetrics
+		 *  Always show the scrollbar.
+		 *  The size of the scrollbar is automatically added to the size
+		 *  of the owner's contents to determine the size of the owner
+		 *  if explicit sizes are not specified.
 		 *  
 		 *  @langversion 3.0
 		 *  @playerversion Flash 9
 		 *  @playerversion AIR 1.1
 		 *  @productversion Flex 3
 		 */
-		function get viewMetrics():EdgeMetrics;
-		
-		/**
-		 *  @copy mx.core.Container#horizontalScrollPosition
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		function get horizontalScrollPosition():Number;
-		function set horizontalScrollPosition(value:Number):void;
-		
-		/**
-		 *  @copy mx.core.Container#verticalScrollPosition
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		function get verticalScrollPosition():Number;
-		function set verticalScrollPosition(value:Number):void;
-		
-		/**
-		 *  @copy mx.core.UIComponent#focusManager
-		 *  
-		 *  @langversion 3.0
-		 *  @playerversion Flash 9
-		 *  @playerversion AIR 1.1
-		 *  @productversion Flex 3
-		 */
-		function get focusManager():IFocusManager;
+		public static const ON:String = "on";
 	}
 	
 }

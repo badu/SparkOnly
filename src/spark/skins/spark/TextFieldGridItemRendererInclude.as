@@ -19,7 +19,7 @@
 
 /*
 
-The implementations of DefaultGridItemRenderer (nee UIFTETExtFieldGridItemRenderer) and UITextFieldGridItemRenderer
+The implementations of DefaultGridItemRenderer (nee UIFTETExtFieldGridItemRenderer) 
 are identical, save the superclass and constructor names.  This file contains the bulk of the code.
 
 */
@@ -39,7 +39,7 @@ are identical, save the superclass and constructor names.  This file contains th
     import mx.core.IFlexModuleFactory;
     import mx.core.ILayoutDirectionElement;
     import mx.core.IToolTip;
-    import mx.core.LayoutDirection;
+    import mx.enums.LayoutDirection;
     import mx.core.mx_internal;
     import mx.events.FlexEvent;
     import mx.events.ToolTipEvent;

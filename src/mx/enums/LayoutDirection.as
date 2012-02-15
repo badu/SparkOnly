@@ -17,7 +17,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package mx.core
+package mx.enums
 {    
 	/**
 	 *  The LayoutDirection class defines the constant values
@@ -44,7 +44,7 @@ package mx.core
 	 */
 	public final class LayoutDirection
 	{
-		include "Version.as";
+		include "../core/Version.as";
 		
 		//--------------------------------------------------------------------------
 		//

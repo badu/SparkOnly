@@ -24,7 +24,7 @@ package spark.components.supportClasses
 	
 	import mx.core.IUIComponent;
 	import mx.core.InteractionMode;
-	import mx.core.ScrollPolicy;
+	import mx.enums.ScrollPolicy;
 	import mx.core.mx_internal;
 	import mx.utils.MatrixUtil;
 	
